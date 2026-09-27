@@ -79,23 +79,29 @@ private:
     /* 0x8c0 */ ToolDataRef mToolRef;
     /* 0x8c8 */ s32 _8c8;
     /* 0x8cc */ void* _8cc;
-    /* 0x8d0 */ void* _8d0;
+    /* 0x8d0 */ u8 _8d0; //Unsure of type
+    /* 0x8d1 - 0x8d3 */ u8 _8d1[3]; //Probably padding
     /* 0x8d4 */ void* _8d4[0x4]; //Unsure about size or anything here, just matching the gap.
     /* 0x8e4 */ float _8e4;
-    /* 0x8e8 */ void* _8e8;
+    /* 0x8e8 */ u16 _8e8; // Unsure of type
+    /* 0x8EA */ u8 _8EA; // Unsure of type
+    /* 0x8EB */ u8 _8EB; // Probably padding
     /* 0x8ec */ EnReplace m8ec;
     /* 0x900 */ void* _900;
     /* 0x904 */ u8 _904;
     /* 0x905 */ u8 _905;
-    /* 0x906 */ u16 _906;
+    /* 0x906 */ u8 _906;
+    /* 0x906 */ u8 _907; // Probably padding
     /* 0x908 */ void* _908;
     /* 0x90c */ void* _90c;
     /* 0x910 */ void* _910;
     /* 0x914 */ void* _914;
     /* 0x918 */ void* _918;
-    /* 0x91c */ void* _91c;
+    /* 0x91c */ u8 _91c;
+    /* 0x91d */ u8 _91d[3]; // Probably Padding
     /* 0x920 */ void* _920;
-    /* 0x924 */ void* _924;
+    /* 0x924 */ u8 _924;
+    /* 0x925 */ u8 _925[3]; // Probably Padding
     /* 0x928 */ void* _928;
     /* 0x92c */ void* _92c;
     /* 0x930 */ void* _930;

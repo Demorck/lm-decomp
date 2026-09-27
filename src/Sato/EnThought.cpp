@@ -3,6 +3,7 @@
 #include "Sato/EnemyStrategy.hpp"
 #include "Unsorted/MoveObj.hpp"
 #include "macros.h"
+#include "types.h"
 
 static s32 lbl_804D2D5C = 0xff;
 static s32 lbl_804D2D6C = 0xff;
@@ -89,9 +90,10 @@ void EnThought::reset() {
     _8c8 = -1;
     _8cc = 0;
     _8d0 = 0;
-    _8d4 = 0;
+    _8d4[0] = 0;
     _8e4 = lbl_804DB698;
     _8e8 = 0;
+    _8EA = 0;
     _900 = 0;
     _904 = 0;
     _905 = 0;
@@ -104,13 +106,8 @@ void EnThought::reset() {
     _91c = 0;
     _920 = 0;
     _924 = 0;
-    
-    strategy = getStrategy();
-    var3 = nullptr;
 
-    if (strategy != nullptr) {
-        destroyStrategy();
-    }
+    destroyStrategy();
 
     void* var_this = _808;
     if (var_this != nullptr) {
@@ -132,7 +129,9 @@ void EnThought::reset() {
 
 
 EnThought::~EnThought() {
-    
+    if (getStrategy() != nullptr) {
+        destroyStrategy();
+    }
 }
 
 
