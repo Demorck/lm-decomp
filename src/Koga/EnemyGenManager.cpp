@@ -31,7 +31,7 @@ void EnemyGenerator::fn_800C2560() {
 EnemyGenerator::~EnemyGenerator() {}
 
 // https://decomp.me/scratch/GhkkW
-void* EnemyGenerator::fn_800C25F0(s32 param_1, s32 param_2) {
+EnZako* EnemyGenerator::fn_800C25F0(s32 param_1, s32 param_2) {
     if (fn_800C2830("max_enemy") != nullptr && fn_800C2830("max_enemy") <= _860) {
         return nullptr;
     }
@@ -60,12 +60,17 @@ void* EnemyGenerator::fn_800C25F0(s32 param_1, s32 param_2) {
         return nullptr;
     }
 
-    if (_810->fn_800E5868(param_1, param_2) < 0) {
+    s32 sVal = _810->fn_800E5868(param_1, param_2);
+    if (sVal < 0) {
         return nullptr;
     }
 
-    EnThought* enChar = _810->fn_800E5A80(param_1);
+    EnThought* enChar = _810->fn_800E5A80(sVal);
     EnZako* eZako = dynamic_cast<EnZako*>(enChar);
+    eZako->set810(this);
+    _820.add(&eZako);
+    _860++;
+    return eZako;
 }
 
 ToolDataRef EnemyGenerator::fn_800C2784() {

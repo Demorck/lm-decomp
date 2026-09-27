@@ -34,7 +34,7 @@ public:
 
     void fn_800C2500();
     void fn_800C2560();
-    void* fn_800C25F0(s32, s32); // Need to validate arg / return type.
+    EnZako* fn_800C25F0(s32, s32); // Need to validate arg / return type.
     ToolDataRef fn_800C2784();
     Koga::ToolData* fn_800C2798();
     s32 fn_800C2830(const char*);
