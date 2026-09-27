@@ -54,6 +54,7 @@ public:
     ToolDataRef getToolDataRef() const;
 
     inline MoveObjAlphaControl getAlphaControl() { return mAlphaControl; }
+    inline void set810(void* vVal) { _810 = vVal; }
     inline void set93C(float fVal) { _93C = fVal; }
     inline void set940(float fVal) { _940 = fVal; }
     inline void set944(float fVal) { _944 = fVal; }
