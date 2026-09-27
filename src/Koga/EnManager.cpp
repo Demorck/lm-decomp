@@ -601,7 +601,7 @@ void unkEnManager1::fn_800E9A0C(void* pParam_1) {
 
 // https://decomp.me/scratch/IUVOm
 BOOL unkEnManager1::fn_800E9A58(u32) {
-    mState = CHARSTATE_1;
+    mState = CHARSTATE_2;
     _C = 0;
     char temp = fn_800C15E0(_0);
     
@@ -616,7 +616,7 @@ BOOL unkEnManager1::fn_800E9A58(u32) {
 
 // 99%, some stack mismanagement but could also be related to function inputs here.
 void unkEnManager1::fn_800E9ACC() {
-    mState = CHARSTATE_2;
+    mState = CHARSTATE_1;
     fn_800C17EC(_0);
     JGeometry::TVec3f defaultPos = JGeometry::TVec3f(-32000.0f);
     fn_80067CB0(fn_800E9C5C(), defaultPos.x, defaultPos.y, defaultPos.z);
