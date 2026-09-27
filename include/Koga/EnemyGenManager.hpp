@@ -16,16 +16,15 @@ namespace Koga {
 }
 
 class EnemyStrategy;
+class EnZako;
 
-// Based on various dynamic casting that is done all over the place, this is probably EnZako.
-// However since its not decomp'd, I am leaving it as void* for now until someone can confirm.
-class unkEnemyGen1 : public Koga::Array<void*, 0xF> {
+class unkEnemyGen1 : public Koga::Array<EnZako*, 0xF> {
 public:
     unkEnemyGen1() {}
     ~unkEnemyGen1() {}
 
-    void add(void**);
-    void** remove(void**);
+    void add(EnZako**);
+    EnZako** remove(EnZako**);
 };
 
 class EnemyGenerator : public JORReflexible, public IncludeStrategy {
@@ -38,7 +37,7 @@ public:
     void* fn_800C25F0(s32, s32); // Need to validate arg / return type.
     ToolDataRef fn_800C2784();
     Koga::ToolData* fn_800C2798();
-    u32 fn_800C2830(const char*);
+    s32 fn_800C2830(const char*);
      // Need to validate arg / return type.
     void fn_800C287C(void*); // dynamic casts to EnZako and Koga::Observer<GeneratorEvent, void>
     EnemyStrategy* getGenStrategy();

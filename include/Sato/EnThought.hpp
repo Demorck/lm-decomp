@@ -9,7 +9,6 @@
 #include "Sato/EnReplace.hpp"
 #include "Sato/IncludeStrategy.hpp"
 #include "Koga/ValueControl.hpp"
-#include "macros.h"
 
 namespace Koga {
     class EnManager;

@@ -10,7 +10,7 @@
 
 
 class EnemyStrategy;
-class unkEnCharacter;
+class EnThought;
 class JKRArchive;
 
 namespace Koga {
@@ -33,8 +33,8 @@ public:
 
 enum CharacterState {
     /* 0 */ DEFAULT_CHARSTATE,
-    /* 1 */ ACTIVE_CHARSTATE,
-    /* 2 */ INACTIVE_CHARSTATE
+    /* 1 */ CHARSTATE_1,
+    /* 2 */ CHARSTATE_2
 };
 
 class unkEnManager1 {
@@ -56,7 +56,23 @@ public:
         return state == mState && param_2 == _8;
     }
 
-    /* 0x0 */ unkEnCharacter* _0; // Probably just Character.hpp/cpp maybe?
+    // Could not be EnManager1 functions, completely unsure.
+    // Currently all untouched until some further decompilation. I believe the args/returns _should_ be correct.
+    void fn_800E634C(u16, f32, f32, f32);
+    BOOL fn_800E655C(u16, f32, f32);
+    BOOL fn_800E66FC(f32, f32, f32);
+    f32 fn_800E6C5C();
+    void fn_800E6D24(s32, JGeometry::TVec3f*);
+    void fn_800E6DE4();
+    BOOL fn_800E6ED0();
+    void fn_800E6FCC();
+    f32 fn_800E7114(void*);
+    void fn_800E730C(void*);
+    s32 fn_800E7378(void*);
+    void fn_800E83A0();
+    s32 fn_800E8438(); // Gets the item_table index, which is used to spawn items after character is defeated
+
+    /* 0x0 */ EnThought* _0; // Probably just Character.hpp/cpp maybe?
     /* 0x4 */ CharacterState mState;
     /* 0x8 */ u32 _8;
     /* 0xC */ u8 _C;
@@ -83,35 +99,6 @@ public:
 
     void add(unkEnManager2*);
     unkEnManager2* remove(unkEnManager2*);
-};
-
-// Based on EnemyGenerator::fn_800C25F0 this is most likely EnThought and would require shifting around.
-// Not sure if this is a true class, but just made sense based on the data being moved around/accessed
-class unkEnCharacter {
-public:
-    // Currently all untouched until some further decompilation. I believe the args/returns _should_ be correct.
-    void fn_800E634C(u16, f32, f32, f32);
-    BOOL fn_800E655C(u16, f32, f32);
-    BOOL fn_800E66FC(f32, f32, f32);
-    f32 fn_800E6C5C();
-    void fn_800E6D24(s32, JGeometry::TVec3f*);
-    void fn_800E6DE4();
-    BOOL fn_800E6ED0();
-    void fn_800E6FCC();
-    f32 fn_800E7114(void*);
-    void fn_800E730C(void*);
-    s32 fn_800E7378(void*);
-    void fn_800E83A0();
-    s32 fn_800E8438(); // Gets the item_table index, which is used to spawn items after character is defeated
-
-    /* 0x000 - 0x7FF unknown, probably some inheritance, like MoveObj? */
-    /* 0x000 */ u8 _0[0x800];
-    /* 0x800 */ EnemyStrategy* pEnStrategy; // EnManager::vt_14
-    /* 0x804 */ void* _804; // unkEnManager1::~unkEnManager1
-    /* 0x808 */ void* _808;
-    /* 0x80C */ Koga::EnManager* pEnManager;
-    /* 0x810 */ u8 pad_810[0x900 - 0x810];
-    /* 0x900 */ void* pUnk900;
 };
 
 namespace Koga {
@@ -150,8 +137,8 @@ namespace Koga {
         unkEnManager1* fn_800E58D4(u32, ToolData*, s32); // Needs more decompilation
         void fn_800E59D4(s32);
         void* fn_800E5A00();
-        unkEnCharacter* fn_800E5A14(void*);
-        unkEnCharacter* fn_800E5A80(s32); // Requires some lbl to be decompiled: lbl_803D7004
+        EnThought* fn_800E5A14(void*);
+        EnThought* fn_800E5A80(s32); // Requires some lbl to be decompiled: lbl_803D7004
         void fn_800E5ABC(s32);
         void fn_800E5AE8(); // Requires some lbl to be decompiled: lbl_80363BF8
         BOOL fn_800E5B88(); // Requires that fn_800AD39C and its resulting struct/class be decompiled more.
@@ -193,10 +180,10 @@ namespace Koga {
 void fn_800E61C0();
 
 // Some TVec3f Helpers? Not sure about args/returns, but would make sense the template class would copy over some of the functions to a class where used.
-void fn_800E63AC(JGeometry::TVec3f*, unkEnCharacter*, u16, f32, f32, f32);
-BOOL fn_800E65C8(JGeometry::TVec3f*, unkEnCharacter*, u16, f32, f32);
-BOOL fn_800E6648(JGeometry::TVec3f*, unkEnCharacter*, JGeometry::TVec3f*, f32, f32, f32);
-BOOL fn_800E6764(JGeometry::TVec3f*, unkEnCharacter*, f32, f32, f32);
+void fn_800E63AC(JGeometry::TVec3f*, EnThought*, u16, f32, f32, f32);
+BOOL fn_800E65C8(JGeometry::TVec3f*, EnThought*, u16, f32, f32);
+BOOL fn_800E6648(JGeometry::TVec3f*, EnThought*, JGeometry::TVec3f*, f32, f32, f32);
+BOOL fn_800E6764(JGeometry::TVec3f*, EnThought*, f32, f32, f32);
 s32 fn_800E689C(JGeometry::TVec3f*, Koga::ToolData*, s32); // Could be ToolDataRef?
 void fn_800E6948(JGeometry::TVec3f*, Koga::ToolData*);
 void fn_800E6A3C(JGeometry::TVec3f*, Koga::ToolData*, s32); // Could be ToolDataRef?

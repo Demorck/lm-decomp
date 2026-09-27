@@ -1,5 +1,6 @@
 #include "Koga/EnManager.hpp"
 #include "Koga/EnTypesManager.hpp"
+#include "Sato/EnThought.hpp"
 #include "Koga/GameModeUtil.hpp"
 #include "Koga/ToolData.hpp"
 #include "Koga/MissionMode.hpp"
@@ -45,7 +46,7 @@ namespace Koga {
         unkEnManager1* currElm = &_4[0];
         for (int j = 0; j < maxPoint; currElm++, j++) {
             AppearPointSlot* appearPoint = &_E08[j];
-            unkEnCharacter* temp4 = fn_800E5A14(nullptr);
+            EnThought* temp4 = fn_800E5A14(nullptr);
             currElm->fn_800E9A0C(temp4);
             void* someObj = currElm->fn_800E9C5C();
             //appearPoint->_0 = someObj->_38; // also gets _38 from this?;
@@ -274,7 +275,7 @@ namespace Koga {
             s32 someVal = fn_800DAC84(itEight);
             unkEnManager1* p = &_4[0];
 
-            while (p != end && !p->matchesStatus(ACTIVE_CHARSTATE, someVal)) {
+            while (p != end && !p->matchesStatus(CHARSTATE_2, someVal)) {
                 p++;
             }
 
@@ -593,15 +594,14 @@ unkEnManager1::~unkEnManager1() {
 
 // https://decomp.me/scratch/EmrGG
 void unkEnManager1::fn_800E9A0C(void* pParam_1) {
-    //_0 = pParam_1; // It could just be a pointer to an unkEnCharacter object?
     // _8 = fn_800DAC84(pParam_1); // This should be getting the 0x808 offset of param_1, then a secondary 0x3C offset?
-    mState = INACTIVE_CHARSTATE;
+    mState = CHARSTATE_1;
     _C = 0;
 }
 
 // https://decomp.me/scratch/IUVOm
 BOOL unkEnManager1::fn_800E9A58(u32) {
-    mState = INACTIVE_CHARSTATE;
+    mState = CHARSTATE_1;
     _C = 0;
     char temp = fn_800C15E0(_0);
     
@@ -616,7 +616,7 @@ BOOL unkEnManager1::fn_800E9A58(u32) {
 
 // 99%, some stack mismanagement but could also be related to function inputs here.
 void unkEnManager1::fn_800E9ACC() {
-    mState = ACTIVE_CHARSTATE;
+    mState = CHARSTATE_2;
     fn_800C17EC(_0);
     JGeometry::TVec3f defaultPos = JGeometry::TVec3f(-32000.0f);
     fn_80067CB0(fn_800E9C5C(), defaultPos.x, defaultPos.y, defaultPos.z);
