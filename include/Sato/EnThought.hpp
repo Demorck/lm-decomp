@@ -55,10 +55,6 @@ public:
 
     inline MoveObjAlphaControl getAlphaControl() { return mAlphaControl; }
     inline void set810(void* vVal) { _810 = vVal; }
-    inline void set93C(float fVal) { _93C = fVal; }
-    inline void set940(float fVal) { _940 = fVal; }
-    inline void set944(float fVal) { _944 = fVal; }
-    inline void set948(float fVal) { _948 = fVal; }
 
 private:
     // Object that holds at least 0xE8 data. In the reset, it's calling fn_80067C30 which is in MoveObj split. Probably an entity
@@ -108,10 +104,6 @@ private:
     /* 0x930 */ void* _930;
     /* 0x934 */ void* _934;
     /* 0x938 */ void* _938;
-    /* 0x93C */ float _93C;
-    /* 0x940 */ float _940;
-    /* 0x944 */ float _944;
-    /* 0x948 */ float _948;
 };
 
 #endif

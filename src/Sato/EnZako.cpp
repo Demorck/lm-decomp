@@ -22,10 +22,10 @@ void EnZako::vt_0C() {
 void EnZako::vt_10() {
     getStrategy()->mpZako = this;
     _954 = nullptr;
-    set93C(0.0);
-    set940(0.0);
-    set944(0.0);
-    set948(0.0);
+    _93C = 0.0;
+    _940 = 0.0;
+    _944 = 0.0;
+    _948 = 0.0;
     _94C = 0;
     _950 = nullptr;
 }
