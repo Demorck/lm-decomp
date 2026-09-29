@@ -278,6 +278,13 @@ Ajioka/AEnNoMove2.cpp:
 	.sdata      start:0x804D4328 end:0x804D4358
 	.sdata2     start:0x804DBCB0 end:0x804DBCB8
 
+Ajioka/AEnSimple1.cpp:
+	.text       start:0x800FAC18 end:0x800FBE7C
+	.ctors      start:0x8020BC54 end:0x8020BC58
+	.data       start:0x80367D10 end:0x80368060
+	.sdata      start:0x804D4358 end:0x804D43C0
+	.sdata2     start:0x804DBCB8 end:0x804DBD00
+
 Sato/SaEnGenUtility.cpp:
 	.text       start:0x80142F88 end:0x801443E8
 	.data       start:0x8037A1D0 end:0x8037A2B0
