@@ -264,6 +264,13 @@ Ajioka/AEnBeam2.cpp:
 	.sdata      start:0x804D42A0 end:0x804D42F8
 	.sdata2     start:0x804DBCA0 end:0x804DBCA8
 
+Ajioka/AEnNoMove1.cpp:
+	.text       start:0x800FA614 end:0x800FA80C
+	.ctors      start:0x8020BC4C end:0x8020BC50
+	.data       start:0x80367920 end:0x80367B00
+	.sdata      start:0x804D42F8 end:0x804D4328
+	.sdata2     start:0x804DBCA8 end:0x804DBCB0
+
 Sato/SaEnGenUtility.cpp:
 	.text       start:0x80142F88 end:0x801443E8
 	.data       start:0x8037A1D0 end:0x8037A2B0
