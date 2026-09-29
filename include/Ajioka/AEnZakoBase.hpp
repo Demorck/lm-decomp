@@ -14,17 +14,17 @@ public:
     virtual ~AEnZakoBase() { }
 
     // From EnemyStrategy
-    virtual void init();
-    virtual bool vt_14();
     virtual void doBehavior();
     virtual void doBehaviorInit();
+    virtual bool vt_14();
+    virtual void init();
 
     // From Koga::CharacterEventObserver
+    virtual bool onPlayerLeftRoom(Koga::CharacterEvent* msg);
     virtual bool onCollideWithPlayer(Koga::CharacterEvent* msg);
+    virtual bool onSprayedWithWater(Koga::CharacterEvent* msg);
     virtual bool onSprayedWithFire(Koga::CharacterEvent* msg);
     virtual bool onSprayedWithIce(Koga::CharacterEvent* msg);
-    virtual bool onSprayedWithWater(Koga::CharacterEvent* msg);
-    virtual bool onPlayerLeftRoom(Koga::CharacterEvent* msg);
 
     // From this class, args/return types not provided
     virtual void AEnZakoBase_fn_800F5F4C();
