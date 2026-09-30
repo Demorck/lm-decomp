@@ -292,6 +292,13 @@ Ajioka/AEnSimple2.cpp:
 	.sdata      start:0x804D43C0 end:0x804D4440
 	.sdata2     start:0x804DBD00 end:0x804DBD40
 
+Ajioka/AEnAtUpper.cpp:
+	.text       start:0x800FCDA4 end:0x800FDCAC
+	.ctors      start:0x8020BC5C end:0x8020BC60
+	.data       start:0x80368310 end:0x80368758
+	.sdata      start:0x804D4440 end:0x804D44D8
+	.sdata2     start:0x804DBD40 end:0x804DBD70
+
 Sato/SaEnGenUtility.cpp:
 	.text       start:0x80142F88 end:0x801443E8
 	.data       start:0x8037A1D0 end:0x8037A2B0
