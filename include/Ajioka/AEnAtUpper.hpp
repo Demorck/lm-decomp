@@ -5,7 +5,7 @@
 class AEnAtUpper : public EnAttackBase {
 public:
     AEnAtUpper();
-    virtual ~AEnAtUpper();
+    virtual ~AEnAtUpper() {};
 
     // From EnAttackbase -> EnemyStrategy
     virtual bool vt_14();

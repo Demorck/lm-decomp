@@ -1,4 +1,6 @@
 #include "Ajioka/AEnAtUpper.hpp"
+#include "Ajioka/AEnAtStructs.hpp"
+#include "JSystem/JGeometry/JGVec3.hpp"
 
 
 dummy_float_data()
@@ -61,14 +63,19 @@ static EnemyStrategyState enemiesStates[9] = {
 };
 
 float data_float[] = { -10.f, 0.f, 35.f, -10.f, 0.f, -35.f };
-char enAttackBasePath[] = "/param/th/EnAttackBase.prm";
-char attackTypeField[] = "mAttackType";
-char aEnAtUpperPath[] = "/param/th/AEnAtUpper.prm";
-char kamaeru2[] = "KAMAERU2";
+
+static const AEnAtStruct1 mStruct1[] = {
+    { 100.0f, 100.0f, { 0.0f, -50.0f, 0.0f} },
+};
+
+static const AEnAtStruct2 mStruct2 = { 1, mStruct1, 0 };
 
 AEnAtUpper::AEnAtUpper() {
-
+    _18 = &mStruct2;
 }
+
+char aEnAtUpperPath[] = "/param/th/AEnAtUpper.prm";
+char kamaeru2[] = "KAMAERU2";
 
 void AEnAtUpper::doBehavior() {
 
@@ -157,8 +164,4 @@ bool AEnAtUpper::state_0x101_Behavior() {
 
 bool AEnAtUpper::onCollideWithPlayer(Koga::CharacterEvent* msg) {
     return false;
-}
-
-AEnAtUpper::~AEnAtUpper() {
-    
 }
