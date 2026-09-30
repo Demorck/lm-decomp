@@ -16,8 +16,10 @@ public:
         mAttackType(&mParams, 0, "mAttackType", TBaseParam::calcKeyCode("mAttackType"))
     {
     }
-    /* 0x08 */ virtual ~EnAttackBase() { }; //TODO: Could be weak symbol as well
-    /* 0x70 */ virtual TParams* vt_70() { return &mParams; } //Weak symbol
+    /* 0x08 */ virtual ~EnAttackBase() { };
+    /* 0x70 */ virtual TParams* vt_70();
+
+    void EnAttackBase_fn_800DDD5C();
 
 public:
     /* 0x18 */ const AEnAtStruct2* _18;

@@ -166,11 +166,6 @@ Sato/EnemyTypicalStrategy.cpp:
 	.data       start:0x8035B0D8 end:0x8035B278
 	.sdata      start:0x804D3018 end:0x804D3048
 
-Koga/EnAttackBase.cpp:
-	.text       start:0x800CF63C end:0x800CF854
-	.ctors      start:0x8020BBD8 end:0x8020BBDC
-	.data       start:0x8035CF50 end:0x8035D2E8
-
 Sato/EnReplace.cpp:
 	.text       start:0x800D4E08 end:0x800D50AC
 	.ctors      start:0x8020BBEC end:0x8020BBF0
@@ -181,6 +176,13 @@ Koga/EnTypesManager.cpp:
 	.text       start:0x800DA498 end:0x800DB168
 	.data       start:0x80360D78 end:0x80361080
 	.sdata      start:0x804D3938 end:0x804D3970
+
+Koga/EnAttackBase.cpp:
+	.text       start:0x800DDD54 end:0x800DDF9C
+	.rodata     start:0x8020C8B0 end:0x8020C8C0
+	.data       start:0x80361E78 end:0x80361FA8
+	.sdata      start:0x804D3AF8 end:0x804D3B20
+	.sdata2     start:0x804DB9D0 end:0x804DB9D8
 
 Koga/EnManager.cpp:
 	.text       start:0x800E4514 end:0x800E9DC8
