@@ -331,6 +331,13 @@ Ajioka/AEnAtThrow.cpp:
 	.sdata      start:0x804D44D8 end:0x804D4560
 	.sdata2     start:0x804DBD70 end:0x804DBDA8
 
+Ajioka/AEnAtSkull.cpp:
+	.text       start:0x800FEBE0 end:0x800FF79C
+	.ctors      start:0x8020BC64 end:0x8020BC68
+	.data       start:0x80368B10 end:0x80368E90
+	.sdata      start:0x804D4560 end:0x804D45F0
+	.sdata2     start:0x804DBDA8 end:0x804DBDC8
+
 Sato/SaEnGenUtility.cpp:
 	.text       start:0x80142F88 end:0x801443E8
 	.data       start:0x8037A1D0 end:0x8037A2B0
