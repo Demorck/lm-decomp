@@ -5,9 +5,6 @@
 #include "Sato/EnThought.hpp"
 #include "macros.h"
 
-dummy_float_data();
-enemies_float_data();
-
 class EnZako : public EnThought {
 public:
     EnZako();
