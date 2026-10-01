@@ -180,7 +180,7 @@ Koga/EnTypesManager.cpp:
 Koga/EnAttackBase.cpp:
 	.text       start:0x800DDD54 end:0x800DDF9C
 	.rodata     start:0x8020C8B0 end:0x8020C8C0
-	.data       start:0x80361E78 end:0x80361FA8
+	.data       start:0x80361E40 end:0x80361FA8
 	.sdata      start:0x804D3AF8 end:0x804D3B20
 	.sdata2     start:0x804DB9D0 end:0x804DB9D8
 
