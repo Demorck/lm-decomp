@@ -19,6 +19,9 @@ static EnemyStrategyState enemiesStates[2] = {
     },
 };
 
+AEnZakoBase::AEnZakoBase() {
+
+}
 
 // From EnemyStrategy
 void AEnZakoBase::init() {

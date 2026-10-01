@@ -166,11 +166,6 @@ Sato/EnemyTypicalStrategy.cpp:
 	.data       start:0x8035B0D8 end:0x8035B278
 	.sdata      start:0x804D3018 end:0x804D3048
 
-Koga/EnAttackBase.cpp:
-	.text       start:0x800CF63C end:0x800CF854
-	.ctors      start:0x8020BBD8 end:0x8020BBDC
-	.data       start:0x8035CF50 end:0x8035D2E8
-
 Sato/EnReplace.cpp:
 	.text       start:0x800D4E08 end:0x800D50AC
 	.ctors      start:0x8020BBEC end:0x8020BBF0
@@ -181,6 +176,13 @@ Koga/EnTypesManager.cpp:
 	.text       start:0x800DA498 end:0x800DB168
 	.data       start:0x80360D78 end:0x80361080
 	.sdata      start:0x804D3938 end:0x804D3970
+
+Koga/EnAttackBase.cpp:
+	.text       start:0x800DDD54 end:0x800DDF9C
+	.rodata     start:0x8020C8B0 end:0x8020C8C0
+	.data       start:0x80361E78 end:0x80361FA8
+	.sdata      start:0x804D3AF8 end:0x804D3B20
+	.sdata2     start:0x804DB9D0 end:0x804DB9D8
 
 Koga/EnManager.cpp:
 	.text       start:0x800E4514 end:0x800E9DC8
@@ -263,6 +265,49 @@ Ajioka/AEnBeam2.cpp:
 	.data       start:0x803674E0 end:0x80367920
 	.sdata      start:0x804D42A0 end:0x804D42F8
 	.sdata2     start:0x804DBCA0 end:0x804DBCA8
+
+Ajioka/AEnNoMove1.cpp:
+	.text       start:0x800FA614 end:0x800FA80C
+	.ctors      start:0x8020BC4C end:0x8020BC50
+	.data       start:0x80367920 end:0x80367B00
+	.sdata      start:0x804D42F8 end:0x804D4328
+	.sdata2     start:0x804DBCA8 end:0x804DBCB0
+
+Ajioka/AEnNoMove2.cpp:
+	.text       start:0x800FA80C end:0x800FAC18
+	.ctors      start:0x8020BC50 end:0x8020BC54
+	.data       start:0x80367B00 end:0x80367D10
+	.sdata      start:0x804D4328 end:0x804D4358
+	.sdata2     start:0x804DBCB0 end:0x804DBCB8
+
+Ajioka/AEnSimple1.cpp:
+	.text       start:0x800FAC18 end:0x800FBE7C
+	.ctors      start:0x8020BC54 end:0x8020BC58
+	.data       start:0x80367D10 end:0x80368060
+	.sdata      start:0x804D4358 end:0x804D43C0
+	.sdata2     start:0x804DBCB8 end:0x804DBD00
+
+Ajioka/AEnSimple2.cpp:
+	.text       start:0x800FBE7C end:0x800FCDA4
+	.ctors      start:0x8020BC58 end:0x8020BC5C
+	.data       start:0x80368060 end:0x80368310
+	.sdata      start:0x804D43C0 end:0x804D4440
+	.sdata2     start:0x804DBD00 end:0x804DBD40
+
+Ajioka/AEnAtUpper.cpp:
+	.text       start:0x800FCDA4 end:0x800FDCAC
+	.ctors      start:0x8020BC5C end:0x8020BC60
+	.rodata     start:0x8020C9E0 end:0x8020CA00
+	.data       start:0x80368310 end:0x80368758
+	.sdata      start:0x804D4440 end:0x804D44D8
+	.sdata2     start:0x804DBD40 end:0x804DBD70
+
+Ajioka/AEnAtThrow.cpp:
+	.text       start:0x800FDCAC end:0x800FEBE0
+	.ctors      start:0x8020BC60 end:0x8020BC64
+	.data       start:0x80368758 end:0x80368B10
+	.sdata      start:0x804D44D8 end:0x804D4560
+	.sdata2     start:0x804DBD70 end:0x804DBDA8
 
 Sato/SaEnGenUtility.cpp:
 	.text       start:0x80142F88 end:0x801443E8

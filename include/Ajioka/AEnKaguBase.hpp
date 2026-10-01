@@ -14,10 +14,10 @@ public:
     virtual void doBehaviorInit();
 
     // Koga::CharacterEventObserver
+    virtual bool onPlayerLeftRoom(Koga::CharacterEvent* msg);
+    virtual bool onSprayedWithWater(Koga::CharacterEvent* msg);
     virtual bool onSprayedWithFire(Koga::CharacterEvent* msg);
     virtual bool onSprayedWithIce(Koga::CharacterEvent* msg);
-    virtual bool onSprayedWithWater(Koga::CharacterEvent* msg);
-    virtual bool onPlayerLeftRoom(Koga::CharacterEvent* msg);
     virtual bool onPlayerTapped(Koga::CharacterEvent* msg);
 
 
