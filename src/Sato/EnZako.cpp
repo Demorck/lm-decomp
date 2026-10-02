@@ -3,6 +3,9 @@
 #include "Koga/ToolData.hpp"
 #include "types.h"
 
+dummy_float_data();
+enemies_float_data();
+
 EnZako::EnZako() {
 
 }

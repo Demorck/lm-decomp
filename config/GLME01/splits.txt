@@ -180,15 +180,37 @@ Koga/EnTypesManager.cpp:
 Koga/EnAttackBase.cpp:
 	.text       start:0x800DDD54 end:0x800DDF9C
 	.rodata     start:0x8020C8B0 end:0x8020C8C0
-	.data       start:0x80361E78 end:0x80361FA8
+	.data       start:0x80361E40 end:0x80361FA8
 	.sdata      start:0x804D3AF8 end:0x804D3B20
 	.sdata2     start:0x804DB9D0 end:0x804DB9D8
 
 Koga/EnManager.cpp:
-	.text       start:0x800E4514 end:0x800E9DC8
-	.ctors      start:0x8020BC28 end:0x8020BC30
-	.data       start:0x80363BF8 end:0x80363CF8
-	.sdata      start:0x804D3E30 end:0x804D3E48
+	.text       start:0x800E4514 end:0x800E634C
+	.ctors      start:0x8020BC28 end:0x8020BC2C
+	.data       start:0x80363B08 end:0x80363C78
+	.sdata      start:0x804D3DB8 end:0x804D3E48
+	.sdata2     start:0x804DBA90 end:0x804DBA98
+
+Koga/800E634C.cpp:
+	.text       start:0x800E634C end:0x800E82D8
+	.ctors      start:0x8020BC2C end:0x8020BC30
+	.data       start:0x80363C78 end:0x80363E38
+	.sdata      start:0x804D3E48 end:0x804D3EC0
+	.sdata2     start:0x804DBA98 end:0x804DBAF0
+
+Koga/800E82D8.cpp:
+	.text       start:0x800E82D8 end:0x800E9568
+	.rodata     start:0x8020C950 end:0x8020C980
+	.data       start:0x80363E38 end:0x80363F88
+	.sdata      start:0x804D3EC0 end:0x804D3F28
+	.sdata2     start:0x804DBAF0 end:0x804DBB08
+
+Koga/800E9568.cpp:
+	.text       start:0x800E9568 end:0x800EA1B4
+	.rodata     start:0x8020C980 end:0x8020C9E0
+	.data       start:0x80363F88 end:0x80363FA0
+	.sdata      start:0x804D3F28 end:0x804D3F68
+	.sdata2     start:0x804DBB08 end:0x804DBB18
 
 Koga/CharacterEventObserver.cpp:
 	.text       start:0x800EA1B4 end:0x800EA454
@@ -308,6 +330,13 @@ Ajioka/AEnAtThrow.cpp:
 	.data       start:0x80368758 end:0x80368B10
 	.sdata      start:0x804D44D8 end:0x804D4560
 	.sdata2     start:0x804DBD70 end:0x804DBDA8
+
+Ajioka/AEnAtSkull.cpp:
+	.text       start:0x800FEBE0 end:0x800FF79C
+	.ctors      start:0x8020BC64 end:0x8020BC68
+	.data       start:0x80368B10 end:0x80368E90
+	.sdata      start:0x804D4560 end:0x804D45F0
+	.sdata2     start:0x804DBDA8 end:0x804DBDC8
 
 Sato/SaEnGenUtility.cpp:
 	.text       start:0x80142F88 end:0x801443E8

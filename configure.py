@@ -762,6 +762,7 @@ config.libs = [
         Object(NonMatching, "Ajioka/AEnSimple2.cpp"),
         Object(NonMatching, "Ajioka/AEnAtUpper.cpp"),
         Object(NonMatching, "Ajioka/AEnAtThrow.cpp"),
+        Object(NonMatching, "Ajioka/AEnAtSkull.cpp"),
 
         # Koga
         Object(Matching, "Koga/GameModeUtil.cpp"),
@@ -779,6 +780,9 @@ config.libs = [
         Object(NonMatching, "Koga/SimpleModeler.cpp"),
         Object(NonMatching, "Koga/CharacterColManager.cpp"),
         Object(NonMatching, "Koga/EnManager.cpp"),
+        Object(NonMatching, "Koga/800E634C.cpp"),
+        Object(NonMatching, "Koga/800E82D8.cpp"),
+        Object(NonMatching, "Koga/800E9568.cpp"),
         Object(NonMatching, "Koga/EnTypesManager.cpp"),
         Object(NonMatching, "Koga/EnemyGenManager.cpp"),
 

@@ -21,6 +21,8 @@ public:
     void fn_800E7628();
     bool fn_800E7650();
 
+    
+    inline s32 get_38() const { return _38; }
     inline s32 get_3C() const { return _3C; }
 
 protected:

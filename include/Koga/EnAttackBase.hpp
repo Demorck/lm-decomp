@@ -7,26 +7,40 @@
 #include "Koga/Params.hpp"
 #include <Koga/CharacterEventObserver.hpp>
 #include <Sato/EnemyStrategy.hpp>
+#include "Sato/EnZako.hpp"
 
-class EnAttackBase : public EnemyStrategy, public Koga::CharacterEventObserver {
+class EnAttackBaseParams {
 public:
-    EnAttackBase() : 
+    EnAttackBaseParams() : 
         mParams("/param/th/EnAttackBase.prm"),
         mDamage(&mParams, 0, "mDamage", TBaseParam::calcKeyCode("mDamage")),
         mAttackType(&mParams, 0, "mAttackType", TBaseParam::calcKeyCode("mAttackType"))
     {
     }
-    /* 0x08 */ virtual ~EnAttackBase() { };
-    /* 0x70 */ virtual TParams* vt_70();
 
-    void EnAttackBase_fn_800DDD5C();
+public:
+    /* 0x00 */ TParams mParams;
+    /* 0x0C */ TParamT<long> mDamage;
+    /* 0x20 */ TParamT<short> mAttackType;
+};
+
+class EnAttackBase : public EnemyStrategy, public Koga::CharacterEventObserver {
+public:
+    EnAttackBase() {}
+    /* 0x08 */ virtual ~EnAttackBase() { };
+    /* 0x70 */ virtual EnAttackBaseParams* vt_70();
+
+    void EnAttackBase_fn_800DDD5C(void*);
+    bool EnAttackBase_fn_800DDDD8(const char* filePath);
+    void EnAttackBase_fn_800DDE3C();
+    void EnAttackBase_fn_800DDEC8();
+    bool EnAttackBase_fn_800DDED4();
+    s32 EnAttackBase_fn_800DDF58();
 
 public:
     /* 0x18 */ const AEnAtStruct2* _18;
     /* 0x1C */ s32 _1C;
-    /* 0x20 */ TParams mParams;
-    /* 0x2C */ TParamT<long> mDamage;
-    /* 0x40 */ TParamT<short> mAttackType;
+    /* 0x20 */ EnAttackBaseParams mParams;
 };
 
 #endif
