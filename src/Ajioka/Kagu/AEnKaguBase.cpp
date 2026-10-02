@@ -1,4 +1,4 @@
-#include "Ajioka/AEnKaguBase.hpp"
+#include "Ajioka/Kagu/AEnKaguBase.hpp"
 #include "macros.h"
 
 dummy_float_data()

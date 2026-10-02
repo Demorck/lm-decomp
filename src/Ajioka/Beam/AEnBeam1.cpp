@@ -1,4 +1,4 @@
-#include "Ajioka/AEnBeam1.hpp"
+#include "Ajioka/Beam/AEnBeam1.hpp"
 #include "macros.h"
 
 

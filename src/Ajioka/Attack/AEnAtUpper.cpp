@@ -1,5 +1,5 @@
-#include "Ajioka/AEnAtUpper.hpp"
-#include "Ajioka/AEnAtStructs.hpp"
+#include "Ajioka/Attack/AEnAtUpper.hpp"
+#include "Ajioka/Attack/AEnAtStructs.hpp"
 #include "JSystem/JGeometry/JGVec3.hpp"
 
 

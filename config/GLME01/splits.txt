@@ -234,89 +234,89 @@ Sato/EnemyStrategyInit.cpp:
 Sato/80366260.cpp:
 	.data       start:0x80366260 end:0x80366358
 
-Ajioka/AEnZakoBase.cpp:
+Ajioka/Zako/AEnZakoBase.cpp:
 	.text       start:0x800F5880 end:0x800F61AC
 	.ctors      start:0x8020BC30 end:0x8020BC34
 	.data       start:0x80366358 end:0x80366590
 	.sdata      start:0x804D40E0 end:0x804D4110
 	.sdata2     start:0x804DBC40 end:0x804DBC48
 
-Ajioka/AEnKaguBase.cpp:
+Ajioka/Kagu/AEnKaguBase.cpp:
 	.text       start:0x800F61AC end:0x800F6884
 	.ctors      start:0x8020BC34 end:0x8020BC38
 	.data       start:0x80366590 end:0x803667E0
 	.sdata      start:0x804D4110 end:0x804D415C
 	.sdata2     start:0x804DBC48 end:0x804DBC50
 
-Ajioka/AEnBeamBase.cpp:
+Ajioka/Beam/AEnBeamBase.cpp:
 	.text       start:0x800F6884 end:0x800F71B0
 	.ctors      start:0x8020BC38 end:0x8020BC3C
 	.data       start:0x803667E0 end:0x80366A60
 	.sdata      start:0x804D4160 end:0x804D41A0
 	.sdata2     start:0x804DBC50 end:0x804DBC58
 
-Ajioka/AEnKiBase.cpp:
+Ajioka/Ki/AEnKiBase.cpp:
 	.text       start:0x800F71B0 end:0x800F7A8C
 	.ctors      start:0x8020BC3C end:0x8020BC40
 	.data       start:0x80366A60 end:0x80366C28
 	.sdata      start:0x804D41A0 end:0x804D41C0
 	.sdata2     start:0x804DBC58 end:0x804DBC68
 
-Ajioka/AEnKiSentak.cpp:
+Ajioka/Ki/AEnKiSentak.cpp:
 	.text       start:0x800F7A8C end:0x800F8100
 	.ctors      start:0x8020BC40 end:0x8020BC44
 	.data       start:0x80366C28 end:0x80366E70
 	.sdata      start:0x804D41C0 end:0x804D41F0
 	.sdata2     start:0x804DBC68 end:0x804DBC70
 
-Ajioka/AEnKiEtc.cpp:
+Ajioka/Ki/AEnKiEtc.cpp:
 	.text       start:0x800F8100 end:0x800F83D4
 	.data       start:0x80366E70 end:0x80366F18
 	.sdata      start:0x804D41F0 end:0x804D4210
 
-Ajioka/AEnBeam1.cpp:
+Ajioka/Beam/AEnBeam1.cpp:
 	.text       start:0x800F83D4 end:0x800F94F4
 	.ctors      start:0x8020BC44 end:0x8020BC48
 	.data       start:0x80366F18 end:0x803674E0
 	.sdata      start:0x804D4210 end:0x804D42A0
 	.sdata2     start:0x804DBC70 end:0x804DBCA0
 
-Ajioka/AEnBeam2.cpp:
+Ajioka/Beam/AEnBeam2.cpp:
 	.text       start:0x800F94F4 end:0x800FA614
 	.ctors      start:0x8020BC48 end:0x8020BC4C
 	.data       start:0x803674E0 end:0x80367920
 	.sdata      start:0x804D42A0 end:0x804D42F8
 	.sdata2     start:0x804DBCA0 end:0x804DBCA8
 
-Ajioka/AEnNoMove1.cpp:
+Ajioka/Kagu/AEnNoMove1.cpp:
 	.text       start:0x800FA614 end:0x800FA80C
 	.ctors      start:0x8020BC4C end:0x8020BC50
 	.data       start:0x80367920 end:0x80367B00
 	.sdata      start:0x804D42F8 end:0x804D4328
 	.sdata2     start:0x804DBCA8 end:0x804DBCB0
 
-Ajioka/AEnNoMove2.cpp:
+Ajioka/Kagu/AEnNoMove2.cpp:
 	.text       start:0x800FA80C end:0x800FAC18
 	.ctors      start:0x8020BC50 end:0x8020BC54
 	.data       start:0x80367B00 end:0x80367D10
 	.sdata      start:0x804D4328 end:0x804D4358
 	.sdata2     start:0x804DBCB0 end:0x804DBCB8
 
-Ajioka/AEnSimple1.cpp:
+Ajioka/Zako/AEnSimple1.cpp:
 	.text       start:0x800FAC18 end:0x800FBE7C
 	.ctors      start:0x8020BC54 end:0x8020BC58
 	.data       start:0x80367D10 end:0x80368060
 	.sdata      start:0x804D4358 end:0x804D43C0
 	.sdata2     start:0x804DBCB8 end:0x804DBD00
 
-Ajioka/AEnSimple2.cpp:
+Ajioka/Zako/AEnSimple2.cpp:
 	.text       start:0x800FBE7C end:0x800FCDA4
 	.ctors      start:0x8020BC58 end:0x8020BC5C
 	.data       start:0x80368060 end:0x80368310
 	.sdata      start:0x804D43C0 end:0x804D4440
 	.sdata2     start:0x804DBD00 end:0x804DBD40
 
-Ajioka/AEnAtUpper.cpp:
+Ajioka/Attack/AEnAtUpper.cpp:
 	.text       start:0x800FCDA4 end:0x800FDCAC
 	.ctors      start:0x8020BC5C end:0x8020BC60
 	.rodata     start:0x8020C9E0 end:0x8020CA00
@@ -324,14 +324,14 @@ Ajioka/AEnAtUpper.cpp:
 	.sdata      start:0x804D4440 end:0x804D44D8
 	.sdata2     start:0x804DBD40 end:0x804DBD70
 
-Ajioka/AEnAtThrow.cpp:
+Ajioka/Attack/AEnAtThrow.cpp:
 	.text       start:0x800FDCAC end:0x800FEBE0
 	.ctors      start:0x8020BC60 end:0x8020BC64
 	.data       start:0x80368758 end:0x80368B10
 	.sdata      start:0x804D44D8 end:0x804D4560
 	.sdata2     start:0x804DBD70 end:0x804DBDA8
 
-Ajioka/AEnAtSkull.cpp:
+Ajioka/Attack/AEnAtSkull.cpp:
 	.text       start:0x800FEBE0 end:0x800FF79C
 	.ctors      start:0x8020BC64 end:0x8020BC68
 	.data       start:0x80368B10 end:0x80368E90

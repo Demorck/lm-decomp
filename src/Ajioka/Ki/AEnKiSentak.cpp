@@ -1,4 +1,4 @@
-#include "Ajioka/AEnKiSentak.hpp"
+#include "Ajioka/Ki/AEnKiSentak.hpp"
 #include "Koga/CharacterEventObserver.hpp"
 #include "Sato/EnemyStrategy.hpp"
 #include "macros.h"
