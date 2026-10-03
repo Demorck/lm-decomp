@@ -10,6 +10,7 @@
 #include "Koga/Message.hpp"
 #include "Koga/ToolData.hpp"
 #include "Sato/IncludeStrategy.hpp"
+#include "Koga/800E634C.hpp"
 
 namespace Koga {
     class EnManager;

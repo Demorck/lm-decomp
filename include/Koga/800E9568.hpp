@@ -1,9 +1,13 @@
 #ifndef KOGA_800E9568_HPP
 #define KOGA_800E9568_HPP
 
+#include "Koga/CharacterEventObserver.hpp"
 #include <types.h>
 #include <JSystem/JGeometry/JGVec3.hpp>
 
+namespace Koga {
+    class CharacterEvent;
+}
 
 JGeometry::TVec3f* fn_800E9568(s32);
 s32 fn_800E9594(s32);
@@ -26,7 +30,7 @@ void fn_800E9ACC();
 void fn_800E9B44();
 void fn_800E9B74();
 BOOL fn_800E9C38(Koga::CharacterEvent*);
-void fn_800E9C5C();
+void* fn_800E9C5C();
 void fn_800E9C78();
 void fn_800E9CDC();
 void fn_800E9DC8();

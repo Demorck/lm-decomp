@@ -7,6 +7,9 @@
 #include "Unsorted/800627D8.hpp"
 #include "Unsorted/AssortedEnManager.hpp"
 #include "types.h"
+#include "Koga/800E634C.hpp"
+#include "Koga/800E82D8.hpp"
+#include "Koga/800E9568.hpp"
 
 #include <JSystem/JKernel/JKRArchive.hpp>
 #include <dolphin/mtx.h>
@@ -47,11 +50,11 @@ namespace Koga {
         for (int j = 0; j < maxPoint; currElm++, j++) {
             AppearPointSlot* appearPoint = &_E08[j];
             EnThought* temp4 = fn_800E5A14(nullptr);
-            currElm->fn_800E9A0C(temp4);
-            void* someObj = currElm->fn_800E9C5C();
+            fn_800E9A0C(temp4);
+            void* someObj = fn_800E9C5C();
             //appearPoint->_0 = someObj->_38; // also gets _38 from this?;
             fn_800BF8B8(currElm->_0, appearPoint->mCharacter.getToolData(), appearPoint->mCharacter.getEntryIndex());
-            currElm->fn_800E9CDC();
+            fn_800E9CDC();
         }
 
         u32 i2;
@@ -65,8 +68,8 @@ namespace Koga {
             currElm2 = startElm;
             for (int k = 0; k < fn_800E5E60(i2); k++, currElm2++, startElm++) {
                 void* temp5 = fn_800E5A14(temp4);
-                currElm2->fn_800E9A0C(temp5);
-                currElm2->fn_800E9ACC();
+                fn_800E9A0C(temp5);
+                fn_800E9ACC();
             }
         }
     }
@@ -241,20 +244,20 @@ namespace Koga {
             fn_800C19CC(temp->_0, param_2);
         }
 
-        void* tempObj = temp->fn_800E9C5C();
+        void* tempObj = fn_800E9C5C();
         //return tempObj->_38;
     }
 
     // https://decomp.me/scratch/cYSVu
     void EnManager::fn_800E59D4(s32 idx) {
         unkEnManager1* temp = _4;
-        temp[idx].fn_800E9ACC();
+        fn_800E9ACC();
     }
 
     // https://decomp.me/scratch/fm1ig
     void EnManager::fn_800E5ABC(s32 param_1) {
         unkEnManager1* temp = _4;
-        temp[param_1].fn_800E9B44();
+        fn_800E9B44();
     }
 
     // https://decomp.me/scratch/3EURE
@@ -275,15 +278,15 @@ namespace Koga {
             s32 someVal = fn_800DAC84(itEight);
             unkEnManager1* p = &_4[0];
 
-            while (p != end && !p->matchesStatus(CHARSTATE_2, someVal)) {
-                p++;
-            }
+            // while (p != end && !matchesStatus(CHARSTATE_2, someVal)) {
+            //     p++;
+            // }
 
             unkEnManager1* found;
             if (p != end) {
                 fn_800BF8B8(p->_0, charInfo, entryIndex);
-                if (!p->fn_800E9A58(itEight)) {
-                    p->fn_800E9ACC();
+                if (!fn_800E9A58(itEight)) {
+                    fn_800E9ACC();
                     found = nullptr;
                 } else {
                     found = p;
@@ -517,113 +520,4 @@ const BOOL ToolDataRef::isNameMoney() {
     }
 
     return nameValid;
-}
- 
-namespace Koga {
-
-    // Matches but underlying function gets inlined, causing no match currently.
-    JGeometry::TVec3f* EnManager::fn_800E9568(s32 appearSlotIndex) {
-        return Koga::MissionMode::getMissionMode()->getEnManager()->fn_800E5564(appearSlotIndex);
-    }
-
-    // Matches but underlying function gets inlined, causing no match currently.
-    s32 EnManager::fn_800E9594(s32 appearSlotIndex) {
-        return Koga::MissionMode::getMissionMode()->getEnManager()->fn_800E55AC(appearSlotIndex);
-    }
-
-    // https://decomp.me/scratch/Zhrs6
-    BOOL EnManager::fn_800E95C0(s32 expectedPoint, JGeometry::TVec3f* pParam_1, u16* out) {
-        ToolDataRef appearEntry = Koga::MissionMode::getMissionMode()->getEnManager()->fn_800E5488(expectedPoint);
-        ToolData* pCharInfo = appearEntry.getToolData();
-        s32 entryIndex = appearEntry.getEntryIndex();
-        bool bPointFound = false;
-
-        if (pCharInfo != nullptr && 0 <= entryIndex) { //if (appearEntry.isValid()) { 
-            bPointFound = true;
-        }
-
-        if (!bPointFound) {
-            return false;
-        }
-        
-        pCharInfo->getValue(entryIndex, "pos_x", &pParam_1->x);
-        pCharInfo->getValue(entryIndex, "pos_y", &pParam_1->y);
-        pCharInfo->getValue(entryIndex, "pos_z", &pParam_1->z);
-
-        if (out != nullptr) {
-            u32 dir = 0;
-            pCharInfo->getValue(entryIndex, "dir_y", &dir);
-            *out = dir;
-        }
-
-        return true;
-    }
-
-    s32 EnManager::fn_800E96B8(JGeometry::TVec3f* pParam_1, JGeometry::TVec3f* pParam_2, f32 param_3) {
-        return Koga::MissionMode::getMissionMode()->getEnManager()->fn_800E5660(pParam_1, pParam_2, param_3);
-    }
-
-    s32 EnManager::fn_800E96E8(JGeometry::TVec3f* pParam_1, JGeometry::TVec3f* pParam_2) {
-        return Koga::MissionMode::getMissionMode()->getEnManager()->fn_800E56E4(pParam_1, pParam_2);
-    }
-
-    s32 EnManager::fn_800E971C(JGeometry::TVec3f* pParam_1, JGeometry::TVec3f* pParam_2) {
-        return Koga::MissionMode::getMissionMode()->getEnManager()->fn_800E5784(pParam_1, pParam_2);
-    }
-
-    void* EnManager::fn_800E9750(s32 param_1) {
-        return Koga::MissionMode::getMissionMode()->getEnManager()->fn_800E5600(param_1);
-    }
-
-    s32 EnManager::fn_800E977C(s32 param_1, s32 param_2) {
-        return Koga::MissionMode::getMissionMode()->getEnManager()->fn_800E5868(param_1, param_2);
-    }
-
-    // https://decomp.me/scratch/fDI0r
-    void EnManager::fn_800E97B0(s32 param_1) {
-        Koga::MissionMode::getMissionMode()->getEnManager()->fn_800E59D4(param_1);
-    }
-}
-
-// https://decomp.me/scratch/LLh5c
-unkEnManager1::~unkEnManager1() {
-    if (_0 != nullptr) {
-        // Call some destructor through _0+0x804
-    }
-}
-
-// https://decomp.me/scratch/EmrGG
-void unkEnManager1::fn_800E9A0C(void* pParam_1) {
-    // _8 = fn_800DAC84(pParam_1); // This should be getting the 0x808 offset of param_1, then a secondary 0x3C offset?
-    mState = CHARSTATE_1;
-    _C = 0;
-}
-
-// https://decomp.me/scratch/IUVOm
-BOOL unkEnManager1::fn_800E9A58(u32) {
-    mState = CHARSTATE_2;
-    _C = 0;
-    char temp = fn_800C15E0(_0);
-    
-    if (temp != 0) {
-        fn_800E9CDC();
-        // Then calls _0 offset 0x800, then 0xC, maybe some virtual table call?
-    }
-
-
-    return temp != 0;
-}
-
-// 99%, some stack mismanagement but could also be related to function inputs here.
-void unkEnManager1::fn_800E9ACC() {
-    mState = CHARSTATE_1;
-    fn_800C17EC(_0);
-    JGeometry::TVec3f defaultPos = JGeometry::TVec3f(-32000.0f);
-    fn_80067CB0(fn_800E9C5C(), defaultPos.x, defaultPos.y, defaultPos.z);
-}
-
-void unkEnManager1::fn_800E9B44() {
-    if (mState == 2) {
-        fn_800BF81C(_0);
-    }
 }

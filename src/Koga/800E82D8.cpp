@@ -1,6 +1,9 @@
 #include "Koga/EnManager.hpp"
 #include "Koga/GameModeUtil.hpp"
 
+
+int fn_800E85C8(s32) {}
+
 // Does not match due to some ToolData inline shenanigans. Seems to match more as a u32 input though than u8
 // https://decomp.me/scratch/PdZKG
 ToolDataRef ToolDataRef::fn_800E82D8(u32 param_1) {
