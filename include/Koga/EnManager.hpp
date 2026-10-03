@@ -1,5 +1,5 @@
-#ifndef EN_MANAGER_H_
-#define EN_MANAGER_H_
+#ifndef EN_MANAGER_HPP
+#define EN_MANAGER_HPP
 
 #include <types.h>
 #include <JSystem/JGeometry/JGVec3.hpp>
@@ -7,7 +7,6 @@
 
 #include "Koga/Message.hpp"
 #include "Koga/ToolData.hpp"
-
 
 class EnemyStrategy;
 class EnThought;
@@ -41,36 +40,6 @@ class unkEnManager1 {
 public:
     unkEnManager1();
     ~unkEnManager1();
-
-    void fn_800E9A0C(void*);
-    BOOL fn_800E9A58(u32); //param_1 is un-used?
-    void fn_800E9ACC();
-    void fn_800E9B44();
-    void fn_800E9B74();
-    BOOL fn_800E9C38(Koga::CharacterEvent*);
-    void* fn_800E9C5C();
-    BOOL fn_800E9C78();
-    void fn_800E9CDC();
-
-    inline bool matchesStatus(s32 state, s32 param_2) {
-        return state == mState && param_2 == _8;
-    }
-
-    // Could not be EnManager1 functions, completely unsure.
-    // Currently all untouched until some further decompilation. I believe the args/returns _should_ be correct.
-    void fn_800E634C(u16, f32, f32, f32);
-    BOOL fn_800E655C(u16, f32, f32);
-    BOOL fn_800E66FC(f32, f32, f32);
-    f32 fn_800E6C5C();
-    void fn_800E6D24(s32, JGeometry::TVec3f*);
-    void fn_800E6DE4();
-    BOOL fn_800E6ED0();
-    void fn_800E6FCC();
-    f32 fn_800E7114(void*);
-    void fn_800E730C(void*);
-    s32 fn_800E7378(void*);
-    void fn_800E83A0();
-    s32 fn_800E8438(); // Gets the item_table index, which is used to spawn items after character is defeated
 
     /* 0x0 */ EnThought* _0; // Probably just Character.hpp/cpp maybe?
     /* 0x4 */ CharacterState mState;
@@ -147,21 +116,6 @@ namespace Koga {
         static int fn_800E5E60(int);  // Requires some lbl to be decompiled: lbl_80363B50
         void fn_800E5E78(const char*);
 
-        static JGeometry::TVec3f* fn_800E9568(s32);
-        static s32 fn_800E9594(s32);
-        static BOOL fn_800E95C0(s32, JGeometry::TVec3f*, u16*);
-        static s32 fn_800E96B8(JGeometry::TVec3f*, JGeometry::TVec3f*, f32);
-        static s32 fn_800E96E8(JGeometry::TVec3f*, JGeometry::TVec3f*);
-        static s32 fn_800E971C(JGeometry::TVec3f*, JGeometry::TVec3f*);
-        static void* fn_800E9750(s32); // Probably returns MoveObj or something similar?
-        static s32 fn_800E977C(s32, s32);
-        static void fn_800E97B0(s32);
-        static void* fn_800E97DC(char*); // Gets something from ToolData by CodeName
-        static void* fn_800E98E0(); // Not sure what this returns. Maybe some struct?
-        static BOOL fn_800E9914(const char*, int);
-        static s32 fn_800E9948(const char*);
-        static s32 fn_800E9974(const char*);
-
         inline s32 getAppearSlotIndex() { return sAppearPointSlotIndex; }
         inline s32 getMaxAppearSlotIndex() { return sAppearPointSlotIndex + 1; }
 
@@ -178,52 +132,5 @@ namespace Koga {
 
 // Maybe apart of AppearPointSlot? Looks like compiler generated but unsure
 void fn_800E61C0();
-
-// Some TVec3f Helpers? Not sure about args/returns, but would make sense the template class would copy over some of the functions to a class where used.
-void fn_800E63AC(JGeometry::TVec3f*, EnThought*, u16, f32, f32, f32);
-BOOL fn_800E65C8(JGeometry::TVec3f*, EnThought*, u16, f32, f32);
-BOOL fn_800E6648(JGeometry::TVec3f*, EnThought*, JGeometry::TVec3f*, f32, f32, f32);
-BOOL fn_800E6764(JGeometry::TVec3f*, EnThought*, f32, f32, f32);
-s32 fn_800E689C(JGeometry::TVec3f*, Koga::ToolData*, s32); // Could be ToolDataRef?
-void fn_800E6948(JGeometry::TVec3f*, Koga::ToolData*);
-void fn_800E6A3C(JGeometry::TVec3f*, Koga::ToolData*, s32); // Could be ToolDataRef?
-void fn_800E6AB8(JGeometry::TVec3f*, Koga::ToolData*, f32);
-
-// All of these are miscelaneous functions I havent touched/reviewed. Feel free to move, re-organize, etc.
-bool fn_800E7054();
-s32 fn_800E70BC();
-bool fn_800E7174(JGeometry::TVec3f*, s32);
-bool fn_800E71D4(JGeometry::TVec3f*, s32);
-bool fn_800E7280(s32);
-void* fn_800E7510(void*, void*);
-void fn_800E75B8(JGeometry::TVec3f*, void*);
-void fn_800E760C(void*);
-void fn_800E7628(void*);
-BOOL fn_800E7634(Koga::ToolData*);
-bool fn_800E7650(void*);
-bool fn_800E7698(s32, void**, void**);
-void fn_800E7ED8(void*, void*);
-
-// Could be another sub-class? Unsure
-void* fn_800E7FC0(void*);
-void* fn_800E7FF8(void*, s16);
-void fn_800E805C(void*, void*);
-void fn_800E8098(void*);
-
-// All of these are miscelaneous functions I havent touched/reviewed in depth. Feel free to move, re-organize, etc.
-void fn_800E8180();
-s32 fn_800E82AC(f32);
-void fn_800E82D8(void*, u8);
-void fn_800E83A0(void*);
-void fn_800E8438(void*);
-s32 fn_800E85C8(s32);
-void fn_800E87B0(u8*, s32); //maybe static, has to deal with itemappeartable
-void fn_800E8880(void*);
-s32 fn_800E8904(void*, JGeometry::TVec3f*, void*);
-void fn_800E8C40(JGeometry::TVec3f*, void*);
-s32 fn_800E8EF4(void*, JGeometry::TVec3f*, void*);
-void fn_800E9174(JGeometry::TVec3f*, f32, f32, f32);
-void fn_800E9184(JGeometry::TVec3f*, JGeometry::TVec3f*);
-void* fn_800E9548();
 
 #endif

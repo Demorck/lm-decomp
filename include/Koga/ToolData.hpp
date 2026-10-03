@@ -166,6 +166,11 @@ class ToolDataRef {
             return charName;
         }
 
+        // To be verified if static / part of this class (makes sense at least if they return ToolDataRef types)
+        static ToolDataRef fn_800E82D8(u32); // handles treasuretable spawning items in chests.
+        static ToolDataRef fn_800E84CC(s32); // handles itemappearing after defeating
+        static ToolDataRef fn_800E8658(s32, s32, s32); // handles itemfishing, which spawns as luigi continues to suck.
+
         static ToolDataRef findInfoTableName(const char*);
         const char* getName();
         void fn_800E8E0C(u8*);
@@ -176,11 +181,6 @@ class ToolDataRef {
         const BOOL fn_800E9290(); // Something with character_name
         const BOOL fn_800E9358(s32); // Something with character_name and OpenDoorNo
         const BOOL fn_800E9464(); // Something with character_name and checking if getName is nothing.
-
-        // To be verified if static / part of this class (makes sense at least if they return ToolDataRef types)
-        static ToolDataRef fn_800E82D8(u32); // handles treasuretable spawning items in chests.
-        static ToolDataRef fn_800E84CC(s32); // handles itemappearing after defeating
-        static ToolDataRef fn_800E8658(s32, s32, s32); // handles itemfishing, which spawns as luigi continues to suck.
 
     public:
         /* 0x0 */ Koga::ToolData* mToolData;

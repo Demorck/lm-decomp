@@ -79,13 +79,13 @@ unkEnManager1::~unkEnManager1() {
 void unkEnManager1::fn_800E9A0C(void* pParam_1) {
     //_0 = pParam_1; // It could just be a pointer to an unkEnCharacter object?
     // _8 = fn_800DAC84(pParam_1); // This should be getting the 0x808 offset of param_1, then a secondary 0x3C offset?
-    mState = INACTIVE_CHARSTATE;
+    mState = CHARSTATE_1;
     _C = 0;
 }
 
 // https://decomp.me/scratch/IUVOm
 BOOL unkEnManager1::fn_800E9A58(u32) {
-    mState = INACTIVE_CHARSTATE;
+    mState = CHARSTATE_1;
     _C = 0;
     char temp = fn_800C15E0(_0);
     
@@ -100,7 +100,7 @@ BOOL unkEnManager1::fn_800E9A58(u32) {
 
 // 99%, some stack mismanagement but could also be related to function inputs here.
 void unkEnManager1::fn_800E9ACC() {
-    mState = ACTIVE_CHARSTATE;
+    mState = CHARSTATE_1;
     fn_800C17EC(_0);
     JGeometry::TVec3f defaultPos = JGeometry::TVec3f(-32000.0f);
     fn_80067CB0(fn_800E9C5C(), defaultPos.x, defaultPos.y, defaultPos.z);
