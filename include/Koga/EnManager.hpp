@@ -7,6 +7,7 @@
 
 #include "Koga/Message.hpp"
 #include "Koga/ToolData.hpp"
+#include "dolphin/mtx.h"
 
 class EnemyStrategy;
 class EnThought;
@@ -21,12 +22,13 @@ namespace Koga {
 // Fabricated name, subject to change
 class AppearPointSlot {
 public:
-    void init(JGeometry::TVec3f*, Koga::ToolData*, int);
-    void fn_800E616C(JGeometry::TVec3f*);
+    void init(Vec*, Koga::ToolData*, int);
+    void fn_800E616C(Vec*);
 
     /* 0x0 */ s32 _0;
-    /* 0x4 - 0xB */ ToolDataRef mCharacter;
-    /* 0xC - 0x13 */ JGeometry::TVec3f mPosition;
+    /* 0x4 */ Koga::ToolData* _4;
+    /* 0x8 */ s32 _8;
+    /* 0xC - 0x13 */ Vec mPosition;
     /* 0x18 */ u32 _18;
 };
 
@@ -92,7 +94,7 @@ namespace Koga {
         u32 findLuigiAppearIndex(ToolData*, u32);
         ToolDataRef fn_800E5488(s32);
         
-        JGeometry::TVec3f* fn_800E5564(s32);
+        Vec* fn_800E5564(s32);
         u32 fn_800E55AC(s32);
         s32 fn_800E55F0(s32); // Gets _0 member from AppearSlot
         void* fn_800E5600(s32); // Dynamicaly casts Player to MoveObj 

@@ -5,7 +5,7 @@
 namespace Koga {
 
     // Matches but underlying function gets inlined, causing no match currently.
-    JGeometry::TVec3f* fn_800E9568(s32 appearSlotIndex) {
+    Vec* fn_800E9568(s32 appearSlotIndex) {
         return Koga::MissionMode::getMissionMode()->getEnManager()->fn_800E5564(appearSlotIndex);
     }
 
