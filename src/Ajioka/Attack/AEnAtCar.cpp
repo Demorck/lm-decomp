@@ -64,7 +64,7 @@ bool AEnAtCar::state_0_Init() {
 }
 
 bool AEnAtCar::state_0_Behavior() {
-    return false;
+    return true;
 }
 
 bool AEnAtCar::state_1_Init() {
