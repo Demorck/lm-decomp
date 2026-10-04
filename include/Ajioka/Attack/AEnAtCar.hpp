@@ -1,5 +1,5 @@
-#ifndef A_EN_AT_UPPER_HPP
-#define A_EN_AT_UPPER_HPP
+#ifndef A_EN_AT_CAR_HPP
+#define A_EN_AT_CAR_HPP
 
 #include "Koga/EnAttackBase.hpp"
 
