@@ -351,6 +351,13 @@ Ajioka/Attack/AEnAtPlane.cpp:
 	.sdata      start:0x804D4680 end:0x804D4728
 	.sdata2     start:0x804DBDC8 end:0x804DBE10
 
+Ajioka/AEnHustler.cpp:
+	.text       start:0x80100FEC end:0x8010302C
+	.ctors      start:0x8020BC70 end:0x8020BC74
+	.data       start:0x80369698 end:0x80369B60
+	.sdata      start:0x804D4728 end:0x804D4808
+	.sdata2     start:0x804DBE10 end:0x804DBE50
+
 Sato/SaEnGenUtility.cpp:
 	.text       start:0x80142F88 end:0x801443E8
 	.data       start:0x8037A1D0 end:0x8037A2B0
