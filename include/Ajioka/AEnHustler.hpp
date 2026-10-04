@@ -3,6 +3,7 @@
 
 #include "Sato/EnemyTypicalStrategy.hpp"
 
+// The vtable has 4 address at 0 after the last thunk, maybe some function = 0 ?
 class AEnHustler : public EnemyTypicalStrategy {
 public:
     AEnHustler();
@@ -20,8 +21,6 @@ public:
     virtual bool onPlayerLeftRoom(Koga::CharacterEvent* msg);
     virtual bool onEnteredFlashlightBeam(Koga::CharacterEvent* msg);
     virtual bool vt_48(Koga::CharacterEvent* msg);
-
-
     
     // ptmf
     bool state_0_Init();
