@@ -1,7 +1,7 @@
 #ifndef MESSAGE_H_
 #define MESSAGE_H_
 
-#include "Koga/Array.hpp"
+#include "MR/Array.hpp"
 #include "dolphin/types.h"
 #include <types.h>
 
@@ -11,7 +11,7 @@ class MessageReceiver;
 typedef bool (MessageReceiver::*MessageCallback1)(int arg0);
 typedef bool (MessageReceiver::*MessageCallback2)(int arg0, int arg1);
 
-class MessageRecieverArray : public Koga::Array<MessageReceiver*, 12> {
+class MessageRecieverArray : public MR::AssignableArray<MessageReceiver*, 12> {
 public:
     MessageRecieverArray() { }
     ~MessageRecieverArray() { }

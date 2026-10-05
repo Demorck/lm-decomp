@@ -5,7 +5,7 @@
 #include <JSystem/JORReflexible.hpp>
 #include <JSystem/JGeometry/JGVec3.hpp>
 
-#include "Koga/Array.hpp"
+#include "MR/Array.hpp"
 #include "Koga/EnManager.hpp"
 #include "Koga/Message.hpp"
 #include "Koga/ToolData.hpp"
@@ -19,7 +19,7 @@ namespace Koga {
 class EnemyStrategy;
 class EnZako;
 
-class unkEnemyGen1 : public Koga::Array<EnZako*, 0xF> {
+class unkEnemyGen1 : public MR::AssignableArray<EnZako*, 0xF> {
 public:
     unkEnemyGen1() {}
     ~unkEnemyGen1() {}

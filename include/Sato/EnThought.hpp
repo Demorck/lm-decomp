@@ -4,7 +4,7 @@
 #include <JSystem/JORReflexible.hpp>
 #include <JSystem/JGeometry/JGVec3.hpp>
 
-#include "Koga/Array.hpp"
+#include "MR/Array.hpp"
 #include "Koga/ToolData.hpp"
 #include "Sato/EnReplace.hpp"
 #include "Sato/IncludeStrategy.hpp"
@@ -69,7 +69,7 @@ private:
     /* 0x81c */ void* _81c;
     /* 0x820 */ void* _820;
     /* 0x824 */ void* _824;
-    /* 0x828 - 0x890 */ Koga::Array<EnThought0x14, 5> array_828; // 0x14 * 5 + arraysize at 0x88c
+    /* 0x828 - 0x890 */ MR::AssignableArray<EnThought0x14, 5> array_828; // 0x14 * 5 + arraysize at 0x88c
     /* 0x890 */ s32 _890;
     /* 0x894 */ void* _894;
     /* 0x898 */ void* _898;

@@ -1,5 +1,6 @@
 // Based on the previous decompilation effort: https://github.com/CoNesTra/zmansion/blob/main/src/Unsorted/IncludeStrategy.cpp
 #include "Sato/EnThought.hpp"
+#include "Koga/ToolData.hpp"
 #include "Sato/EnemyStrategy.hpp"
 #include "Unsorted/MoveObj.hpp"
 #include "macros.h"
@@ -141,5 +142,6 @@ void EnThought::setToolDataRef(ToolDataRef ref) {
 
 
 ToolDataRef EnThought::getToolDataRef() const {
-    return mToolRef;
+    ToolDataRef ref = mToolRef;
+    return ref;
 }

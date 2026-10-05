@@ -63,7 +63,7 @@ public:
     s32 _8; //mTypeIndex?
 };
 
-class unkEnManager3 : public Koga::Array<unkEnManager2, 0x80> {
+class unkEnManager3 : public MR::AssignableArray<unkEnManager2, 0x80> {
 public:
     unkEnManager3();
     ~unkEnManager3();
