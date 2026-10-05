@@ -61,7 +61,7 @@ namespace Koga {
         unkEnManager1* currElm2;
         unkEnManager1* startElm;
 
-        startElm = _4 + maxPoint;
+        //startElm = _4 + maxPoint;
         for (i2 = 0; i2 < 4; i2++) {
             temp4 = fn_800DB06C(i2);
             currElm2 = startElm;
@@ -249,13 +249,13 @@ namespace Koga {
 
     // https://decomp.me/scratch/cYSVu
     void EnManager::fn_800E59D4(s32 idx) {
-        unkEnManager1* temp = _4;
+        unkEnManager1* temp = &_4[idx];
         fn_800E9ACC();
     }
 
     // https://decomp.me/scratch/fm1ig
-    void EnManager::fn_800E5ABC(s32 param_1) {
-        unkEnManager1* temp = _4;
+    void EnManager::fn_800E5ABC(s32 idx) {
+        unkEnManager1* temp = &_4[idx];
         fn_800E9B44();
     }
 

@@ -7,6 +7,7 @@
 
 #include "Koga/Message.hpp"
 #include "Koga/ToolData.hpp"
+#include "MR/Array.hpp"
 #include "dolphin/mtx.h"
 
 class EnemyStrategy;
@@ -122,7 +123,7 @@ namespace Koga {
         inline s32 getMaxAppearSlotIndex() { return sAppearPointSlotIndex + 1; }
 
     public:
-        /* 0x04 - 0x803 */  unkEnManager1 _4[0x80];
+        /* 0x04 - 0x803 */  MR::FixedArray<unkEnManager1, 0x80> _4;
         /* 0x804 - 0xE07 */ unkEnManager3 _804;
         /* 0xE08 - 0xE3F */ AppearPointSlot _E08[2];
         /* 0xE40 */ Koga::ToolData* mInfoTable;
