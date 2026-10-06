@@ -2,18 +2,18 @@ Luigi's Mansion
 [![Build Status]][actions] [![Code Progress_USA]][progress] [![Data Progress_USA]][progress][![Code Progress_JPN]][progress] [![Data Progress_JPN]][progress] [![Code Progress_PAL_00]][progress] [![Data Progress_PAL_00]][progress] [![Code Progress_PAL_01]][progress] [![Data Progress_PAL_01]][progress]
 =============
 
-[Build Status]: https://github.com/theplayerrolo/lm-decomp/actions/workflows/build.yml/badge.svg
-[actions]: https://github.com/theplayerrolo/lm-decomp/actions/workflows/build.yml
+[Build Status]: https://github.com/SomeJakeGuy/lm-decomp/actions/workflows/build.yml/badge.svg
+[actions]: https://github.com/SomeJakeGuy/lm-decomp/actions/workflows/build.yml
 
-[Code Progress_USA]: https://decomp.dev/theplayerrolo/lm-decomp/GLME01.svg?mode=shield&measure=code&label=USA%20Code
-[Data Progress_USA]: https://decomp.dev/theplayerrolo/lm-decomp/GLME01.svg?mode=shield&measure=data&label=USA%20Data
-[Code Progress_JPN]: https://decomp.dev/theplayerrolo/lm-decomp/GLMJ01.svg?mode=shield&measure=code&label=JPN%20Code
-[Data Progress_JPN]: https://decomp.dev/theplayerrolo/lm-decomp/GLMJ01.svg?mode=shield&measure=data&label=JPN%20Data
-[Code Progress_PAL_00]: https://decomp.dev/theplayerrolo/lm-decomp/GLMP01_00.svg?mode=shield&measure=code&label=PAL%20Rev%200%20Code
-[Data Progress_PAL_00]: https://decomp.dev/theplayerrolo/lm-decomp/GLMP01_00.svg?mode=shield&measure=data&label=PAL%20Rev%200%20Data
-[Code Progress_PAL_01]: https://decomp.dev/theplayerrolo/lm-decomp/GLMP01_01.svg?mode=shield&measure=code&label=PAL%20Rev%201%20Code
-[Data Progress_PAL_01]: https://decomp.dev/theplayerrolo/lm-decomp/GLMP01_01.svg?mode=shield&measure=data&label=PAL%20Rev%201%20Data
-[progress]: https://decomp.dev/theplayerrolo/lm-decomp
+[Code Progress_USA]: https://decomp.dev/SomeJakeGuy/lm-decomp/GLME01.svg?mode=shield&measure=code&label=USA%20Code
+[Data Progress_USA]: https://decomp.dev/SomeJakeGuy/lm-decomp/GLME01.svg?mode=shield&measure=data&label=USA%20Data
+[Code Progress_JPN]: https://decomp.dev/SomeJakeGuy/lm-decomp/GLMJ01.svg?mode=shield&measure=code&label=JPN%20Code
+[Data Progress_JPN]: https://decomp.dev/SomeJakeGuy/lm-decomp/GLMJ01.svg?mode=shield&measure=data&label=JPN%20Data
+[Code Progress_PAL_00]: https://decomp.dev/SomeJakeGuy/lm-decomp/GLMP01_00.svg?mode=shield&measure=code&label=PAL%20Rev%200%20Code
+[Data Progress_PAL_00]: https://decomp.dev/SomeJakeGuy/lm-decomp/GLMP01_00.svg?mode=shield&measure=data&label=PAL%20Rev%200%20Data
+[Code Progress_PAL_01]: https://decomp.dev/SomeJakeGuy/lm-decomp/GLMP01_01.svg?mode=shield&measure=code&label=PAL%20Rev%201%20Code
+[Data Progress_PAL_01]: https://decomp.dev/SomeJakeGuy/lm-decomp/GLMP01_01.svg?mode=shield&measure=data&label=PAL%20Rev%201%20Data
+[progress]: https://decomp.dev/SomeJakeGuy/lm-decomp
 
 A work-in-progress decompilation of Luigi's Mansion.
 
@@ -67,7 +67,7 @@ Building
 - Clone the repository:
 
   ```sh
-  git clone https://github.com/theplayerrolo/lm-decomp.git
+  git clone https://github.com/SomeJakeGuy/lm-decomp.git
   ```
 
 - Copy your game's disc image to `orig/GLME01`.
