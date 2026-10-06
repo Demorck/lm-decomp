@@ -1,5 +1,7 @@
-#ifndef KOGA_ARRAY_H_
-#define KOGA_ARRAY_H_
+#ifndef MR_ARRAY_HPP
+#define MR_ARRAY_HPP
+
+// Based on some eerily similar findings from SMG: https://github.com/SMGCommunity/Petari/blob/master/include/Game/Util/Array.hpp
 
 #include <types.h>
 
