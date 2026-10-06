@@ -766,6 +766,7 @@ config.libs = [
         Object(NonMatching, "Ajioka/Attack/AEnAtCar.cpp"),
         Object(NonMatching, "Ajioka/Attack/AEnAtPlane.cpp"),
         Object(NonMatching, "Ajioka/AEnHustler.cpp"),
+        Object(NonMatching, "Ajioka/AEnFamily.cpp"),
 
         # Koga
         Object(Matching, "Koga/GameModeUtil.cpp"),
