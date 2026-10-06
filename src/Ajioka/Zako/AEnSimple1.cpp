@@ -1,4 +1,4 @@
-#include "Ajioka/AEnSimple1.hpp"
+#include "Ajioka/Zako/AEnSimple1.hpp"
 #include "macros.h"
 
 dummy_float_data()

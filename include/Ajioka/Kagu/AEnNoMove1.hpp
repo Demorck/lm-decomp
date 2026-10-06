@@ -1,7 +1,7 @@
 #ifndef A_EN_NO_MOVE_1_HPP
 #define A_EN_NO_MOVE_1_HPP
 
-#include "Ajioka/AEnKaguBase.hpp"
+#include "Ajioka/Kagu/AEnKaguBase.hpp"
 
 class AEnNoMove1 : public AEnKaguBase {
 public:

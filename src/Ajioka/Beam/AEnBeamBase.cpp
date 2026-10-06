@@ -1,5 +1,5 @@
-#include "Ajioka/AEnBeamBase.hpp"
-#include "Ajioka/AEnZakoBase.hpp"
+#include "Ajioka/Beam/AEnBeamBase.hpp"
+#include "Ajioka/Zako/AEnZakoBase.hpp"
 #include "macros.h"
 
 static char lbl_804d4160[] = "FLY";

@@ -1,4 +1,4 @@
-#include "Ajioka/AEnNoMove2.hpp"
+#include "Ajioka/Kagu/AEnNoMove2.hpp"
 
 dummy_float_data()
 enemies_float_data()

@@ -1,29 +1,33 @@
-#ifndef A_EN_BEAM_1_HPP
-#define A_EN_BEAM_1_HPP
+#ifndef A_EN_BEAM_2_HPP
+#define A_EN_BEAM_2_HPP
 
-#include "Ajioka/AEnBeamBase.hpp"
+#include "Ajioka/Beam/AEnBeamBase.hpp"
 
-class AEnBeam1: public AEnBeamBase {
+class AEnBeam2: public AEnBeamBase {
 public: 
-    AEnBeam1() { };
-    virtual ~AEnBeam1();
+    AEnBeam2();
+    virtual ~AEnBeam2();
+
+    // From SaEnZakoUtility
+    virtual void vt_08();
 
     // From EnemyStrategy
-    virtual bool vt_14();
     virtual void doBehavior();
     virtual void doBehaviorInit();
 
     // From Koga::CharacterEventObserver
-    // Nothing is override
+    virtual bool onPlayerLeftRoom(Koga::CharacterEvent* msg);
 
     // From AEnZakoBase
-    virtual void AEnZakoBase_fn_800F5FA8();
+    virtual void AEnZakoBase_fn_800F5F4C();
     virtual void AEnZakoBase_fn_800F6010();
 
     // From AEnBeamBase
     virtual void AEnBeamBase_fn_800F6DF8();
     virtual void AEnBeamBase_fn_800F700C();
-    virtual void AEnBeamBase_fn_800F7120();
+    
+    // From this class
+    virtual void AEnBeam2_fn_800FA11C();
 
 
     // For ptmf for EnemyStrategy
@@ -37,8 +41,6 @@ public:
     bool state_4_Behavior();
     bool state_5_Init();
     bool state_5_Behavior();
-    bool state_6_Init();
-    bool state_6_Behavior();
 };
 
 #endif

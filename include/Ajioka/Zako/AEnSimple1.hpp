@@ -1,7 +1,7 @@
 #ifndef A_EN_SIMPLE_1_HPP
 #define A_EN_SIMPLE_1_HPP
 
-#include "Ajioka/AEnZakoBase.hpp"
+#include "Ajioka/Zako/AEnZakoBase.hpp"
 
 class AEnSimple1 : public AEnZakoBase {
 public:

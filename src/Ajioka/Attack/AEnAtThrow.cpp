@@ -1,4 +1,4 @@
-#include "Ajioka/AEnAtThrow.hpp"
+#include "Ajioka/Attack/AEnAtThrow.hpp"
 
 
 dummy_float_data()
