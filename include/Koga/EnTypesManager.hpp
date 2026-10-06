@@ -11,7 +11,7 @@
 
 
 class ToolDataRef;
-class unkEnCharacter;
+class EnThought;
 
 class EnemyParam {
     public:
@@ -100,7 +100,7 @@ s32 fn_800DAB18(char*); // Might be static?
 s32 fn_800DABA4(ToolDataRef); // Might be static?
 s32 fn_800DAC84(s32);
 void* fn_800DAD00(void*);
-unkEnCharacter* fn_800DB034(void*);
+EnThought* fn_800DB034(void*);
 void* fn_800DB06C(int);
 
 #endif

@@ -26,7 +26,7 @@ public:
     /* 0xC80 */ s32 _C80;
 };
 
-class JmpToolList : public Koga::Array<Koga::ToolData*, 10> {
+class JmpToolList : public MR::AssignableArray<Koga::ToolData*, 10> {
 public:
     JmpToolList() { }
     ~JmpToolList() { }
