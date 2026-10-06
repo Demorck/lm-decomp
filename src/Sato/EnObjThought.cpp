@@ -1,7 +1,9 @@
 #include "Sato/EnObjThought.hpp"
 
-EnObjThought::EnObjThought() {}
+dummy_float_data()
+
+EnObjThought::EnObjThought() { }
+
+void EnObjThought::vt_0C() { }
 
 EnObjThought::~EnObjThought() {}
-
-void EnObjThought::vt_0C() {}
