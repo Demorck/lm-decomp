@@ -1,4 +1,4 @@
-#include "Ajioka/AEnZakoBase.hpp"
+#include "Ajioka/Zako/AEnZakoBase.hpp"
 #include "Sato/EnemyStrategy.hpp"
 #include "macros.h"
 

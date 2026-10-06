@@ -1,7 +1,7 @@
 #ifndef EN_ATTACK_BASE_H_
 #define EN_ATTACK_BASE_H_
 
-#include "Ajioka/AEnAtStructs.hpp"
+#include "Ajioka/Attack/AEnAtStructs.hpp"
 #include "Koga/BaseParam.hpp"
 #include "Koga/ParamInst.hpp"
 #include "Koga/Params.hpp"

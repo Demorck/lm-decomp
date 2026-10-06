@@ -1,7 +1,7 @@
 #ifndef A_EN_NO_MOVE_2_HPP
 #define A_EN_NO_MOVE_2_HPP
 
-#include "Ajioka/AEnKaguBase.hpp"
+#include "Ajioka/Kagu/AEnKaguBase.hpp"
 #include "Koga/CharacterEventObserver.hpp"
 
 class AEnNoMove2 : public AEnKaguBase {

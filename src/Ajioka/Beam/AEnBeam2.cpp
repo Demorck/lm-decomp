@@ -1,4 +1,4 @@
-#include "Ajioka/AEnBeam2.hpp"
+#include "Ajioka/Beam/AEnBeam2.hpp"
 
 dummy_float_data()
 enemies_float_data()

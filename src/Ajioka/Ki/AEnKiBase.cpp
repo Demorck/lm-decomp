@@ -1,4 +1,4 @@
-#include "Ajioka/AEnKiBase.hpp"
+#include "Ajioka/Ki/AEnKiBase.hpp"
 #include "JSystem/JAudio/JAInterface/JAIAnimation.hpp"
 #include "macros.h"
 
