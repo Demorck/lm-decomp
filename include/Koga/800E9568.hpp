@@ -2,12 +2,33 @@
 #define KOGA_800E9568_HPP
 
 #include "Koga/CharacterEventObserver.hpp"
+#include "Sato/EnThought.hpp"
 #include <types.h>
 #include <JSystem/JGeometry/JGVec3.hpp>
 
 namespace Koga {
     class CharacterEvent;
 }
+
+class EnThought;
+
+enum CharacterState {
+    /* 0 */ DEFAULT_CHARSTATE,
+    /* 1 */ CHARSTATE_1,
+    /* 2 */ CHARSTATE_2
+};
+
+class unkEnManager1 {
+public:
+    unkEnManager1();
+    ~unkEnManager1();
+
+    /* 0x0 */ EnThought* _0;
+    /* 0x4 */ CharacterState mState;
+    /* 0x8 */ u32 _8;
+    /* 0xC */ u8 _C;
+    /* 0xD - 0xF */ u8 padding; 
+};
 
 JGeometry::TVec3f* fn_800E9568(s32);
 s32 fn_800E9594(s32);

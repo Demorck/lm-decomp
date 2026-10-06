@@ -6,6 +6,7 @@
 #include <JSystem/JORReflexible.hpp>
 
 #include "Koga/Message.hpp"
+#include "Koga/800E9568.hpp"
 #include "Koga/ToolData.hpp"
 #include "MR/Array.hpp"
 #include "dolphin/mtx.h"
@@ -31,24 +32,6 @@ public:
     /* 0x8 */ s32 _8;
     /* 0xC - 0x13 */ Vec mPosition;
     /* 0x18 */ u32 _18;
-};
-
-enum CharacterState {
-    /* 0 */ DEFAULT_CHARSTATE,
-    /* 1 */ CHARSTATE_1,
-    /* 2 */ CHARSTATE_2
-};
-
-class unkEnManager1 {
-public:
-    unkEnManager1();
-    ~unkEnManager1();
-
-    /* 0x0 */ EnThought* _0; // Probably just Character.hpp/cpp maybe?
-    /* 0x4 */ CharacterState mState;
-    /* 0x8 */ u32 _8;
-    /* 0xC */ u8 _C;
-    /* 0xD - 0xF */ u8 padding; 
 };
 
 class unkEnManager2 {

@@ -8,8 +8,6 @@
 #include "Unsorted/AssortedEnManager.hpp"
 #include "types.h"
 #include "Koga/800E634C.hpp"
-#include "Koga/800E82D8.hpp"
-#include "Koga/800E9568.hpp"
 
 #include <JSystem/JKernel/JKRArchive.hpp>
 #include <dolphin/mtx.h>
