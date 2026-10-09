@@ -1,5 +1,5 @@
-#ifndef CHARACTER_H_
-#define CHARACTER_H_
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
 #include "Unsorted/MoveObj.hpp"
 #include <JSystem/JGeometry/JGVec3.hpp>
