@@ -1,8 +1,8 @@
-#ifndef MOVE_OBJ_H_
-#define MOVE_OBJ_H_
+#ifndef MOVE_OBJ_HPP
+#define MOVE_OBJ_HPP
 
-#include "JSystem/JAudio/JAInterface/JAIAnimation.hpp"
-#include "JSystem/JGeometry/JGVec3.hpp"
+#include <JSystem/JAudio/JAInterface/JAIAnimation.hpp>
+#include <JSystem/JGeometry/JGVec3.hpp>
 #include <types.h>
 #include <dolphin/mtx.h>
 
