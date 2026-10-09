@@ -55,6 +55,6 @@ public:
 */
 
 #define PARAM_INIT(member, defaultValue)                                       \
-	member(this, defaultValue, #member, calcKeyCode(#member))
+	member(&mParams, defaultValue, #member, member.calcKeyCode(#member))
 
 #endif
