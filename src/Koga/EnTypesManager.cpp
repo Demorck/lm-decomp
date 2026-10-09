@@ -1,45 +1,37 @@
 #include "Koga/EnTypesManager.hpp"
 #include "Koga/EnManager.hpp"
 #include "Koga/ParamInst.hpp"
-#include "types.h"
-
-
-/* 
-TODO splits.txt creates a cyclic dependency if I include the .data and .sdata sections with EnAttackBase.
-May need to change / revise one of these but to not lose the section data:
-	.data       start:0x80360D78 end:0x80361080
-	.sdata      start:0x804D3938 end:0x804D3970
-*/
+#include "Unsorted/ActorDataList.hpp"
 
 
 // https://decomp.me/scratch/6Feh6
 EnemyParam::EnemyParam() : 
-    mLife(&mParams, 0, "mLife", mLife.calcKeyCode("mLife")),
-    mHitDamange(&mParams, 0, "mHitDamange", mHitDamange.calcKeyCode("mHitDamange")),
-    mSpeed(&mParams, 0, "mSpeed", mSpeed.calcKeyCode("mSpeed")),
-    mSpeedUnseen(&mParams, 0, "mSpeedUnseen", mSpeedUnseen.calcKeyCode("mSpeedUnseen")),
-    mSpeedFight(&mParams, 0, "mSpeedFight", mSpeedFight.calcKeyCode("mSpeedFight")),
-    mEyesight(&mParams, 0, "mEyesight", mEyesight.calcKeyCode("mEyesight")),
-    mLightBindFrame(&mParams, 0, "mLightBindFrame", mLightBindFrame.calcKeyCode("mLightBindFrame")),
-    mMinLightBindRange(&mParams, 0, "mMinLightBindRange", mMinLightBindRange.calcKeyCode("mMinLightBindRange")),
-    mMaxLightBindRange(&mParams, 0, "mMaxLightBindRange", mMaxLightBindRange.calcKeyCode("mMaxLightBindRange")),
-    mNumAtKarakai(&mParams, 0, "mNumAtKarakai", mNumAtKarakai.calcKeyCode("mNumAtKarakai")),
-    mNumAtOrooro(&mParams, 0, "mNumAtOrooro", mNumAtOrooro.calcKeyCode("mNumAtOrooro")),
-    mHikiPower(&mParams, 0, "mHikiPower", mHikiPower.calcKeyCode("mHikiPower")),
-    mEffectiveDeg(&mParams, 0, "mEffectiveDeg", mEffectiveDeg.calcKeyCode("mEffectiveDeg")),
-    mTsuriHeight(&mParams, 0, "mTsuriHeight", mTsuriHeight.calcKeyCode("mTsuriHeight")),
-    mDisappearFrame(&mParams, 0, "mDisappearFrame", mDisappearFrame.calcKeyCode("mDisappearFrame")),
-    mAttackPattern1(&mParams, 0, "mAttackPattern1", mAttackPattern1.calcKeyCode("mAttackPattern1")),
-    mActAfterAttackSu(&mParams, 0, "mActAfterAttackSu", mActAfterAttackSu.calcKeyCode("mActAfterAttackSu")),
-    mActAfterAttackFa(&mParams, 0, "mActAfterAttackFa", mActAfterAttackFa.calcKeyCode("mActAfterAttackFa")),
-    mTsuriType(&mParams, 0, "mTsuriType", mTsuriType.calcKeyCode("mTsuriType")),
-    mElement(&mParams, 0, "mElement", mElement.calcKeyCode("mElement")),
-    mCheckBox(&mParams, 0, "mCheckBox", mCheckBox.calcKeyCode("mCheckBox")),
-    mNormalItemTblId(&mParams, 0, "mNormalItemTblId", mNormalItemTblId.calcKeyCode("mNormalItemTblId")),
-    mTsuriItemTblId(&mParams, 0, "mTsuriItemTblId", mTsuriItemTblId.calcKeyCode("mTsuriItemTblId")),
-    mPointerRange(&mParams, 0, "mPointerRange", mPointerRange.calcKeyCode("mPointerRange")),
-    mBrightColor(&mParams, 0, "mBrightColor", mBrightColor.calcKeyCode("mBrightColor")),
-    mAmbColor(&mParams, 0, "mAmbColor", mAmbColor.calcKeyCode("mAmbColor")) {
+    PARAM_INIT(mLife, 0),
+    PARAM_INIT(mHitDamange, 0),
+    PARAM_INIT(mSpeed, 0),
+    PARAM_INIT(mSpeedUnseen, 0),
+    PARAM_INIT(mSpeedFight, 0),
+    PARAM_INIT(mEyesight, 0),
+    PARAM_INIT(mLightBindFrame, 0),
+    PARAM_INIT(mMinLightBindRange, 0),
+    PARAM_INIT(mMaxLightBindRange, 0),
+    PARAM_INIT(mNumAtKarakai, 0),
+    PARAM_INIT(mNumAtOrooro, 0),
+    PARAM_INIT(mHikiPower, 0),
+    PARAM_INIT(mEffectiveDeg, 0),
+    PARAM_INIT(mTsuriHeight, 0),
+    PARAM_INIT(mDisappearFrame, 0),
+    PARAM_INIT(mAttackPattern1, 0),
+    PARAM_INIT(mActAfterAttackSu, 0),
+    PARAM_INIT(mActAfterAttackFa, 0),
+    PARAM_INIT(mTsuriType, 0),
+    PARAM_INIT(mElement, 0),
+    PARAM_INIT(mCheckBox, 0),
+    PARAM_INIT(mNormalItemTblId, 0),
+    PARAM_INIT(mTsuriItemTblId, 0),
+    PARAM_INIT(mPointerRange, 0),
+    PARAM_INIT(mBrightColor, 0),
+    PARAM_INIT(mAmbColor, 0) {
         // Maybe this isn't some default constructor based on mBrightColor / mAmbColor, since they both call fn_800D2FA0, which basically sets the defaults
         //  of these colors to -1 / 64, or maybe TBaseParam / TParamT needs its own inline base constructor?
     }
@@ -61,6 +53,10 @@ namespace Koga {
     void EnTypesManager::deleteManager() {
         delete sManager;
         sManager = nullptr;
+    }
+
+    char* EnTypesManager::fn_800DAAF8(s32 idx) {
+       return ActorData::getActorName(idx);
     }
 
     s32 EnTypesManager::getEnemyLife(int enemyIdx) {

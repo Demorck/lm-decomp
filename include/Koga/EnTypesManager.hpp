@@ -4,8 +4,8 @@
 #include <dolphin/types.h>
 #include <types.h>
 #include <JSystem/JORReflexible.hpp>
+#include <JSystem/JUtility/JUTColor.hpp>
 
-#include "JSystem/JUtility/JUTColor.hpp"
 #include "Koga/ParamInst.hpp"
 #include "Koga/Params.hpp"
 
@@ -59,6 +59,7 @@ namespace Koga {
         static EnTypesManager* getManager() { return sManager; }
 
         void loadCTPParams(); // Loads "/param/ctp/%s.prm" in some sprintf loop
+        static char* fn_800DAAF8(s32); //Unsure about return type/args. Maybe static?
 
         // Various EnemyParam helpers
         static s32 getEnemyLife(int);
