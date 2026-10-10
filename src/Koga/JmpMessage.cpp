@@ -51,7 +51,7 @@ BOOL JmpMessageSender::remove(Koga::ToolData* pData) {
     return true;
 }
 
-BOOL JmpMessageSender::fn_800EAA00(const char* param_1, int param_2) {
+BOOL JmpMessageSender::fn_800EAA00(const char* param_1, s32 param_2) {
 
     for (Koga::ToolData** pIter = _CBC.getArray(); pIter != _CBC.getLastMember(); pIter++) {
         Koga::ToolData* curr = *pIter;
