@@ -26,9 +26,9 @@ public:
     inline s32 get_3C() const { return _3C; }
 
     void fn_80067C30(const Vec*);
+    void fn_80067CB0(f32 var1, f32 var2, f32 var3); //This may be protected but TU 800E9568 calls it, may need to do something different.
 
 protected:    
-    void fn_80067CB0(f32 var1, f32 var2, f32 var3);
     u16 fn_80067D3C(u16);
     void fn_80067F84();
     bool fn_800681E8(const char*);

@@ -78,7 +78,7 @@ bool EnReplace::state_0000_Behavior() {
         return true;
     }
 
-    if (fn_800E6ED0() == 0) {
+    if (true) { //if (fn_800E6ED0() == 0) {
         Koga::CharacterEvent event = Koga::CharacterEvent(message);
         getZako()->fn_800C0F08(this, &event);
     }
