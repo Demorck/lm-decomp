@@ -76,7 +76,7 @@ namespace Koga {
 
         void fn_800E52BC(ToolData*);
         u32 findLuigiAppearIndex(ToolData*, u32);
-        ToolDataRef fn_800E5488(s32);
+        ToolDataRef* fn_800E5488(s32);
         
         Vec* fn_800E5564(s32);
         u32 fn_800E55AC(s32);
@@ -91,13 +91,13 @@ namespace Koga {
         s32 fn_800E5868(s32, s32);
         unkEnManager1* fn_800E58D4(u32, ToolData*, s32); // Needs more decompilation
         void fn_800E59D4(s32);
-        void* fn_800E5A00();
+        static void fn_800E5A00(unkEnManager1Wrapper*, EnManager*); // TODO Fake Match, probably not static
         EnThought* fn_800E5A14(void*);
         EnThought* fn_800E5A80(s32); // Requires some lbl to be decompiled: lbl_803D7004
         void fn_800E5ABC(s32);
         void fn_800E5AE8(); // Requires some lbl to be decompiled: lbl_80363BF8
         BOOL fn_800E5B88(); // Requires that fn_800AD39C and its resulting struct/class be decompiled more.
-        s32 fn_800E5BF8(u32); // I think this depends on MoveObj, which probably need more details from here.
+        s32 fn_800E5BF8(const char*); // I think this depends on MoveObj, which probably need more details from here.
         s32 fn_800E5D18(const char*); // Requires some lbl to be decompiled: lbl_80363B88
         static int fn_800E5E60(int);  // Requires some lbl to be decompiled: lbl_80363B50
         void fn_800E5E78(const char*);
@@ -106,9 +106,9 @@ namespace Koga {
         inline s32 getMaxAppearSlotIndex() { return sAppearPointSlotIndex + 1; }
 
     public:
-        /* 0x04 - 0x803 */  MR::FixedArray<unkEnManager1, 0x80> _4;
-        /* 0x804 - 0xE07 */ unkEnManager3 _804;
-        /* 0xE08 - 0xE3F */ AppearPointSlot _E08[2];
+        /* 0x004 */ MR::FixedArray<unkEnManager1, 0x80> _4;
+        /* 0x804 */ unkEnManager3 _804;
+        /* 0xE08 */ AppearPointSlot _E08[2];
         /* 0xE40 */ Koga::ToolData* mInfoTable;
         /* 0xE44 */ u8 _E44;
 

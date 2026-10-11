@@ -2,6 +2,7 @@
 #include "Koga/EnManager.hpp"
 #include "Koga/ParamInst.hpp"
 #include "Unsorted/ActorDataList.hpp"
+#include "Unsorted/AssortedEnManager.hpp"
 
 
 // https://decomp.me/scratch/6Feh6
@@ -57,6 +58,29 @@ namespace Koga {
 
     char* EnTypesManager::fn_800DAAF8(s32 idx) {
        return ActorData::getActorName(idx);
+    }
+
+    u32 EnTypesManager::fn_800DAC84(u32 idx) {
+        u32 temp = ActorData::fn_8006A354(idx);
+        u32 temp2 = fn_80187920(temp);
+
+        if (temp2 <= 5) {
+            return 0;
+        }
+
+        if (temp2 <= 20) {
+            return 1;
+        }
+
+        if (temp2 <= 82) {
+            return 2;
+        }
+
+        if (temp2 <= 0x13E) {
+            return 3;
+        }
+
+        return -1;
     }
 
     s32 EnTypesManager::getEnemyLife(int enemyIdx) {
