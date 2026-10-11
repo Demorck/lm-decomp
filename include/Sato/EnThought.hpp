@@ -7,11 +7,13 @@
 #include "MR/Array.hpp"
 #include "Koga/ToolData.hpp"
 #include "Sato/EnReplace.hpp"
+#include "Sato/EnemyStrategy.hpp"
 #include "Sato/IncludeStrategy.hpp"
 #include "Koga/ValueControl.hpp"
 #include "Unsorted/Character.hpp"
 
 namespace Koga {
+    class CharacterEvent;
     class EnManager;
 }
 
@@ -59,6 +61,9 @@ public:
     bool fn_800BF8D8(JGeometry::TVec3f*);
     bool fn_800BF980(u16*, u16*, u16*);
 
+    s32 fn_800C0E48(f32);
+    static bool fn_800C0F08(EnemyStrategy*, Koga::CharacterEvent*);
+
     void fn_800C17EC();
 
     void fn_800C19CC(s32);
@@ -77,7 +82,6 @@ public:
     inline Character* getCharacter() const { return _808; }
     inline bool isValid() const { return (mpData != nullptr && mEntryIdx >= 0); }
 
-private:
     // Object that holds at least 0xE8 data. In the reset, it's calling fn_80067C30 which is in MoveObj split. Probably an entity
     /* 0x808 */ Character* _808; 
     /* 0x80C */ Koga::EnManager* _80C;
