@@ -1,27 +1,30 @@
+#include "Koga/800E9568.hpp"
 #include "Koga/EnManager.hpp"
+#include "Koga/EnTypesManager.hpp"
 #include "Koga/GameModeUtil.hpp"
-
-
-int fn_800E85C8(s32) {}
+#include "Koga/ToolData.hpp"
+#include "Sato/EnThought.hpp"
+#include "Unsorted/ActorDataList.hpp"
+#include "Koga/800E82D8.hpp"
 
 // Does not match due to some ToolData inline shenanigans. Seems to match more as a u32 input though than u8
 // https://decomp.me/scratch/PdZKG
-ToolDataRef ToolDataRef::fn_800E82D8(u32 param_1) {
+ToolDataRef fn_800E82D8(u32 param_1) {
     ToolDataRef vRef;
     if (param_1 == -1) {
-        vRef.setEntryIndex(-1);
+        vRef.reset();
         return vRef;
     }
 
     Koga::ToolData* treasureTable = Koga::GameModeUtil::getJmpResource("treasuretable");
     if (treasureTable == nullptr) {
-        vRef.setEntryIndex(-1);
+        vRef.reset();
         return vRef;
     }
 
     int roomNo = treasureTable->findEntryByValue(treasureTable->searchItemInfo("room"), param_1 & 0xFF, 0);
     if (roomNo == -1) {
-        vRef.setEntryIndex(-1);
+        vRef.reset();
         return vRef;
     }
 
@@ -30,23 +33,48 @@ ToolDataRef ToolDataRef::fn_800E82D8(u32 param_1) {
     return vRef;
 }
 
+void fn_800E83A0(EnThought* param_1) {
+    s32 temp;
+    s32 enNormalTblId = fn_800E8438(param_1);
 
-// Does not match due to some ToolData inline shenanigans
+    // _900 has something else we need to check against, cannot continue without more details
+    if (param_1->_900 && enNormalTblId == 3) {
+        ToolDataRef sheart = fn_800E8D1C("sheart");
+        temp = fn_800E8EF4(&sheart, param_1->getCharacter()->_44, nullptr);
+    } else {
+        ToolDataRef tRef = fn_800E84CC(enNormalTblId);
+        temp = fn_800E8EF4(&tRef, param_1->getCharacter()->_44, nullptr);
+    }
+}
+
+
+s32 fn_800E8438(EnThought* param_1) {
+    ToolDataRef tRef = param_1->getToolDataRef();
+
+    u32 itemNum;
+    if (tRef.isValid() && tRef.getToolData()->getValue(tRef.getEntryIndex(), "item_table", &itemNum)) {
+        if (itemNum != 0) {
+            return Koga::EnTypesManager::getEnemyNormalItemTblId(param_1->getCharacter()->_3C);
+        }
+    }
+    
+    return 0;
+}
+
+
 // https://decomp.me/scratch/iXsZ8
-ToolDataRef ToolDataRef::fn_800E84CC(s32 param_1) {
+ToolDataRef fn_800E84CC(s32 param_1) {
     ToolDataRef vRef;
     Koga::ToolData* itemAppear = Koga::GameModeUtil::getJmpResource("itemappeartable");
     
     if (itemAppear == nullptr) {
-        vRef.setToolData(nullptr);
-        vRef.setEntryIndex(-1);
+        vRef.reset();
         return ToolDataRef(&vRef);
     }
 
     int entryIdx = fn_800E85C8(param_1);
     if (entryIdx > itemAppear->getDataEntryNum()) {
-        vRef.setToolData(nullptr);
-        vRef.setEntryIndex(-1);
+        vRef.reset();
         return ToolDataRef(&vRef);
     }
 
@@ -62,14 +90,12 @@ ToolDataRef ToolDataRef::fn_800E8658(s32 param_1, s32 param_2, s32 param_3) {
     Koga::ToolData* itemFishing = Koga::GameModeUtil::getJmpResource("itemfishingtable");
 
     if (itemFishing == nullptr) {
-        tmp.setToolData(nullptr);
-        tmp.setEntryIndex(-1);
+        tmp.reset();
         return ToolDataRef(&tmp);
     }
 
     if (param_1 <= itemFishing->getDataEntryNum()) {
-        tmp.setToolData(nullptr);
-        tmp.setEntryIndex(-1);
+        tmp.reset();
         return ToolDataRef(&tmp);
     }
 
@@ -87,12 +113,46 @@ ToolDataRef ToolDataRef::fn_800E8658(s32 param_1, s32 param_2, s32 param_3) {
 
     const char* itemName = itemFishing->getStringValue(param_2, param_3);
     if (strcmp(itemName, "-") == 0) {
-        tmp.setToolData(nullptr);
-        tmp.setEntryIndex(-1);
+        tmp.reset();
         return ToolDataRef(&tmp); 
     }
 
-    return ToolDataRef::findInfoTableName(itemName);;
+    return fn_800E8D1C(itemName);;
+}
+
+void fn_800E87B0(u8* param_1, s32 param_2) {
+    u32 temp2;
+    Koga::ToolData* itemInfo = Koga::GameModeUtil::getJmpResource("itemappeartable");
+    if (itemInfo == nullptr) {
+        return;
+    }
+
+    s32 numFields = itemInfo->getJMapData()->mNumFields;
+    for (s32 i = 0; i < numFields; i++) {
+        ToolDataRef tRef = fn_800E8D1C(itemInfo->getStringValue(param_2, i));
+        if (!tRef.isNameValid() && !tRef.isNameMoney()) {
+            s32 temp = fn_800E8E78(&tRef);
+            if (temp < 0) {
+                continue;
+            }
+
+            *param_1 = ActorData::fn_8006A354(temp);
+        }
+    }
+}
+
+void fn_800E8880(u32 param_1) {
+    u8 temp2;
+    ToolDataRef tRef = fn_800E82D8(param_1);
+
+    if (!tRef.isValid()) {
+        return;
+    }
+
+    const char* other;
+    tRef.getToolData()->getValue(tRef.getEntryIndex(), "other", &other);
+    ToolDataRef temp = fn_800E8D1C(other);
+    fn_800E8E0C(&temp, &temp2);
 }
 
 ToolDataRef::ToolDataRef(const ToolDataRef* pSrc) {
@@ -101,15 +161,14 @@ ToolDataRef::ToolDataRef(const ToolDataRef* pSrc) {
 }
 
 // https://decomp.me/scratch/qYZ9J
-ToolDataRef ToolDataRef::findInfoTableName(const char* pName) {
+ToolDataRef fn_800E8D1C(const char* pName) {
     ToolDataRef temp;
     Koga::ToolData* itemInfo = Koga::GameModeUtil::getJmpResource("iteminfotable");
     int fieldIndex = itemInfo->searchItemInfo("name");
     int charFound = itemInfo->findEntryByValue(fieldIndex, pName, 0);
 
     if (charFound == -1) {
-        temp.setToolData(nullptr);
-        temp.setEntryIndex(-1);
+        temp.reset();
     } else {
         temp.setToolData(itemInfo);
         temp.setEntryIndex(charFound);
@@ -128,6 +187,15 @@ const char* ToolDataRef::getName() {
         getToolData()->getValue(mEntryIndex, "name", &name);
     }
     return name;
+}
+
+void fn_800E8E0C(ToolDataRef* param_1, u8* param_2) {
+    if (param_1->isNameValid() && !param_1->isNameMoney()) {
+        s32 temp = fn_800E8E78(param_1);
+        if (temp >= 0) {
+            *param_2 = ActorData::fn_8006A354(temp);
+        }
+    }
 }
 
 // Matches except one instruction. Also depends on the getName above to not inline.
@@ -156,4 +224,17 @@ const BOOL ToolDataRef::isNameMoney() {
     }
 
     return nameValid;
+}
+
+s32 fn_800E8E78(ToolDataRef* param_1) {
+    const char* temp = nullptr;
+    if (param_1->isValid()) {
+        param_1->getToolData()->getValue(param_1->getEntryIndex(), "character_name", &temp);
+    }
+
+    if (temp == nullptr) {
+        return -1;
+    }
+
+    return Koga::EnTypesManager::fn_800DAB18(temp);
 }

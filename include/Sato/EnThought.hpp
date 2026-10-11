@@ -80,7 +80,7 @@ public:
     inline void set810(void* vVal) { _810 = vVal; }
 
     inline Character* getCharacter() const { return _808; }
-    inline bool isValid() const { return (mpData != nullptr && mEntryIdx >= 0); }
+    inline bool isValid() const { return (mpToolData != nullptr && mEntryIdx >= 0); }
 
     // Object that holds at least 0xE8 data. In the reset, it's calling fn_80067C30 which is in MoveObj split. Probably an entity
     /* 0x808 */ Character* _808; 
@@ -98,7 +98,7 @@ public:
     /* 0x89c */ void* _89c;
     /* 0x8a0 */ void* _8a0;
     /* 0x8a4 */ MoveObjAlphaControl mAlphaControl;
-    /* 0x8c0 */ Koga::ToolData* mpData;
+    /* 0x8c0 */ Koga::ToolData* mpToolData;
     /* 0x8c4 */ s32 mEntryIdx;
     /* 0x8c8 */ s32 _8c8;
     /* 0x8cc */ void* _8cc;

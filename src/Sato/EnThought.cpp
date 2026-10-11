@@ -137,14 +137,14 @@ EnThought::~EnThought() {
 
 
 void EnThought::setToolDataRef(Koga::ToolData* pData, s32 idx) {
-    mpData = pData;
+    mpToolData = pData;
     mEntryIdx = idx;
 }
 
 
 ToolDataRef EnThought::getToolDataRef() const {
     ToolDataRef ref;
-    ref.setToolData(mpData);
+    ref.setToolData(mpToolData);
     ref.setEntryIndex(mEntryIdx);
     return ref;
 }
@@ -167,7 +167,7 @@ bool EnThought::fn_800BF8D8(JGeometry::TVec3f* out) {
 
 bool EnThought::fn_800BF980(u16* param_1, u16* param_2, u16* param_3) {
     ToolDataRef ref; 
-    setToolDataRef(mpData, mEntryIdx);
+    setToolDataRef(mpToolData, mEntryIdx);
     if (!ref.isValid()) {
         return false;
     }

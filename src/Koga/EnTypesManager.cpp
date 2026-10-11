@@ -1,8 +1,10 @@
 #include "Koga/EnTypesManager.hpp"
 #include "Koga/EnManager.hpp"
 #include "Koga/ParamInst.hpp"
+#include "Koga/UnkUtil.hpp"
 #include "Unsorted/ActorDataList.hpp"
 #include "Unsorted/AssortedEnManager.hpp"
+#include <string.h>
 
 
 // https://decomp.me/scratch/6Feh6
@@ -58,6 +60,24 @@ namespace Koga {
 
     char* EnTypesManager::fn_800DAAF8(s32 idx) {
        return ActorData::getActorName(idx);
+    }
+
+    s32 EnTypesManager::fn_800DAB18(const char* param_1) {
+        u32 temp = hashStringSeperate(param_1);
+
+        for (u32 i = 0; i < 381; i++) {
+            char* name = ActorData::getActorName(i);
+            u32 nameHash = hashStringSeperate(name);
+
+            if (nameHash == temp) {
+                char* nameAgain = ActorData::getActorName(i);
+                if (strcmp(param_1, nameAgain) == 0) {
+                    return i;
+                }
+            }
+        }
+
+        return -1;
     }
 
     u32 EnTypesManager::fn_800DAC84(u32 idx) {
