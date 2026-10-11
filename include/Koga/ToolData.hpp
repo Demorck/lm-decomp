@@ -147,6 +147,11 @@ class ToolDataRef {
         inline void setToolData(Koga::ToolData* pData) { mToolData = pData; }
         inline s32 getEntryIndex() { return mEntryIndex; }
         inline void setEntryIndex(s32 entryIndex) { mEntryIndex = entryIndex; }
+
+        inline void reset() { 
+            mToolData = nullptr; 
+            mEntryIndex = -1;
+        }
         
         inline bool isValid() const { return (mToolData != nullptr && mEntryIndex >= 0); }
         inline bool isSameEntry(const ToolDataRef& rOther) const {
