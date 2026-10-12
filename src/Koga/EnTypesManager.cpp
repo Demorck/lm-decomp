@@ -1,4 +1,5 @@
 #include "Koga/EnTypesManager.hpp"
+#include "JSystem/JUtility/JUTColor.hpp"
 #include "Koga/EnManager.hpp"
 #include "Koga/ParamInst.hpp"
 #include "Koga/UnkUtil.hpp"
@@ -197,13 +198,13 @@ namespace Koga {
     }
 
     // https://decomp.me/scratch/rwCN5
-    JUtility::TColor EnTypesManager::getEnemyBrightColor(int enemyIdx) {
-        return getManager()->mEnParams[enemyIdx].mBrightColor.get();
+    u32 EnTypesManager::getEnemyBrightColor(int enemyIdx) {
+        return JUtility::TColor(getManager()->mEnParams[enemyIdx].mBrightColor.get());
     }
     
     // https://decomp.me/scratch/b6HLd
-    JUtility::TColor EnTypesManager::getEnemyAmbColor(int enemyIdx) {
-        return getManager()->mEnParams[enemyIdx].mAmbColor.get();
+    u32 EnTypesManager::getEnemyAmbColor(int enemyIdx) {
+        return JUtility::TColor(getManager()->mEnParams[enemyIdx].mAmbColor.get());
     }
 
     s32 EnTypesManager::getEnemyAttackPattern1(int enemyIdx) {

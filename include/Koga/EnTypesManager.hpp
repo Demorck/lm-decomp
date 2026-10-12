@@ -85,8 +85,8 @@ namespace Koga {
         static s32 getEnemyNormalItemTblId(int);
         static s32 getEnemyTsuriItemTblId(int);
         static s32 getEnemyDisappearFrame(int);
-        static JUtility::TColor getEnemyBrightColor(int);
-        static JUtility::TColor getEnemyAmbColor(int);
+        static u32 getEnemyBrightColor(int);
+        static u32 getEnemyAmbColor(int);
         static s32 getEnemyAttackPattern1(int);
         static s32 getEnemyTsuriType(int);
         static s32 getEnemyElement(int);
