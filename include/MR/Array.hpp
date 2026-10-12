@@ -3,14 +3,20 @@
 
 // Based on some eerily similar findings from SMG: https://github.com/SMGCommunity/Petari/blob/master/include/Game/Util/Array.hpp
 
+#include "dolphin/macros.h"
 #include <types.h>
 
 namespace MR {
     template <typename T, s32 S>
     class AssignableArray {
     public:
-        AssignableArray() { mArraySize = 0; }
-        ~AssignableArray() {}
+        AssignableArray() {
+            FORCE_DONT_INLINE 
+            mArraySize = 0; 
+        }
+        ~AssignableArray() {
+            FORCE_DONT_INLINE
+        }
 
         s32 getSize() const { return mArraySize; }
         void resetSize() { mArraySize = 0; }
@@ -31,10 +37,12 @@ namespace MR {
         }
 
         void addMember(T* member) {
+            FORCE_DONT_INLINE
             mArr[mArraySize++] = *member;
         }
 
         T* eraseMember(T* pIter) {
+            FORCE_DONT_INLINE
             if (getLastMember() - pIter - 1 > 0) {
                 for (T* curr = pIter; (curr + 1) != getLastMember(); curr++) {
                     *curr = *(curr + 1);
