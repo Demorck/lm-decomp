@@ -58,8 +58,8 @@ public:
     void setToolDataRef(Koga::ToolData*, s32);
     ToolDataRef getToolDataRef() const;
 
-    bool fn_800BF8D8(JGeometry::TVec3f*);
-    bool fn_800BF980(u16*, u16*, u16*);
+    bool getPosition(JGeometry::TVec3f*);
+    bool getDirectionNormalized(u16*, u16*, u16*);
 
     s32 fn_800C0E48(f32);
     static bool fn_800C0F08(EnemyStrategy*, Koga::CharacterEvent*);

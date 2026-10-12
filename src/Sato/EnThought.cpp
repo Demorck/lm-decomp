@@ -149,7 +149,7 @@ ToolDataRef EnThought::getToolDataRef() const {
     return ref;
 }
 
-bool EnThought::fn_800BF8D8(JGeometry::TVec3f* out) {
+bool EnThought::getPosition(JGeometry::TVec3f* out) {
     ToolDataRef ref = getToolDataRef();
     if (!ref.isValid()) {
         return false;
@@ -165,7 +165,7 @@ bool EnThought::fn_800BF8D8(JGeometry::TVec3f* out) {
     return true;
 }
 
-bool EnThought::fn_800BF980(u16* param_1, u16* param_2, u16* param_3) {
+bool EnThought::getDirectionNormalized(u16* param_1, u16* param_2, u16* param_3) {
     ToolDataRef ref; 
     setToolDataRef(mpToolData, mEntryIdx);
     if (!ref.isValid()) {
@@ -180,9 +180,9 @@ bool EnThought::fn_800BF980(u16* param_1, u16* param_2, u16* param_3) {
     Koga::ToolData* pData = ref.mToolData;
     s32 entryIdx = ref.mEntryIndex;
 
-    pData->getValue(entryIdx, "pos_x", &dir.x);
-    pData->getValue(entryIdx, "pos_y", &dir.y);
-    pData->getValue(entryIdx, "pos_z", &dir.z);
+    pData->getValue(entryIdx, "dir_x", &dir.x);
+    pData->getValue(entryIdx, "dir_y", &dir.y);
+    pData->getValue(entryIdx, "dir_z", &dir.z);
 
     *param_1 = normalizeAngle(dir.x);
     *param_2 = normalizeAngle(dir.y);

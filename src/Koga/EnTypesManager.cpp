@@ -74,16 +74,12 @@ namespace Koga {
         return -1;
     }
 
-    s32 EnTypesManager::fn_800DAB18(const char* param_1) {
-        u32 temp = hashStringSeperate(param_1);
+    s32 EnTypesManager::fn_800DAB18(const char* pName) {
+        u32 nameHash = hashStringSeperate(pName);
 
         for (u32 i = 0; i < 381; i++) {
-            char* name = ActorData::getActorName(i);
-            u32 nameHash = hashStringSeperate(name);
-
-            if (nameHash == temp) {
-                char* nameAgain = ActorData::getActorName(i);
-                if (strcmp(param_1, nameAgain) == 0) {
+            if (nameHash == hashStringSeperate(ActorData::getActorName(i))) {
+                if (strcmp(pName, ActorData::getActorName(i)) == 0) {
                     return i;
                 }
             }
