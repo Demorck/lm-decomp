@@ -7,11 +7,10 @@
 #include "Koga/MissionMode.hpp"
 #include "Koga/JMPMessage.hpp"
 #include "Sato/EnThought.hpp"
-#include "Unsorted/AssortedEnManager.hpp"
 #include "Koga/EnTypesManager.hpp"
 #include "Unsorted/Character.hpp"
 #include "Koga/ToolData.hpp"
-#include "types.h"
+
 
 Vec* fn_800E9568(s32 appearSlotIndex) {
     return Koga::MissionMode::getMissionMode()->getEnManager()->fn_800E5564(appearSlotIndex);
@@ -70,7 +69,7 @@ void fn_800E97B0(s32 param_1) {
 }
 
 Character* fn_800E97DC(char* param_1) {
-    char* temp2;
+    const char* temp2;
     unkEnManager1Wrapper temp = unkEnManager1Wrapper();
     fn_800E98E0(&temp);
 

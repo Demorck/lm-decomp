@@ -80,7 +80,10 @@ public:
     inline void set810(void* vVal) { _810 = vVal; }
 
     inline Character* getCharacter() const { return _808; }
-    inline bool isValid() const { return (mpToolData != nullptr && mEntryIdx >= 0); }
+    inline bool isValid() const { 
+        return mpToolData != nullptr && 
+        mEntryIdx >= 0; 
+    }
 
     // Object that holds at least 0xE8 data. In the reset, it's calling fn_80067C30 which is in MoveObj split. Probably an entity
     /* 0x808 */ Character* _808; 

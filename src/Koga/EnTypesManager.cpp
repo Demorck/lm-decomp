@@ -1,12 +1,11 @@
+#include <string.h>
+
 #include "Koga/EnTypesManager.hpp"
-#include "JSystem/JUtility/JUTColor.hpp"
 #include "Koga/EnManager.hpp"
 #include "Koga/ParamInst.hpp"
 #include "Koga/UnkUtil.hpp"
 #include "Unsorted/ActorDataList.hpp"
 #include "Unsorted/AssortedEnManager.hpp"
-#include "types.h"
-#include <string.h>
 
 
 // https://decomp.me/scratch/6Feh6
@@ -60,7 +59,7 @@ namespace Koga {
         sManager = nullptr;
     }
 
-    char* EnTypesManager::fn_800DAAF8(s32 idx) {
+    const char* EnTypesManager::fn_800DAAF8(s32 idx) {
        return ActorData::getActorName(idx);
     }
 
@@ -88,7 +87,7 @@ namespace Koga {
         return -1;
     }
 
-    u32 EnTypesManager::fn_800DAC84(u32 idx) {
+    s32 EnTypesManager::fn_800DAC84(u32 idx) {
         u32 temp = ActorData::fn_8006A354(idx);
         u32 temp2 = fn_80187920(temp);
 

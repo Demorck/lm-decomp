@@ -4,9 +4,7 @@
 #include <types.h>
 #include <JSystem/JGeometry/JGVec3.hpp>
 
-#include "Koga/CharacterEventObserver.hpp"
 #include "Sato/EnThought.hpp"
-#include "Unsorted/AssortedEnManager.hpp"
 
 namespace Koga {
     class CharacterEvent;
@@ -30,7 +28,6 @@ public:
     /* 0x4 */ CharacterState mState;
     /* 0x8 */ u32 _8;
     /* 0xC */ u8 _C;
-    /* 0xD - 0xF */ u8 padding;
 
     void fn_800E9A0C(EnThought*);
     BOOL fn_800E9A58(s32);

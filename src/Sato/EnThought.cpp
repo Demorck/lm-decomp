@@ -1,7 +1,5 @@
 // Based on the previous decompilation effort: https://github.com/CoNesTra/zmansion/blob/main/src/Unsorted/IncludeStrategy.cpp
 #include "Sato/EnThought.hpp"
-#include "JSystem/JGeometry/JGVec3.hpp"
-#include "Koga/ToolData.hpp"
 #include "Sato/EnemyStrategy.hpp"
 #include "Sato/IncludeStrategy.hpp"
 #include "Koga/UnkUtil.hpp"

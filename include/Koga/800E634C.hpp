@@ -15,7 +15,6 @@ struct SomeStruct {
     u16 _0; // Dir X? Needs validation
     u16 _2; // Dir Y? Needs validation
     u16 _4; // Dir Z? Needs validation
-    u16 padding;
     MoveObj* _8;
 };
 

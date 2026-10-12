@@ -23,7 +23,6 @@ class ActorData {
         /* 0xC */ unkActorData1* _C;
         /* 0x10 */ unkActorData1* _10; // Could be the same as the above.
         /* 0x14 */ u16 _14;
-        /* 0x16 */ u16 _16; // padding?
         /* 0x18 */ char* mActorName;
  
         // This might make more sense in a Util class, unsure at this time without digging more.
