@@ -60,6 +60,7 @@ namespace Koga {
 
         void loadCTPParams(); // Loads "/param/ctp/%s.prm" in some sprintf loop
         static char* fn_800DAAF8(s32); //Unsure about return type/args. Maybe static?
+        static s32 fn_800DABA4(ToolDataRef*);
         static s32 fn_800DAB18(const char*); //Maybe static?
         static u32 fn_800DAC84(u32); //Unsure about return type/args. Maybe static
 

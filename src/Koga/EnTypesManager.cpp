@@ -4,6 +4,7 @@
 #include "Koga/UnkUtil.hpp"
 #include "Unsorted/ActorDataList.hpp"
 #include "Unsorted/AssortedEnManager.hpp"
+#include "types.h"
 #include <string.h>
 
 
@@ -60,6 +61,16 @@ namespace Koga {
 
     char* EnTypesManager::fn_800DAAF8(s32 idx) {
        return ActorData::getActorName(idx);
+    }
+
+    s32 EnTypesManager::fn_800DABA4(ToolDataRef* param_1) {
+        const char* name;
+        
+        if (param_1->isValid() && param_1->getToolData()->getValue(param_1->mEntryIndex, "name", &name)) {
+            return EnTypesManager::fn_800DAB18(name);
+        }
+
+        return -1;
     }
 
     s32 EnTypesManager::fn_800DAB18(const char* param_1) {
