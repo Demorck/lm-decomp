@@ -77,11 +77,11 @@ public:
     /* 0x0E0 */ bool _E0;
     /* 0x0E1 */ bool _E1;
     /* 0x0E2 */ bool _E2;
-    /* 0x0E3 */ bool _E3;
+    /* 0x0E3 */ u8 _E3;
     /* 0x0E4 */ bool _E4;
     /* 0x0E5 */ bool _E5;
     /* 0x0E6 */ bool _E6;
-    /* 0x0E7 */ bool _E7;
+    /* 0x0E7 */ u8 _E7;
     
     /* 0x0E8 */ u32 _E8;
     /* 0x0EC */ u32 _EC;
