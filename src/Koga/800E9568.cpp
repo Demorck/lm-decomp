@@ -174,11 +174,10 @@ void unkEnManager1::fn_800E9CDC() {
     }
 
     fn_800E6ED0(_0);
-    cTemp = nullptr;
 
-    u8 temp;
-    ref.getToolData()->getValue(ref.getEntryIndex(), "invisible", &temp);
-    if (temp != 0) {
+    u8 invisible;
+    ref.getToolData()->getValue(ref.getEntryIndex(), "invisible", &invisible);
+    if (invisible != 0) {
         if (_0 == nullptr) {
             cTemp = _0->getCharacter();
         }
