@@ -12,10 +12,10 @@ class EnThought;
 class MoveObj;
 
 struct SomeStruct {
-    u16 _0; // Dir X? Needs validation
-    u16 _2; // Dir Y? Needs validation
-    u16 _4; // Dir Z? Needs validation
-    MoveObj* _8;
+    u16 _0;  // Dir X? Needs validation
+    u16 _2;  // Dir Y? Needs validation
+    u16 _4;  // Dir Z? Needs validation
+    JGeometry::TVec3f _C;
 };
 
 // Some TVec3f Helpers? Not sure about args/returns, but would make sense the template class would copy over some of the functions to a class where used.
