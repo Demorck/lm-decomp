@@ -184,6 +184,13 @@ Koga/EnTypesManager.cpp:
 	.data       start:0x80360D78 end:0x80361080
 	.sdata      start:0x804D3938 end:0x804D3970
 
+Koga/EnChase.cpp:
+	.text       start:0x800DB168 end:0x800DBA3C
+	.ctors      start:0x8020BC08 end:0x8020BC0C
+	.data       start:0x80361080 end:0x80361238
+	.sdata      start:0x804D3970 end:0x804D3998
+	.sdata2     start:0x804DB968 end:0x804DB998
+
 Koga/EnAttackBase.cpp:
 	.text       start:0x800DDD54 end:0x800DDF9C
 	.rodata     start:0x8020C8B0 end:0x8020C8C0

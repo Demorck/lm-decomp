@@ -790,6 +790,7 @@ config.libs = [
         Object(NonMatching, "Koga/800E82D8.cpp"),
         Object(NonMatching, "Koga/800E9568.cpp"),
         Object(NonMatching, "Koga/EnTypesManager.cpp"),
+        Object(NonMatching, "Koga/EnChase.cpp"),
         Object(NonMatching, "Koga/EnemyGenManager.cpp"),
 
         # Unsorted
