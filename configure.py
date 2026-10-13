@@ -740,6 +740,7 @@ config.libs = [
         # Sato
         Object(Matching, "Sato/EnemyStrategy.cpp"),
         Object(NonMatching, "Sato/EnemyTypicalStrategy.cpp"),
+        Object(NonMatching, "Sato/EnGhostA.cpp"),
         Object(NonMatching, "Sato/EnemyStrategyInit.cpp"),
         Object(NonMatching, "Sato/EnThought.cpp"),
         Object(Matching, "Sato/EnObjThought.cpp"),
