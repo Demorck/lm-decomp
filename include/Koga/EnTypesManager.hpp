@@ -20,7 +20,7 @@ class EnemyParam {
     public:
         /* 0x000 */ TParams mParams;
         /* 0x00C */ TParamT<s32> mLife;
-        /* 0x020 */ TParamT<s32> mHitDamange;
+        /* 0x020 */ TParamT<s32> mHitDamage;
         /* 0x034 */ TParamT<s32> mSpeed;
         /* 0x048 */ TParamT<s32> mSpeedUnseen;
         /* 0x05C */ TParamT<s32> mSpeedFight;
@@ -28,8 +28,8 @@ class EnemyParam {
         /* 0x084 */ TParamT<s32> mLightBindFrame;
         /* 0x098 */ TParamT<f32> mMinLightBindRange;
         /* 0x0AC */ TParamT<f32> mMaxLightBindRange;
-        /* 0x0C0 */ TParamT<s32> mNumAtKarakai;
-        /* 0x0D4 */ TParamT<s32> mNumAtOrooro;
+        /* 0x0C0 */ TParamT<s32> mNumAtkKarakai;
+        /* 0x0D4 */ TParamT<s32> mNumAtkOrooro;
         /* 0x0E8 */ TParamT<f32> mHikiPower;
         /* 0x0FC */ TParamT<f32> mEffectiveDeg;
         /* 0x110 */ TParamT<f32> mTsuriHeight;
@@ -107,7 +107,7 @@ struct SomeIntStruct {
     s32 _4;
 };
 
-const SomeIntStruct intStruct[4] = {{5, 72}, {32, 222}, {130, 11}, {318, 177}};
+SomeIntStruct intStruct[4] = {{5, 72}, {32, 222}, {130, 11}, {318, 177}};
 inline s32 forLine(u32 val) {
     for (s32 i = 0; i < 4; i++) {
         if (val <= intStruct[i]._0) {

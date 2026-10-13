@@ -11,7 +11,7 @@
 // https://decomp.me/scratch/6Feh6
 EnemyParam::EnemyParam() : 
     PARAM_INIT(mLife, 0),
-    PARAM_INIT(mHitDamange, 0),
+    PARAM_INIT(mHitDamage, 0),
     PARAM_INIT(mSpeed, 0),
     PARAM_INIT(mSpeedUnseen, 0),
     PARAM_INIT(mSpeedFight, 0),
@@ -19,8 +19,8 @@ EnemyParam::EnemyParam() :
     PARAM_INIT(mLightBindFrame, 0),
     PARAM_INIT(mMinLightBindRange, 0),
     PARAM_INIT(mMaxLightBindRange, 0),
-    PARAM_INIT(mNumAtKarakai, 0),
-    PARAM_INIT(mNumAtOrooro, 0),
+    PARAM_INIT(mNumAtkKarakai, 0),
+    PARAM_INIT(mNumAtkOrooro, 0),
     PARAM_INIT(mHikiPower, 0),
     PARAM_INIT(mEffectiveDeg, 0),
     PARAM_INIT(mTsuriHeight, 0),
@@ -102,7 +102,7 @@ namespace Koga {
     }
 
     s32 EnTypesManager::getEnemyHitDamage(int enemyIdx) {
-        return getManager()->mEnParams[enemyIdx].mHitDamange.get();
+        return getManager()->mEnParams[enemyIdx].mHitDamage.get();
     }
 
     s32 EnTypesManager::getEnemySpeed(int enemyIdx) {
@@ -140,11 +140,11 @@ namespace Koga {
     }
     
     s32 EnTypesManager::getEnemyNumAtKarakai(int enemyIdx) {
-        return getManager()->mEnParams[enemyIdx].mNumAtKarakai.get();
+        return getManager()->mEnParams[enemyIdx].mNumAtkKarakai.get();
     }
     
     s32 EnTypesManager::getEnemyNumAtOrooro(int enemyIdx) {
-        return getManager()->mEnParams[enemyIdx].mNumAtOrooro.get();
+        return getManager()->mEnParams[enemyIdx].mNumAtkOrooro.get();
     }
     
     f32 EnTypesManager::getEnemyHikiPower(int enemyIdx) {
