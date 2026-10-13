@@ -166,6 +166,13 @@ Sato/EnemyTypicalStrategy.cpp:
 	.data       start:0x8035B0D8 end:0x8035B278
 	.sdata      start:0x804D3018 end:0x804D3048
 
+Sato/EnGhostA.cpp:
+	.text       start:0x800C6A98 end:0x800C9B98
+	.ctors      start:0x8020BBC0 end:0x8020BBC4
+	.data       start:0x8035B278 end:0x8035B890
+	.sdata      start:0x804D3048 end:0x804D30F0
+	.sdata2     start:0x804DB738 end:0x804DB770
+
 Sato/EnReplace.cpp:
 	.text       start:0x800D4E08 end:0x800D50AC
 	.ctors      start:0x8020BBEC end:0x8020BBF0
