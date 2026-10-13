@@ -121,25 +121,25 @@ s32 fn_800E9974(const char* param_1) {
 // https://decomp.me/scratch/EmrGG
 void unkEnManager1::fn_800E9A0C(EnThought* pParam_1) {
     _0 = pParam_1;
-    _8 = fn_800DAC84(pParam_1->getCharacter()->get_3C());
+    _8 = Koga::EnTypesManager::fn_800DAC84(pParam_1->getCharacter()->get_3C());
     mState = CHARSTATE_2;
     _C = 0;
 }
 
 // https://decomp.me/scratch/IUVOm
-BOOL unkEnManager1::fn_800E9A58(s32 param_1) {
+bool unkEnManager1::fn_800E9A58(s32 param_1) {
     mState = CHARSTATE_1;
     _C = 0;
     bool temp = _0->fn_800C15E0(param_1);
     
     if (temp == 0) {
-        return 0;
+        return false;
     }
 
     fn_800E9CDC();
     _0->getStrategy()->init();
 
-    return 1;
+    return true;
 }
 
 // 99%, some stack mismanagement
@@ -151,7 +151,7 @@ void unkEnManager1::fn_800E9ACC() {
 }
 
 void unkEnManager1::fn_800E9B44() {
-    if (mState == 2) {
+    if (mState == CHARSTATE_2) {
         _0->fn_800BF81C();
     }
 }

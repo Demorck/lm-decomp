@@ -30,12 +30,12 @@ public:
     /* 0xC */ u8 _C;
 
     void fn_800E9A0C(EnThought*);
-    BOOL fn_800E9A58(s32);
+    bool fn_800E9A58(s32);
     void fn_800E9ACC();
 
     void fn_800E9B44();
     void fn_800E9B74();
-    BOOL fn_800E9C38(Koga::CharacterEvent*);
+    bool fn_800E9C38(Koga::CharacterEvent*);
 
     bool fn_800E9C78();
     Character* fn_800E9C5C();
