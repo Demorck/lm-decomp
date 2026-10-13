@@ -92,7 +92,7 @@ namespace Koga {
         unkEnManager1* fn_800E58D4(u32, ToolData*, s32); // Needs more decompilation
         void fn_800E59D4(s32);
         static void fn_800E5A00(unkEnManager1Wrapper*, EnManager*); // TODO Fake Match, probably not static
-        EnThought* fn_800E5A14(void*);
+        EnThought* fn_800E5A14(s32);
         EnThought* fn_800E5A80(s32); // Requires some lbl to be decompiled: lbl_803D7004
         void fn_800E5ABC(s32);
         void fn_800E5AE8(); // Requires some lbl to be decompiled: lbl_80363BF8

@@ -62,7 +62,8 @@ namespace Koga {
         static const char* fn_800DAAF8(s32); //Unsure about return type/args. Maybe static?
         static s32 fn_800DABA4(ToolDataRef*);
         static s32 fn_800DAB18(const char*); //Maybe static?
-        static s32 fn_800DAC84(u32); //Unsure about return type/args. Maybe static
+        static s32 fn_800DAC84(s32); //Unsure about return type/args. Maybe static
+        static s32 fn_800DAD00(s32);
 
         // Various EnemyParam helpers
         static s32 getEnemyLife(int);
@@ -91,6 +92,8 @@ namespace Koga {
         static s32 getEnemyTsuriType(int);
         static s32 getEnemyElement(int);
         static bool getEnemyCheckBox(int);
+
+        static s32 fn_800DB06C(s32);
     public:
         /* 0x04 */ EnemyParam* mEnParams;
 
@@ -99,12 +102,23 @@ namespace Koga {
 
 };
 
+struct SomeIntStruct {
+    s32 _0;
+    s32 _4;
+};
+
+const SomeIntStruct intStruct[4] = {{5, 72}, {32, 222}, {130, 11}, {318, 177}};
+inline s32 forLine(u32 val) {
+    for (s32 i = 0; i < 4; i++) {
+        if (val <= intStruct[i]._0) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
 // All of these are referenced in EnManager. No arg types or return types are guaranteed.
-s32 fn_800DAB18(char*); // Might be static?
-s32 fn_800DABA4(ToolDataRef); // Might be static?
-s32 fn_800DAC84(s32);
-void* fn_800DAD00(void*);
 EnThought* fn_800DB034(void*);
-void* fn_800DB06C(int);
 
 #endif

@@ -87,27 +87,14 @@ namespace Koga {
         return -1;
     }
 
-    s32 EnTypesManager::fn_800DAC84(u32 idx) {
-        u32 temp = ActorData::fn_8006A354(idx);
-        u32 temp2 = fn_80187920(temp);
+    s32 EnTypesManager::fn_800DAC84(s32 idx) {
+        u32 temp = fn_80187920(ActorData::fn_8006A354(idx));
+        return forLine(temp);
+    }
 
-        if (temp2 <= 5) {
-            return 0;
-        }
-
-        if (temp2 <= 20) {
-            return 1;
-        }
-
-        if (temp2 <= 82) {
-            return 2;
-        }
-
-        if (temp2 <= 0x13E) {
-            return 3;
-        }
-
-        return -1;
+    s32 EnTypesManager::fn_800DAD00(s32 idx) {
+        u32 temp = fn_80187920(ActorData::fn_8006A354(idx));
+        return intStruct[forLine(temp)]._0;
     }
 
     s32 EnTypesManager::getEnemyLife(int enemyIdx) {
@@ -216,5 +203,9 @@ namespace Koga {
     
     bool EnTypesManager::getEnemyCheckBox(int enemyIdx) {
         return getManager()->mEnParams[enemyIdx].mCheckBox.get() & 1;
+    }
+
+    s32 EnTypesManager::fn_800DB06C(s32 idx) {
+        return intStruct[idx]._4;
     }
 }

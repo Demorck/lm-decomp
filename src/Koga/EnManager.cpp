@@ -57,13 +57,13 @@ namespace Koga {
         }
 
         u32 i2;
-        void* temp4;
+        s32 temp4;
         unkEnManager1* currElm2;
         unkEnManager1* startElm;
 
         //startElm = _4 + maxPoint;
         for (i2 = 0; i2 < 4; i2++) {
-            temp4 = fn_800DB06C(i2);
+            temp4 = EnTypesManager::fn_800DB06C(i2);
             currElm2 = startElm;
             for (int k = 0; k < fn_800E5E60(i2); k++, currElm2++, startElm++) {
                 EnThought* temp5 = fn_800E5A14(temp4);
@@ -277,7 +277,7 @@ namespace Koga {
             s32 itEight = it->_8;
             s32 entryIndex = it->mCharacter.getEntryIndex();
             ToolData* charInfo = it->mCharacter.getToolData();
-            s32 someVal = fn_800DAC84(itEight);
+            s32 someVal = EnTypesManager::fn_800DAC84(itEight);
             unkEnManager1* p = &_4[0];
 
             // while (p != end && !matchesStatus(CHARSTATE_2, someVal)) {
@@ -311,7 +311,7 @@ unkEnManager2::unkEnManager2() {
 // https://decomp.me/scratch/IqD70
 unkEnManager2::unkEnManager2(const ToolDataRef& rDest) {
     mCharacter = rDest;
-    _8 = fn_800DABA4(mCharacter);
+    _8 = Koga::EnTypesManager::fn_800DABA4(&mCharacter);
 }
 
 // https://decomp.me/scratch/6sXfk
