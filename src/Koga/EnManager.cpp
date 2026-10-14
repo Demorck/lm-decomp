@@ -310,9 +310,10 @@ unkEnManager2::unkEnManager2() {
 }
 
 // https://decomp.me/scratch/IqD70
-// unkEnManager2::unkEnManager2(const ToolDataRef& rDest) : mCharacter(rDest.mToolData, rDest.mToolData) {
-//     _8 = Koga::EnTypesManager::fn_800DABA4(&mCharacter);
-// }
+unkEnManager2::unkEnManager2(const ToolDataRef& rDest) {
+    mCharacter = ToolDataRef(rDest.mToolData, rDest.mEntryIndex);
+    _8 = Koga::EnTypesManager::fn_800DABA4(&mCharacter);
+}
 
 // https://decomp.me/scratch/6sXfk
 u32 unkEnManager2::fn_800E601C() {
