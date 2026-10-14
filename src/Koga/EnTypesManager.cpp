@@ -1,45 +1,57 @@
+#include <string.h>
+
 #include "Koga/EnTypesManager.hpp"
 #include "Koga/EnManager.hpp"
 #include "Koga/ParamInst.hpp"
-#include "types.h"
+#include "Koga/UnkUtil.hpp"
+#include "Unsorted/ActorDataList.hpp"
+#include "Unsorted/AssortedEnManager.hpp"
+#include "macros.h"
 
+dummy_float_data()
+enemies_float_data()
 
-/* 
-TODO splits.txt creates a cyclic dependency if I include the .data and .sdata sections with EnAttackBase.
-May need to change / revise one of these but to not lose the section data:
-	.data       start:0x80360D78 end:0x80361080
-	.sdata      start:0x804D3938 end:0x804D3970
-*/
+// TODO figure this out and stick this in the appropriate class/place
+SomeIntStruct intStruct[4] = {{5, 72}, {32, 222}, {130, 11}, {318, 177}};
+inline s32 forLine(u32 val) {
+    for (s32 i = 0; i < 4; i++) {
+        if (val <= intStruct[i]._0) {
+            return i;
+        }
+    }
+
+    return -1;
+}
 
 
 // https://decomp.me/scratch/6Feh6
 EnemyParam::EnemyParam() : 
-    mLife(&mParams, 0, "mLife", mLife.calcKeyCode("mLife")),
-    mHitDamange(&mParams, 0, "mHitDamange", mHitDamange.calcKeyCode("mHitDamange")),
-    mSpeed(&mParams, 0, "mSpeed", mSpeed.calcKeyCode("mSpeed")),
-    mSpeedUnseen(&mParams, 0, "mSpeedUnseen", mSpeedUnseen.calcKeyCode("mSpeedUnseen")),
-    mSpeedFight(&mParams, 0, "mSpeedFight", mSpeedFight.calcKeyCode("mSpeedFight")),
-    mEyesight(&mParams, 0, "mEyesight", mEyesight.calcKeyCode("mEyesight")),
-    mLightBindFrame(&mParams, 0, "mLightBindFrame", mLightBindFrame.calcKeyCode("mLightBindFrame")),
-    mMinLightBindRange(&mParams, 0, "mMinLightBindRange", mMinLightBindRange.calcKeyCode("mMinLightBindRange")),
-    mMaxLightBindRange(&mParams, 0, "mMaxLightBindRange", mMaxLightBindRange.calcKeyCode("mMaxLightBindRange")),
-    mNumAtKarakai(&mParams, 0, "mNumAtKarakai", mNumAtKarakai.calcKeyCode("mNumAtKarakai")),
-    mNumAtOrooro(&mParams, 0, "mNumAtOrooro", mNumAtOrooro.calcKeyCode("mNumAtOrooro")),
-    mHikiPower(&mParams, 0, "mHikiPower", mHikiPower.calcKeyCode("mHikiPower")),
-    mEffectiveDeg(&mParams, 0, "mEffectiveDeg", mEffectiveDeg.calcKeyCode("mEffectiveDeg")),
-    mTsuriHeight(&mParams, 0, "mTsuriHeight", mTsuriHeight.calcKeyCode("mTsuriHeight")),
-    mDisappearFrame(&mParams, 0, "mDisappearFrame", mDisappearFrame.calcKeyCode("mDisappearFrame")),
-    mAttackPattern1(&mParams, 0, "mAttackPattern1", mAttackPattern1.calcKeyCode("mAttackPattern1")),
-    mActAfterAttackSu(&mParams, 0, "mActAfterAttackSu", mActAfterAttackSu.calcKeyCode("mActAfterAttackSu")),
-    mActAfterAttackFa(&mParams, 0, "mActAfterAttackFa", mActAfterAttackFa.calcKeyCode("mActAfterAttackFa")),
-    mTsuriType(&mParams, 0, "mTsuriType", mTsuriType.calcKeyCode("mTsuriType")),
-    mElement(&mParams, 0, "mElement", mElement.calcKeyCode("mElement")),
-    mCheckBox(&mParams, 0, "mCheckBox", mCheckBox.calcKeyCode("mCheckBox")),
-    mNormalItemTblId(&mParams, 0, "mNormalItemTblId", mNormalItemTblId.calcKeyCode("mNormalItemTblId")),
-    mTsuriItemTblId(&mParams, 0, "mTsuriItemTblId", mTsuriItemTblId.calcKeyCode("mTsuriItemTblId")),
-    mPointerRange(&mParams, 0, "mPointerRange", mPointerRange.calcKeyCode("mPointerRange")),
-    mBrightColor(&mParams, 0, "mBrightColor", mBrightColor.calcKeyCode("mBrightColor")),
-    mAmbColor(&mParams, 0, "mAmbColor", mAmbColor.calcKeyCode("mAmbColor")) {
+    PARAM_INIT(mLife, 0),
+    PARAM_INIT(mHitDamage, 0),
+    PARAM_INIT(mSpeed, 0),
+    PARAM_INIT(mSpeedUnseen, 0),
+    PARAM_INIT(mSpeedFight, 0),
+    PARAM_INIT(mEyesight, 0),
+    PARAM_INIT(mLightBindFrame, 0),
+    PARAM_INIT(mMinLightBindRange, 0),
+    PARAM_INIT(mMaxLightBindRange, 0),
+    PARAM_INIT(mNumAtkKarakai, 0),
+    PARAM_INIT(mNumAtkOrooro, 0),
+    PARAM_INIT(mHikiPower, 0),
+    PARAM_INIT(mEffectiveDeg, 0),
+    PARAM_INIT(mTsuriHeight, 0),
+    PARAM_INIT(mDisappearFrame, 0),
+    PARAM_INIT(mAttackPattern1, 0),
+    PARAM_INIT(mActAfterAttackSu, 0),
+    PARAM_INIT(mActAfterAttackFa, 0),
+    PARAM_INIT(mTsuriType, 0),
+    PARAM_INIT(mElement, 0),
+    PARAM_INIT(mCheckBox, 0),
+    PARAM_INIT(mNormalItemTblId, 0),
+    PARAM_INIT(mTsuriItemTblId, 0),
+    PARAM_INIT(mPointerRange, 0),
+    PARAM_INIT(mBrightColor, 0),
+    PARAM_INIT(mAmbColor, 0) {
         // Maybe this isn't some default constructor based on mBrightColor / mAmbColor, since they both call fn_800D2FA0, which basically sets the defaults
         //  of these colors to -1 / 64, or maybe TBaseParam / TParamT needs its own inline base constructor?
     }
@@ -63,12 +75,50 @@ namespace Koga {
         sManager = nullptr;
     }
 
+    const char* EnTypesManager::fn_800DAAF8(s32 idx) {
+       return ActorData::getActorName(idx);
+    }
+
+    s32 EnTypesManager::fn_800DABA4(ToolDataRef* param_1) {
+        const char* name;
+        
+        if (param_1->isValid() && param_1->getToolData()->getValue(param_1->mEntryIndex, "name", &name)) {
+            return EnTypesManager::fn_800DAB18(name);
+        }
+
+        return -1;
+    }
+
+    s32 EnTypesManager::fn_800DAB18(const char* pName) {
+        u32 nameHash = hashStringSeperate(pName);
+
+        for (u32 i = 0; i < 381; i++) {
+            if (nameHash == hashStringSeperate(ActorData::getActorName(i))) {
+                if (strcmp(pName, ActorData::getActorName(i)) == 0) {
+                    return i;
+                }
+            }
+        }
+
+        return -1;
+    }
+
+    s32 EnTypesManager::fn_800DAC84(s32 idx) {
+        u32 temp = fn_80187920(ActorData::fn_8006A354(idx));
+        return forLine(temp);
+    }
+
+    s32 EnTypesManager::fn_800DAD00(s32 idx) {
+        u32 temp = fn_80187920(ActorData::fn_8006A354(idx));
+        return intStruct[forLine(temp)]._0;
+    }
+
     s32 EnTypesManager::getEnemyLife(int enemyIdx) {
         return getManager()->mEnParams[enemyIdx].mLife.get();
     }
 
     s32 EnTypesManager::getEnemyHitDamage(int enemyIdx) {
-        return getManager()->mEnParams[enemyIdx].mHitDamange.get();
+        return getManager()->mEnParams[enemyIdx].mHitDamage.get();
     }
 
     s32 EnTypesManager::getEnemySpeed(int enemyIdx) {
@@ -106,11 +156,11 @@ namespace Koga {
     }
     
     s32 EnTypesManager::getEnemyNumAtKarakai(int enemyIdx) {
-        return getManager()->mEnParams[enemyIdx].mNumAtKarakai.get();
+        return getManager()->mEnParams[enemyIdx].mNumAtkKarakai.get();
     }
     
     s32 EnTypesManager::getEnemyNumAtOrooro(int enemyIdx) {
-        return getManager()->mEnParams[enemyIdx].mNumAtOrooro.get();
+        return getManager()->mEnParams[enemyIdx].mNumAtkOrooro.get();
     }
     
     f32 EnTypesManager::getEnemyHikiPower(int enemyIdx) {
@@ -146,13 +196,13 @@ namespace Koga {
     }
 
     // https://decomp.me/scratch/rwCN5
-    JUtility::TColor EnTypesManager::getEnemyBrightColor(int enemyIdx) {
-        return getManager()->mEnParams[enemyIdx].mBrightColor.get();
+    u32 EnTypesManager::getEnemyBrightColor(int enemyIdx) {
+        return JUtility::TColor(getManager()->mEnParams[enemyIdx].mBrightColor.get());
     }
     
     // https://decomp.me/scratch/b6HLd
-    JUtility::TColor EnTypesManager::getEnemyAmbColor(int enemyIdx) {
-        return getManager()->mEnParams[enemyIdx].mAmbColor.get();
+    u32 EnTypesManager::getEnemyAmbColor(int enemyIdx) {
+        return JUtility::TColor(getManager()->mEnParams[enemyIdx].mAmbColor.get());
     }
 
     s32 EnTypesManager::getEnemyAttackPattern1(int enemyIdx) {
@@ -169,5 +219,9 @@ namespace Koga {
     
     bool EnTypesManager::getEnemyCheckBox(int enemyIdx) {
         return getManager()->mEnParams[enemyIdx].mCheckBox.get() & 1;
+    }
+
+    s32 EnTypesManager::fn_800DB06C(s32 idx) {
+        return intStruct[idx]._4;
     }
 }

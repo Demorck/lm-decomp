@@ -1,8 +1,8 @@
-#ifndef MOVE_OBJ_H_
-#define MOVE_OBJ_H_
+#ifndef MOVE_OBJ_HPP
+#define MOVE_OBJ_HPP
 
-#include "JSystem/JAudio/JAInterface/JAIAnimation.hpp"
-#include "JSystem/JGeometry/JGVec3.hpp"
+#include <JSystem/JAudio/JAInterface/JAIAnimation.hpp>
+#include <JSystem/JGeometry/JGVec3.hpp>
 #include <types.h>
 #include <dolphin/mtx.h>
 
@@ -26,9 +26,9 @@ public:
     inline s32 get_3C() const { return _3C; }
 
     void fn_80067C30(const Vec*);
+    void fn_80067CB0(f32 var1, f32 var2, f32 var3); //This may be protected but TU 800E9568 calls it, may need to do something different.
 
 protected:    
-    void fn_80067CB0(f32 var1, f32 var2, f32 var3);
     u16 fn_80067D3C(u16);
     void fn_80067F84();
     bool fn_800681E8(const char*);
@@ -77,11 +77,11 @@ public:
     /* 0x0E0 */ bool _E0;
     /* 0x0E1 */ bool _E1;
     /* 0x0E2 */ bool _E2;
-    /* 0x0E3 */ bool _E3;
+    /* 0x0E3 */ u8 _E3;
     /* 0x0E4 */ bool _E4;
     /* 0x0E5 */ bool _E5;
     /* 0x0E6 */ bool _E6;
-    /* 0x0E7 */ bool _E7;
+    /* 0x0E7 */ u8 _E7;
     
     /* 0x0E8 */ u32 _E8;
     /* 0x0EC */ u32 _EC;

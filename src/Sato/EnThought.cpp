@@ -2,9 +2,8 @@
 #include "Sato/EnThought.hpp"
 #include "Koga/ToolData.hpp"
 #include "Sato/EnemyStrategy.hpp"
-#include "Unsorted/MoveObj.hpp"
-#include "macros.h"
-#include "types.h"
+#include "Sato/IncludeStrategy.hpp"
+#include "Koga/UnkUtil.hpp"
 
 static s32 lbl_804D2D5C = 0xff;
 static s32 lbl_804D2D6C = 0xff;
@@ -136,12 +135,70 @@ EnThought::~EnThought() {
 }
 
 
-void EnThought::setToolDataRef(ToolDataRef ref) {
-    mToolRef = ref;
+void EnThought::setToolDataRef(Koga::ToolData* pData, s32 idx) {
+    mpToolData = pData;
+    mEntryIdx = idx;
 }
 
 
 ToolDataRef EnThought::getToolDataRef() const {
-    ToolDataRef ref = mToolRef;
-    return ref;
+    return ToolDataRef(mpToolData, mEntryIdx);
+}
+
+bool EnThought::getPosition(JGeometry::TVec3f* out) {
+    ToolDataRef ref = getToolDataRef();
+    if (!ref.isValid()) {
+        return false;
+    }
+
+    Koga::ToolData* pData = ref.mToolData;
+    s32 entryIdx = ref.mEntryIndex;
+
+    pData->getValue(entryIdx, "pos_x", &out->x);
+    pData->getValue(entryIdx, "pos_y", &out->y);
+    pData->getValue(entryIdx, "pos_z", &out->z);
+    
+    return true;
+}
+
+bool EnThought::getDirectionNormalized(u16* param_1, u16* param_2, u16* param_3) {
+    ToolDataRef ref; 
+    setToolDataRef(mpToolData, mEntryIdx);
+    if (!ref.isValid()) {
+        return false;
+    }
+
+    JGeometry::TVec3f dir;
+    dir.x = 0.0f;
+    dir.y = 0.0f;
+    dir.z = 0.0f;
+
+    Koga::ToolData* pData = ref.mToolData;
+    s32 entryIdx = ref.mEntryIndex;
+
+    pData->getValue(entryIdx, "dir_x", &dir.x);
+    pData->getValue(entryIdx, "dir_y", &dir.y);
+    pData->getValue(entryIdx, "dir_z", &dir.z);
+
+    *param_1 = normalizeAngle(dir.x);
+    *param_2 = normalizeAngle(dir.y);
+    *param_3 = normalizeAngle(dir.z);
+
+    return 1;
+}
+
+void EnThought::fn_800C1B84() {
+    return;
+}
+
+void EnThought::fn_800C1B88() {
+    return;
+}
+
+EnemyStrategy* EnThought::fn_800C1B8C() {
+    return getStrategy();
+}
+
+void EnThought::fn_800C1B9C() {
+    return;
 }

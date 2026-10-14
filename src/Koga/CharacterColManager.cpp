@@ -19,10 +19,10 @@ void CharacterColElement::init(int actorIndex) {
     u32 someOffset;
 
     _1C._9C = 0;
-    mGlobalActorField0 = getActorField0ByIndex(actorIndex);
+    mGlobalActorField0 = ActorData::fn_8006A354(actorIndex);
     ActorData* actData = &lbl_8038E118[actorIndex];
     if (actData != nullptr) {
-        someOffset = getActorField0ByIndex(actorIndex);
+        someOffset = ActorData::fn_8006A354(actorIndex);
         actData = &lbl_8038DD00[someOffset];
     }
 

@@ -4,8 +4,8 @@
 #include <dolphin/types.h>
 #include <types.h>
 #include <JSystem/JORReflexible.hpp>
+#include <JSystem/JUtility/JUTColor.hpp>
 
-#include "JSystem/JUtility/JUTColor.hpp"
 #include "Koga/ParamInst.hpp"
 #include "Koga/Params.hpp"
 
@@ -20,7 +20,7 @@ class EnemyParam {
     public:
         /* 0x000 */ TParams mParams;
         /* 0x00C */ TParamT<s32> mLife;
-        /* 0x020 */ TParamT<s32> mHitDamange;
+        /* 0x020 */ TParamT<s32> mHitDamage;
         /* 0x034 */ TParamT<s32> mSpeed;
         /* 0x048 */ TParamT<s32> mSpeedUnseen;
         /* 0x05C */ TParamT<s32> mSpeedFight;
@@ -28,8 +28,8 @@ class EnemyParam {
         /* 0x084 */ TParamT<s32> mLightBindFrame;
         /* 0x098 */ TParamT<f32> mMinLightBindRange;
         /* 0x0AC */ TParamT<f32> mMaxLightBindRange;
-        /* 0x0C0 */ TParamT<s32> mNumAtKarakai;
-        /* 0x0D4 */ TParamT<s32> mNumAtOrooro;
+        /* 0x0C0 */ TParamT<s32> mNumAtkKarakai;
+        /* 0x0D4 */ TParamT<s32> mNumAtkOrooro;
         /* 0x0E8 */ TParamT<f32> mHikiPower;
         /* 0x0FC */ TParamT<f32> mEffectiveDeg;
         /* 0x110 */ TParamT<f32> mTsuriHeight;
@@ -59,6 +59,11 @@ namespace Koga {
         static EnTypesManager* getManager() { return sManager; }
 
         void loadCTPParams(); // Loads "/param/ctp/%s.prm" in some sprintf loop
+        static const char* fn_800DAAF8(s32); //Unsure about return type/args. Maybe static?
+        static s32 fn_800DABA4(ToolDataRef*);
+        static s32 fn_800DAB18(const char*); //Maybe static?
+        static s32 fn_800DAC84(s32); //Unsure about return type/args. Maybe static
+        static s32 fn_800DAD00(s32);
 
         // Various EnemyParam helpers
         static s32 getEnemyLife(int);
@@ -81,12 +86,14 @@ namespace Koga {
         static s32 getEnemyNormalItemTblId(int);
         static s32 getEnemyTsuriItemTblId(int);
         static s32 getEnemyDisappearFrame(int);
-        static JUtility::TColor getEnemyBrightColor(int);
-        static JUtility::TColor getEnemyAmbColor(int);
+        static u32 getEnemyBrightColor(int);
+        static u32 getEnemyAmbColor(int);
         static s32 getEnemyAttackPattern1(int);
         static s32 getEnemyTsuriType(int);
         static s32 getEnemyElement(int);
         static bool getEnemyCheckBox(int);
+
+        static s32 fn_800DB06C(s32);
     public:
         /* 0x04 */ EnemyParam* mEnParams;
 
@@ -95,12 +102,12 @@ namespace Koga {
 
 };
 
+struct SomeIntStruct {
+    s32 _0;
+    s32 _4;
+};
+
 // All of these are referenced in EnManager. No arg types or return types are guaranteed.
-s32 fn_800DAB18(char*); // Might be static?
-s32 fn_800DABA4(ToolDataRef); // Might be static?
-s32 fn_800DAC84(s32);
-void* fn_800DAD00(void*);
 EnThought* fn_800DB034(void*);
-void* fn_800DB06C(int);
 
 #endif

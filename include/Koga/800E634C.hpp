@@ -1,11 +1,22 @@
 #ifndef KOGA_800E634C_HPP
 #define KOGA_800E634C_HPP
 
-#include "Sato/EnThought.hpp"
 #include <types.h>
 #include <JSystem/JGeometry/JGVec3.hpp>
 
+namespace Koga {
+    class ToolData;
+}
+
 class EnThought;
+class MoveObj;
+
+struct SomeStruct {
+    u16 _0;  // Dir X? Needs validation
+    u16 _2;  // Dir Y? Needs validation
+    u16 _4;  // Dir Z? Needs validation
+    JGeometry::TVec3f _C;
+};
 
 // Some TVec3f Helpers? Not sure about args/returns, but would make sense the template class would copy over some of the functions to a class where used.
 void fn_800E634C();
@@ -23,7 +34,7 @@ void fn_800E6AB8(JGeometry::TVec3f*, Koga::ToolData*, f32);
 void fn_800E6C5C();
 void fn_800E6D24();
 void fn_800E6DE4();
-u8 fn_800E6ED0();
+bool fn_800E6ED0(EnThought*);
 void fn_800E6FCC();
 
 // All of these are miscelaneous functions I havent touched/reviewed. Feel free to move, re-organize, etc.
