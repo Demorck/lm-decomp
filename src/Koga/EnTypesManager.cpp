@@ -7,6 +7,18 @@
 #include "Unsorted/ActorDataList.hpp"
 #include "Unsorted/AssortedEnManager.hpp"
 
+// TODO figure this out and stick this in the appropriate class/place
+SomeIntStruct intStruct[4] = {{5, 72}, {32, 222}, {130, 11}, {318, 177}};
+inline s32 forLine(u32 val) {
+    for (s32 i = 0; i < 4; i++) {
+        if (val <= intStruct[i]._0) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
 
 // https://decomp.me/scratch/6Feh6
 EnemyParam::EnemyParam() : 

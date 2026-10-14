@@ -107,17 +107,6 @@ struct SomeIntStruct {
     s32 _4;
 };
 
-SomeIntStruct intStruct[4] = {{5, 72}, {32, 222}, {130, 11}, {318, 177}};
-inline s32 forLine(u32 val) {
-    for (s32 i = 0; i < 4; i++) {
-        if (val <= intStruct[i]._0) {
-            return i;
-        }
-    }
-
-    return -1;
-}
-
 // All of these are referenced in EnManager. No arg types or return types are guaranteed.
 EnThought* fn_800DB034(void*);
 
