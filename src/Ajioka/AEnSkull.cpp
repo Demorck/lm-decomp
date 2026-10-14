@@ -29,11 +29,11 @@ bool AEnSkull::EnGhostA_fn_800C8F88() {
     return true;
 }
 
-bool EnGhostA::state_0_Init() {
+bool AEnSkull::state_0_Init() {
     return false;
 }
 
-bool EnGhostA::state_0_Behavior() {
+bool AEnSkull::state_0_Behavior() {
     return true;
 }
 

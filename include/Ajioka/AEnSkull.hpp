@@ -16,7 +16,8 @@ public:
     virtual bool EnGhostA_fn_800C8F88();
 
     // ptmf
-    
+    bool state_0_Init();
+    bool state_0_Behavior();
 };
 
 #endif
