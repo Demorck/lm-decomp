@@ -6,7 +6,7 @@
 
 class AEnEBone : public EnemyStrategy, public Koga::CharacterEventObserver {
 public:
-    AEnEBone();
+    AEnEBone() { };
     virtual ~AEnEBone();
 
     // From EnemyStrategy
