@@ -1,5 +1,5 @@
-#ifndef KOGA_UNK_UTIL_H_
-#define KOGA_UNK_UTIL_H_
+#ifndef KOGA_UNK_UTIL_HPP
+#define KOGA_UNK_UTIL_HPP
 
 #include <types.h>
 

@@ -10,12 +10,14 @@
 #include "Sato/EnemyStrategy.hpp"
 #include "Sato/IncludeStrategy.hpp"
 #include "Koga/ValueControl.hpp"
-#include "Unsorted/character.hpp"
+#include "Unsorted/Character.hpp"
 
 namespace Koga {
     class CharacterEvent;
     class EnManager;
 }
+
+class EnemyStrategy;
 
 class MoveObjAlphaControl : public Koga::ValueControl<int> {
 public:
@@ -51,17 +53,37 @@ public:
     virtual void vt_0C() = 0; // Did not check args/return type
     virtual void vt_10() { }; // Did not check args/return type
 
+    void fn_800BF81C(); // Did not check args/return type. So many function calls.
     void reset(); //  fn_800BF0CC lmao golden function
-    void setToolDataRef(ToolDataRef ref);
+    void setToolDataRef(Koga::ToolData*, s32);
     ToolDataRef getToolDataRef() const;
+
+    bool getPosition(JGeometry::TVec3f*);
+    bool getDirectionNormalized(u16*, u16*, u16*);
 
     s32 fn_800C0E48(f32);
     static bool fn_800C0F08(EnemyStrategy*, Koga::CharacterEvent*);
+
+    void fn_800C17EC();
+
+    void fn_800C19CC(s32);
+    bool fn_800C15E0(s32); // Unsure about return type/args
+
+    void fn_800C1B84();
+    void fn_800C1B88();
+    EnemyStrategy* fn_800C1B8C();
+
+    void fn_800C1B9C();
+    void fn_800C1BA0(); // Sets the EnemyStrategy to nullptr?
 
     inline MoveObjAlphaControl getAlphaControl() { return mAlphaControl; }
     inline void set810(void* vVal) { _810 = vVal; }
 
     inline Character* getCharacter() const { return _808; }
+    inline bool isValid() const { 
+        return mpToolData != nullptr && 
+        mEntryIdx >= 0; 
+    }
 
     // Object that holds at least 0xE8 data. In the reset, it's calling fn_80067C30 which is in MoveObj split. Probably an entity
     /* 0x808 */ Character* _808; 
@@ -79,7 +101,8 @@ public:
     /* 0x89c */ void* _89c;
     /* 0x8a0 */ void* _8a0;
     /* 0x8a4 */ MoveObjAlphaControl mAlphaControl;
-    /* 0x8c0 */ ToolDataRef mToolRef;
+    /* 0x8c0 */ Koga::ToolData* mpToolData;
+    /* 0x8c4 */ s32 mEntryIdx;
     /* 0x8c8 */ s32 _8c8;
     /* 0x8cc */ void* _8cc;
     /* 0x8d0 */ u8 _8d0; //Unsure of type

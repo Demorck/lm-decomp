@@ -47,7 +47,7 @@ public:
     BOOL remove(Koga::ToolData* pData);
 
     void fn_800EB634(Koga::ToolData*, s32, bool);
-    BOOL fn_800EAA00(const char*, int);
+    BOOL fn_800EAA00(const char*, s32);
     void fn_800EAB1C();
 
     void fn_800EB1DC();

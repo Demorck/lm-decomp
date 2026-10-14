@@ -1,4 +1,9 @@
+#include <JSystem/JKernel/JKRArchive.hpp>
+#include <dolphin/mtx.h>
+#include <string.h>
+
 #include "Koga/EnManager.hpp"
+#include "Koga/800E9568.hpp"
 #include "Koga/EnTypesManager.hpp"
 #include "Sato/EnThought.hpp"
 #include "Koga/GameModeUtil.hpp"
@@ -6,12 +11,9 @@
 #include "Koga/MissionMode.hpp"
 #include "Unsorted/800627D8.hpp"
 #include "Unsorted/AssortedEnManager.hpp"
-#include "types.h"
 #include "Koga/800E634C.hpp"
-
-#include <JSystem/JKernel/JKRArchive.hpp>
-#include <dolphin/mtx.h>
-#include <string.h>
+#include "Unsorted/Character.hpp"
+#include "types.h"
 
 
 namespace Koga {
@@ -47,26 +49,27 @@ namespace Koga {
         for (int j = 0; j < maxPoint; currElm++, j++) {
             AppearPointSlot* appearPoint = &_E08[j];
             EnThought* temp4 = fn_800E5A14(nullptr);
-            fn_800E9A0C(temp4);
-            void* someObj = fn_800E9C5C();
-            //appearPoint->_0 = someObj->_38; // also gets _38 from this?;
-            fn_800BF8B8(currElm->_0, appearPoint->_4, appearPoint->_8);
-            fn_800E9CDC();
+            currElm->fn_800E9A0C(temp4);
+            Character* someObj = currElm->fn_800E9C5C();
+            appearPoint->_0 = someObj->_38; // also gets _38 from this?;
+            EnThought* pThought = currElm->_0;
+            pThought->setToolDataRef(appearPoint->_4, appearPoint->_8);
+            currElm->fn_800E9CDC();
         }
 
         u32 i2;
-        void* temp4;
+        s32 temp4;
         unkEnManager1* currElm2;
         unkEnManager1* startElm;
 
         //startElm = _4 + maxPoint;
         for (i2 = 0; i2 < 4; i2++) {
-            temp4 = fn_800DB06C(i2);
+            temp4 = EnTypesManager::fn_800DB06C(i2);
             currElm2 = startElm;
             for (int k = 0; k < fn_800E5E60(i2); k++, currElm2++, startElm++) {
-                void* temp5 = fn_800E5A14(temp4);
-                fn_800E9A0C(temp5);
-                fn_800E9ACC();
+                EnThought* temp5 = fn_800E5A14(temp4);
+                currElm2->fn_800E9A0C(temp5);
+                currElm2->fn_800E9ACC();
             }
         }
     }
@@ -115,8 +118,8 @@ namespace Koga {
     }
 
     // https://decomp.me/scratch/9kvCn
-    ToolDataRef EnManager::fn_800E5488(s32 expectedIndex) {
-        ToolDataRef out;
+    ToolDataRef* EnManager::fn_800E5488(s32 expectedIndex) {
+        ToolDataRef* out;
         ToolData* pChar = mInfoTable;
         s32 idx = 0;
 
@@ -132,18 +135,17 @@ namespace Koga {
             pChar->getValue(idx, "appear_point", &appearPoint);
             if (appearPoint != expectedIndex) {
                 break;
-            } else {
-                idx++;
             }
+            idx++;
         }
 
         ToolData* pCharFinal = mInfoTable;
         if (pCharFinal->getDataEntryNum() <= idx) {
-            out.setToolData(nullptr);
-            out.setEntryIndex(-1);
+            out->setToolData(nullptr);
+            out->setEntryIndex(-1);
         } else {
-            out.setToolData(pCharFinal);
-            out.setEntryIndex(idx);
+            out->setToolData(pCharFinal);
+            out->setEntryIndex(idx);
         }
 
         return out;
@@ -151,7 +153,6 @@ namespace Koga {
 
     // https://decomp.me/scratch/Ztuvi
     Vec* EnManager::fn_800E5564(s32 param_1) {
-        FORCE_DONT_INLINE;
         if (_E44 != 0) {
             // This probably pulls 0x0 from whatever object this is
             void* someObj = fn_800AD39C(param_1);
@@ -163,7 +164,6 @@ namespace Koga {
 
     // https://decomp.me/scratch/cBw99
     u32 Koga::EnManager::fn_800E55AC(s32 param_1) {
-        FORCE_DONT_INLINE;
         if (_E44 != 0) {
             void* someObj = fn_800AD39C(param_1);
             //return someObj->_24; // This probably pulls 0x24 from whatever object this is
@@ -179,7 +179,6 @@ namespace Koga {
     // Based on ObjDiff, this seems to do some copy constructor stuff but the TVec3f struct seems to give me a lot of issues in this class
     // Also no-inline temproarily because it spills into the other function.
     s32 EnManager::fn_800E5660(JGeometry::TVec3f* pParam_1, JGeometry::TVec3f* out, f32 param_2) {
-        FORCE_DONT_INLINE;
         JGeometry::TVec3f localOut;
         s32 result = fn_800E5784(pParam_1, &localOut);
 
@@ -233,28 +232,35 @@ namespace Koga {
 
     // https://decomp.me/scratch/shICK
     s32 EnManager::fn_800E5868(s32 param_1, s32 param_2) {
-        FORCE_DONT_INLINE;
         unkEnManager1* temp = fn_800E58D4(param_1, nullptr, -1);
-        if (temp == nullptr) return -1;
-
-        if (param_2 >= 0) {
-            fn_800C19CC(temp->_0, param_2);
+        if (temp == nullptr) {
+            return -1;
         }
 
-        void* tempObj = fn_800E9C5C();
-        //return tempObj->_38;
+        if (param_2 >= 0) {
+            temp->_0->fn_800C19CC(param_2);
+        }
+
+        Character* tempObj = temp->fn_800E9C5C();
+        return tempObj->_38;
     }
 
     // https://decomp.me/scratch/cYSVu
     void EnManager::fn_800E59D4(s32 idx) {
         unkEnManager1* temp = &_4[idx];
-        fn_800E9ACC();
+        temp->fn_800E9ACC();
+    }
+
+    // TODO Fake Match
+    void EnManager::fn_800E5A00(unkEnManager1Wrapper* pDest, EnManager* pMgr) {
+        pDest->mBegin = pMgr->_4.begin();
+        pDest->mEnd = pMgr->_4.end();
     }
 
     // https://decomp.me/scratch/fm1ig
     void EnManager::fn_800E5ABC(s32 idx) {
         unkEnManager1* temp = &_4[idx];
-        fn_800E9B44();
+        temp->fn_800E9B44();
     }
 
     // https://decomp.me/scratch/3EURE
@@ -272,7 +278,7 @@ namespace Koga {
             s32 itEight = it->_8;
             s32 entryIndex = it->mCharacter.getEntryIndex();
             ToolData* charInfo = it->mCharacter.getToolData();
-            s32 someVal = fn_800DAC84(itEight);
+            s32 someVal = EnTypesManager::fn_800DAC84(itEight);
             unkEnManager1* p = &_4[0];
 
             // while (p != end && !matchesStatus(CHARSTATE_2, someVal)) {
@@ -281,9 +287,9 @@ namespace Koga {
 
             unkEnManager1* found;
             if (p != end) {
-                fn_800BF8B8(p->_0, charInfo, entryIndex);
-                if (!fn_800E9A58(itEight)) {
-                    fn_800E9ACC();
+                p->_0->setToolDataRef(charInfo, entryIndex);
+                if (!found->fn_800E9A58(itEight)) {
+                    found->fn_800E9ACC();
                     found = nullptr;
                 } else {
                     found = p;
@@ -305,36 +311,36 @@ unkEnManager2::unkEnManager2() {
 
 // https://decomp.me/scratch/IqD70
 unkEnManager2::unkEnManager2(const ToolDataRef& rDest) {
-    mCharacter = rDest;
-    _8 = fn_800DABA4(mCharacter);
+    mCharacter = ToolDataRef(rDest.mToolData, rDest.mEntryIndex);
+    _8 = Koga::EnTypesManager::fn_800DABA4(&mCharacter);
 }
 
 // https://decomp.me/scratch/6sXfk
 u32 unkEnManager2::fn_800E601C() {
     JGeometry::TVec3f pos;
 
-    mCharacter.getToolData()->getValue(mCharacter.getEntryIndex(), "pos_x", &pos.x);
-    mCharacter.getToolData()->getValue(mCharacter.getEntryIndex(), "pos_y", &pos.y);
-    mCharacter.getToolData()->getValue(mCharacter.getEntryIndex(), "pos_z", &pos.z);
+    mCharacter.mToolData->getValue(mCharacter.mEntryIndex, "pos_x", &pos.x);
+    mCharacter.mToolData->getValue(mCharacter.mEntryIndex, "pos_y", &pos.y);
+    mCharacter.mToolData->getValue(mCharacter.mEntryIndex, "pos_z", &pos.z);
 
     return fn_80017ADC(pos, -1);
 }
 
 // https://decomp.me/scratch/cfVnh
 const char* unkEnManager2::getCreateName() {
-    const ToolDataRef vRef = fn_800E6134();
-    const char* create_name;
+    const char* create_name = nullptr;
     
-    if (vRef.isValid()) {
-        mCharacter.getToolData()->getValue(mCharacter.getEntryIndex(), "create_name", &create_name);
+    if (fn_800E6134().isValid()) {
+        ToolDataRef vRef = fn_800E6134();
+        vRef.mToolData->getValue(vRef.mEntryIndex, "create_name", &create_name);
     }
 
     return create_name;
 }
 
 // https://decomp.me/scratch/bq3Q2
-ToolDataRef unkEnManager2::fn_800E6134() const {
-    return mCharacter;
+ToolDataRef unkEnManager2::fn_800E6134() {
+    return ToolDataRef(mCharacter.mToolData, mCharacter.mEntryIndex);
 }
 
 void AppearPointSlot::init(Vec* pPos, Koga::ToolData* pCharInfo, int entryIndex) {

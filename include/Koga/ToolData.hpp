@@ -131,9 +131,9 @@ public:
 class ToolDataRef {
     public:
         inline ToolDataRef() {}
-        inline ToolDataRef(const ToolDataRef& src) {
-            mToolData = src.mToolData;
-            mEntryIndex = src.mEntryIndex;
+        inline ToolDataRef(Koga::ToolData* pData, s32 idx) {
+            mToolData = pData;
+            mEntryIndex = idx;
         }
         ToolDataRef(const ToolDataRef*);
         
@@ -147,40 +147,43 @@ class ToolDataRef {
         inline void setToolData(Koga::ToolData* pData) { mToolData = pData; }
         inline s32 getEntryIndex() { return mEntryIndex; }
         inline void setEntryIndex(s32 entryIndex) { mEntryIndex = entryIndex; }
+
+        inline void reset() { 
+            mToolData = nullptr; 
+            mEntryIndex = -1;
+        }
         
-        inline bool isValid() const { return (mToolData != nullptr && mEntryIndex >= 0); }
+        inline bool isValid() const { 
+            return mToolData != nullptr && mEntryIndex >= 0; 
+        }
+        static inline bool isValid(Koga::ToolData* pData, s32 idx) { 
+            return pData != nullptr && idx >= 0; 
+        }
         inline bool isSameEntry(const ToolDataRef& rOther) const {
             return mEntryIndex == rOther.mEntryIndex &&
                 mToolData != nullptr && rOther.mToolData != nullptr && 
                 mToolData->getJMapData() == rOther.mToolData->getJMapData();
         }
 
-        // currently un-used but could be useful based on some of the functions in this struct/class
-        // They could also have one for like checking if character name is nothing (its used a few times)
-        inline const char* getCharacterName() {
-            const char* charName;
+        inline const char* getStringValue(const char* field_name) {
+            const char* charName = nullptr;
             if (isValid()) {
-                getToolData()->getValue(mEntryIndex, "character_name", &charName);
+                mToolData->getValue(mEntryIndex, field_name, &charName);
             }
 
             return charName;
         }
 
-        // To be verified if static / part of this class (makes sense at least if they return ToolDataRef types)
-        static ToolDataRef fn_800E82D8(u32); // handles treasuretable spawning items in chests.
-        static ToolDataRef fn_800E84CC(s32); // handles itemappearing after defeating
-        static ToolDataRef fn_800E8658(s32, s32, s32); // handles itemfishing, which spawns as luigi continues to suck.
+        template<typename T>
+        static inline bool getValue(ToolDataRef* pRef, const char* field_name, T* val) {
+            Koga::ToolData* pData = pRef->mToolData;
+            s32 idx = pRef->mEntryIndex;
+            return isValid(pData, idx) && pData->getValue(idx, field_name, val);
+        }
 
-        static ToolDataRef findInfoTableName(const char*);
-        const char* getName();
-        void fn_800E8E0C(u8*);
-        s32 fn_800E8E78() const; // Probably uses an inline, see getCharacterName;
-        s32 fn_800E8EF4(JGeometry::TVec3f*, JGeometry::TVec3f*);
-        const BOOL isNameValid();
-        const BOOL isNameMoney();
-        const BOOL fn_800E9290(); // Something with character_name
-        const BOOL fn_800E9358(s32); // Something with character_name and OpenDoorNo
-        const BOOL fn_800E9464(); // Something with character_name and checking if getName is nothing.
+        inline bool checkValidString(ToolDataRef* pRef, const char* strToCmp) {
+            return pRef->isValid() && strcmp(strToCmp, "nothing") != 0;
+        }
 
     public:
         /* 0x0 */ Koga::ToolData* mToolData;
