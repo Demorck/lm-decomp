@@ -1,5 +1,6 @@
 // Based on the previous decompilation effort: https://github.com/CoNesTra/zmansion/blob/main/src/Unsorted/IncludeStrategy.cpp
 #include "Sato/EnThought.hpp"
+#include "Koga/ToolData.hpp"
 #include "Sato/EnemyStrategy.hpp"
 #include "Sato/IncludeStrategy.hpp"
 #include "Koga/UnkUtil.hpp"
@@ -141,10 +142,7 @@ void EnThought::setToolDataRef(Koga::ToolData* pData, s32 idx) {
 
 
 ToolDataRef EnThought::getToolDataRef() const {
-    ToolDataRef ref;
-    ref.setToolData(mpToolData);
-    ref.setEntryIndex(mEntryIdx);
-    return ref;
+    return ToolDataRef(mpToolData, mEntryIdx);
 }
 
 bool EnThought::getPosition(JGeometry::TVec3f* out) {
