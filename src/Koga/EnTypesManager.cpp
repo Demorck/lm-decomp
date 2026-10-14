@@ -6,6 +6,10 @@
 #include "Koga/UnkUtil.hpp"
 #include "Unsorted/ActorDataList.hpp"
 #include "Unsorted/AssortedEnManager.hpp"
+#include "macros.h"
+
+dummy_float_data()
+enemies_float_data()
 
 // TODO figure this out and stick this in the appropriate class/place
 SomeIntStruct intStruct[4] = {{5, 72}, {32, 222}, {130, 11}, {318, 177}};

@@ -13,6 +13,7 @@
 #include "Unsorted/AssortedEnManager.hpp"
 #include "Koga/800E634C.hpp"
 #include "Unsorted/Character.hpp"
+#include "types.h"
 
 
 namespace Koga {
@@ -309,37 +310,36 @@ unkEnManager2::unkEnManager2() {
 }
 
 // https://decomp.me/scratch/IqD70
-unkEnManager2::unkEnManager2(const ToolDataRef& rDest) {
-    mCharacter = rDest;
-    _8 = Koga::EnTypesManager::fn_800DABA4(&mCharacter);
-}
+// unkEnManager2::unkEnManager2(const ToolDataRef& rDest) : mCharacter(rDest.mToolData, rDest.mToolData) {
+//     _8 = Koga::EnTypesManager::fn_800DABA4(&mCharacter);
+// }
 
 // https://decomp.me/scratch/6sXfk
 u32 unkEnManager2::fn_800E601C() {
     JGeometry::TVec3f pos;
 
-    mCharacter.getToolData()->getValue(mCharacter.getEntryIndex(), "pos_x", &pos.x);
-    mCharacter.getToolData()->getValue(mCharacter.getEntryIndex(), "pos_y", &pos.y);
-    mCharacter.getToolData()->getValue(mCharacter.getEntryIndex(), "pos_z", &pos.z);
+    mCharacter.mToolData->getValue(mCharacter.mEntryIndex, "pos_x", &pos.x);
+    mCharacter.mToolData->getValue(mCharacter.mEntryIndex, "pos_y", &pos.y);
+    mCharacter.mToolData->getValue(mCharacter.mEntryIndex, "pos_z", &pos.z);
 
     return fn_80017ADC(pos, -1);
 }
 
 // https://decomp.me/scratch/cfVnh
 const char* unkEnManager2::getCreateName() {
-    const ToolDataRef vRef = fn_800E6134();
-    const char* create_name;
+    const char* create_name = nullptr;
     
-    if (vRef.isValid()) {
-        mCharacter.getToolData()->getValue(mCharacter.getEntryIndex(), "create_name", &create_name);
+    if (fn_800E6134().isValid()) {
+        ToolDataRef vRef = fn_800E6134();
+        vRef.mToolData->getValue(vRef.mEntryIndex, "create_name", &create_name);
     }
 
     return create_name;
 }
 
 // https://decomp.me/scratch/bq3Q2
-ToolDataRef unkEnManager2::fn_800E6134() const {
-    return mCharacter;
+ToolDataRef unkEnManager2::fn_800E6134() {
+    return ToolDataRef(mCharacter.mToolData, mCharacter.mEntryIndex);
 }
 
 void AppearPointSlot::init(Vec* pPos, Koga::ToolData* pCharInfo, int entryIndex) {

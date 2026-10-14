@@ -41,7 +41,7 @@ public:
 
     u32 fn_800E601C(); 
     const char* getCreateName();
-    ToolDataRef fn_800E6134() const;
+    ToolDataRef fn_800E6134();
 
     /* 0x0 - 0x7 */ ToolDataRef mCharacter;
     s32 _8; //mTypeIndex?
