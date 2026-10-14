@@ -400,6 +400,12 @@ Ajioka/AEnSkull.cpp:
 	.sdata      start:0x804D4A30 end:0x804D4A80
 	.sdata2     start:0x804DBF20 end:0x804DBF28
 
+Ajioka/AEnESkull.cpp:
+	.text       start:0x80109FE8 end:0x8010A630
+	.ctors      start:0x8020BC84 end:0x8020BC88
+	.data       start:0x8036B058 end:0x8036B4E8
+	.sdata      start:0x804D4A80 end:0x804D4AF8
+
 Sato/SaEnGenUtility.cpp:
 	.text       start:0x80142F88 end:0x801443E8
 	.data       start:0x8037A1D0 end:0x8037A2B0
