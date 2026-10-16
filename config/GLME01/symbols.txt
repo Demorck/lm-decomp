@@ -11885,7 +11885,6 @@ gTRKMemMap = .rodata:0x802180A8; // type:object size:0x10 data:4byte
 @243 = .rodata:0x802180E0; // type:object size:0x14 data:4byte
 lbl_80218100 = .data:0x80218100; // type:object size:0x80
 jumptable_80218180 = .data:0x80218180; // type:object size:0x34 scope:local
-lbl_802181B4 = .data:0x802181B4; // type:object size:0x1C
 sProgRenderModeObj = .data:0x802181D0; // type:object size:0x3C
 lbl_80218210 = .data:0x80218210; // type:object size:0x20
 lbl_80218230 = .data:0x80218230; // type:object size:0x8
