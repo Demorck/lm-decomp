@@ -2,7 +2,7 @@
 static u32 seed = 1;
 extern u16 atanTable[];
 
-void initSeedToOne() {
+void randomReset() {
     seed = 1;
 }
 
