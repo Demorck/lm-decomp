@@ -23,6 +23,10 @@ inline u16 lookIntoAtanTable(f32 numerator, f32 denominator) {
         atanTable[(int)(0.5f + (f32)(1024.0f * (numerator / denominator)))];
 }
 
+inline f32 dot(f32 ax, f32 ay, f32 az, f32 bx, f32 by, f32 bz) {
+  return ax * bx + ay * by + az * bz;
+}
+
 // Returns a 16-bit binary angle. (0x10000 = 2PI rad, 0x4000 = PI/2 rad)
 u16 atan2BAM(f32 firstAxis, f32 secondAxis) {
     u16 result; 
@@ -73,7 +77,8 @@ Vec lineIntersectWithPlan(Vec* segmentStart, Vec* segmendEnd, Vec* pointOnPlan, 
     f32 t = (normal->x * (pointOnPlan->x - segmentStart->x) +
             normal->y * (pointOnPlan->y - segmentStart->y) +
             normal->z * (pointOnPlan->z - segmentStart->z)) /
-            ((normal->x * dx) + (normal->y * dy) + (normal->z * dz));
+            dot(normal->x, normal->y, normal->z, dx, dy, dz);
+
 
     Vec res;
     res.x = segmentStart->x + t * dx;
