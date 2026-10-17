@@ -1,5 +1,5 @@
-#ifndef _8000962C_H_
-#define _8000962C_H_
+#ifndef _MATH_UTILS_H_
+#define _MATH_UTILS_H_
 
 #include "dolphin/mtx.h"
 #include "math.h"

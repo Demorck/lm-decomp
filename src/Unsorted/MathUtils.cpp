@@ -1,4 +1,4 @@
-#include "Unsorted/8000962C.hpp"
+#include "Unsorted/MathUtils.hpp"
 #include "math.h"
 static u32 seed = 1;
 u32 lbl_80218210[2][4] = {
