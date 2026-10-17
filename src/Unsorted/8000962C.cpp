@@ -59,6 +59,24 @@ u16 atan2BAM(f32 firstAxis, f32 secondAxis) {
 }
 
 
+Vec fn_80009964(Vec* point1, Vec* point2, Vec* orig, Vec* normal) {
+    f32 dx = point2->x - point1->x;
+    f32 dy = point2->y - point1->y;
+    f32 dz = point2->z - point1->z;
+
+    f32 t = ((f32)(normal->x *(orig->x - point2->x)) +
+            (f32)(normal->y * (orig->y - point2->y)) +
+            (f32)(normal->z * (orig->z - point2->z))) /
+            ((f32)(normal->x * dx) + (f32)(normal->y * dy) + (f32)(normal->z * dz));
+
+    Vec res;
+    res.x = point1->x + (f32)(t * dx);
+    res.y = point1->y + (f32)(t * dy);
+    res.z = point1->z + (f32)(t * dz);
+
+    return res;
+}
+
 
 u16 atanTable[] = {
     0, 10, 20, 31, 41, 51, 61, 71, 81, 92, 
