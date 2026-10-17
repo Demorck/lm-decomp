@@ -70,15 +70,15 @@ Vec lineIntersectWithPlan(Vec* segmentStart, Vec* segmendEnd, Vec* pointOnPlan, 
     f32 dy = segmendEnd->y - segmentStart->y;
     f32 dz = segmendEnd->z - segmentStart->z;
 
-    f32 t = ((normal->x * (pointOnPlan->x - segmendEnd->x)) +
-            (normal->y * (pointOnPlan->y - segmendEnd->y)) +
-            (normal->z * (pointOnPlan->z - segmendEnd->z))) /
+    f32 t = (normal->x * (pointOnPlan->x - segmentStart->x) +
+            normal->y * (pointOnPlan->y - segmentStart->y) +
+            normal->z * (pointOnPlan->z - segmentStart->z)) /
             ((normal->x * dx) + (normal->y * dy) + (normal->z * dz));
 
     Vec res;
-    res.x = segmentStart->x + (t * dx);
-    res.y = segmentStart->y + (t * dy);
-    res.z = segmentStart->z + (t * dz);
+    res.x = segmentStart->x + t * dx;
+    res.y = segmentStart->y + t * dy;
+    res.z = segmentStart->z + t * dz;
 
     return res;
 }
