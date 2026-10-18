@@ -1,5 +1,5 @@
-#ifndef _MATH_UTILS_H_
-#define _MATH_UTILS_H_
+#ifndef MATH_UTILS_H_
+#define MATH_UTILS_H_
 
 #include "dolphin/mtx.h"
 #include "math.h"
@@ -14,7 +14,7 @@ extern u16 atanTable[1025];
 void randomReset();
 u32 randomInt();
 u16 atan2BAM(f32 firstAxis, f32 secondAxis);
-Vec lineIntersectWithPlan(Vec* f2, Vec* f3, Vec* f4, Vec* f5);
+Vec lineIntersectWithPlane(Vec* f2, Vec* f3, Vec* f4, Vec* f5);
 s32 getClosestPointOnLine(Vec* f1, Vec* f2, Vec* f3, f32* f4, Vec* f5);
 
 #endif

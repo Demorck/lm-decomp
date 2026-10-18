@@ -68,8 +68,9 @@ u16 atan2BAM(f32 firstAxis, f32 secondAxis) {
 }
 
 // Calculate the intersection of a line from the segment [ `segmentStart` , `segmentEnd` ]
-// with the plan of point `pointOnPlan` and normal `normal`
-Vec lineIntersectWithPlan(Vec* segmentStart, Vec* segmendEnd, Vec* pointOnPlan, Vec* normal) {
+// with the plane of point `pointOnPlan` and normal `normal`
+// 99% match, only frame size: https://decomp.me/scratch/xPKXo
+Vec lineIntersectWithPlane(Vec* segmentStart, Vec* segmendEnd, Vec* pointOnPlan, Vec* normal) {
     f32 dx = segmendEnd->x - segmentStart->x;
     f32 dy = segmendEnd->y - segmentStart->y;
     f32 dz = segmendEnd->z - segmentStart->z;
