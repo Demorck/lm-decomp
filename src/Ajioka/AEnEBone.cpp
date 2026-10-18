@@ -1,10 +1,10 @@
 #include "Ajioka/AEnEBone.hpp"
 #include "Unsorted/Character.hpp"
 #include "Sato/EnZako.hpp"
+#include "Unsorted/MathUtils.hpp"
 #include "dolphin/mtx.h"
 #include "Unsorted/globals.hpp"
 
-s16 fn_8000965C(f32, f32);
 void fn_800F4374(EnZako*, s32, s32);
 
 dummy_float_data()
@@ -100,7 +100,7 @@ bool AEnEBone::state_1_Init() {
     velocity.z = vz;
 
     zako->getCharacter()->fn_80067C30(&velocity);
-    s16 angle = fn_8000965C(velocity.z, velocity.x);
+    s16 angle = atan2BAM(velocity.z, velocity.x);
     zako->getCharacter()->_8A = angle;
 
     zako->fn_800BFB98("FLYC", 0);
