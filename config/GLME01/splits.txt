@@ -247,6 +247,13 @@ Koga/EnemyGenManager.cpp:
 	.data       start:0x8035A598 end:0x8035A730
 	.sdata      start:0x804D2E78 end:0x804D2F58
 
+Sato/EnHeyMask.cpp:
+	.text       start:0x800C5D40 end:0x800C6A28
+	.ctors      start:0x8020BBBC end:0x8020BBC0
+	.data       start:0x8035AC70 end:0x8035B0D8
+	.sdata      start:0x804D2FA0 end:0x804D3018
+	.sdata2     start:0x804DB72C end:0x804DB738
+
 Sato/EnemyTypicalStrategy.cpp:
 	.text       start:0x800C6A28 end:0x800C6A98
 	.data       start:0x8035B0D8 end:0x8035B278
@@ -505,6 +512,12 @@ Ajioka/AEnTwins.cpp:
 	.data       start:0x8036B6F0 end:0x8036BCC0
 	.sdata      start:0x804D4B38 end:0x804D4C08
 	.sdata2     start:0x804DBF48 end:0x804DBF88
+
+Ajioka/AEnToy.cpp:
+	.text       start:0x8010C44C end:0x8010C908
+	.ctors      start:0x8020BC90 end:0x8020BC94
+	.data       start:0x8036BCC0 end:0x8036BE80
+	.sdata      start:0x804D4C08 end:0x804D4C60
 
 Sato/SaEnGenUtility.cpp:
 	.text       start:0x80142F88 end:0x801443E8
