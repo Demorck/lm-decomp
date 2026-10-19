@@ -499,6 +499,13 @@ Ajioka/AEnEBone.cpp:
 	.sdata      start:0x804D4AF8 end:0x804D4B38
 	.sdata2     start:0x804DBF28 end:0x804DBF48
 
+Ajioka/AEnTwins.cpp:
+	.text       start:0x8010AB08 end:0x8010C44C
+	.ctors      start:0x8020BC8C end:0x8020BC90
+	.data       start:0x8036B6F0 end:0x8036BCC0
+	.sdata      start:0x804D4B38 end:0x804D4C08
+	.sdata2     start:0x804DBF48 end:0x804DBF88
+
 Sato/SaEnGenUtility.cpp:
 	.text       start:0x80142F88 end:0x801443E8
 	.data       start:0x8037A1D0 end:0x8037A2B0
