@@ -13,10 +13,10 @@ public:
     virtual void doBehaviorInit();
 
     // From EnemyTypicalStrategy -> Koga::CharacterEventObserver
-    virtual bool onEnteredFlashlightBeam(Koga::CharacterEvent* msg);
     virtual bool onCollideWithPlayer(Koga::CharacterEvent* msg);
-    virtual bool onFishingBegin(Koga::CharacterEvent* msg);
     virtual bool onPlayerLeftRoom(Koga::CharacterEvent* msg);
+    virtual bool onEnteredFlashlightBeam(Koga::CharacterEvent* msg);
+    virtual bool onFishingBegin(Koga::CharacterEvent* msg);
 
     // ptmf
     bool state_0_Init();
