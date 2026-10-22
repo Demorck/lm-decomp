@@ -777,6 +777,7 @@ config.libs = [
         Object(NonMatching, "Ajioka/AEnTwins.cpp"),
         Object(NonMatching, "Ajioka/AEnToy.cpp"),
         Object(NonMatching, "Ajioka/AEnBuilder.cpp"),
+        Object(NonMatching, "Ajioka/AEnPoltergeist.cpp"),
 
         # Koga
         Object(Matching, "Koga/GameModeUtil.cpp"),
