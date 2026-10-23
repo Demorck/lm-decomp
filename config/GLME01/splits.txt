@@ -266,6 +266,13 @@ Sato/EnGhostA.cpp:
 	.sdata      start:0x804D3048 end:0x804D30F0
 	.sdata2     start:0x804DB738 end:0x804DB770
 
+Sato/EnItems.cpp:
+	.text       start:0x800CF908 end:0x800D321C
+	.ctors      start:0x8020BBDC end:0x8020BBE0
+	.data       start:0x8035D388 end:0x8035E318
+	.sdata      start:0x804D33C8 end:0x804D34B8
+	.sdata2     start:0x804DB848 end:0x804DB890
+
 Sato/EnReplace.cpp:
 	.text       start:0x800D4E08 end:0x800D50AC
 	.ctors      start:0x8020BBEC end:0x8020BBF0
@@ -532,6 +539,13 @@ Ajioka/AEnPoltergeist.cpp:
 	.data       start:0x8036C3E8 end:0x8036C800
 	.sdata      start:0x804D4D98 end:0x804D4DF0
 	.sdata2     start:0x804DBFC0 end:0x804DBFC8
+
+Ajioka/AEnItems.cpp:
+	.text       start:0x8010FED8 end:0x80110E54
+	.ctors      start:0x8020BC9C end:0x8020BCA0
+	.data       start:0x8036C800 end:0x8036CE48
+	.sdata      start:0x804D4DF0 end:0x804D4E88
+	.sdata2     start:0x804DBFC8 end:0x804DBFF8
 
 Sato/SaEnGenUtility.cpp:
 	.text       start:0x80142F88 end:0x801443E8
