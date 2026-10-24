@@ -2,6 +2,7 @@
 #define EN_ITEMS_HPP
 #include "Koga/CharacterEventObserver.hpp"
 #include "Sato/EnemyStrategy.hpp"
+#include "Sato/SaEnGenUtility.hpp"
 
 class EnItem : public EnemyStrategy, public Koga::CharacterEventObserver {
 public:
@@ -22,12 +23,21 @@ public:
     virtual void EnItem_fn_800D00AC();
     virtual void EnItem_fn_800D00B0();
     virtual bool EnItem_fn_800D00B4();
+
+    // ptmf
+    bool state_0_Init();
+    bool state_0_Behavior();
+    bool state_1_Init();
+    bool state_1_Behavior();
+    bool state_2_Init();
+    bool state_2_Behavior();
+    bool state_3_Init();
+    bool state_3_Behavior();
 };
 
 class EnItemThrowUp : public EnItem {
 public:
     EnItemThrowUp();
-    virtual ~EnItemThrowUp();
 
     // From EnItem
     virtual void EnItem_fn_800D00A8();
@@ -35,11 +45,22 @@ public:
 
     // From this class
     virtual void EnItemThrowUp_fn_800D036C();
+
+    virtual ~EnItemThrowUp();
 };
 
-class EnFiniteItem : public EnItemThrowUp {
+class EnFiniteItem : public EnItemThrowUp, private SaEnZakoUtility {
 public:
     EnFiniteItem();
+
+    // From SaEnZakoUtility
+    virtual void vt_08();
+
+    // From this class
+    virtual void EnFiniteItem_fn_800D1300();
+    virtual void EnFiniteItem_fn_800D12E8();
+    virtual bool EnFiniteItem_fn_800D1318();
+
     virtual ~EnFiniteItem();
 };
 
@@ -79,7 +100,7 @@ public:
 class EnPearl : public EnJewel {
 public:
     EnPearl();
-    virtual ~EnPearl();
+    virtual ~EnPearl() {};
 
     // From EnJewel -> EnFiniteItem -> EnItemThrowUp -> EnItem
     virtual void EnItem_fn_800CFFD8();
@@ -89,7 +110,7 @@ public:
 class EnGold : public EnJewel {
 public:
     EnGold() {};
-    virtual ~EnGold();
+    virtual ~EnGold() {};
 
     // From EnJewel -> EnFiniteItem -> EnItemThrowUp -> EnItem
     virtual void EnItem_fn_800CFFD8();
@@ -113,23 +134,29 @@ public:
 
     // From EnJewel -> EnFiniteItem -> EnItemThrowUp
     virtual void EnItemThrowUp_fn_800D036C();
+
+    // From EnJewel -> EnFiniteItem 
+    virtual bool EnFiniteItem_fn_800D1318();
 };
 
 class EnCrown : public EnJewel {
 public:
     EnCrown() {};
-    virtual ~EnCrown();
+    virtual ~EnCrown() {};
 
     // From EnJewel -> EnFiniteItem -> EnItemThrowUp
     virtual void EnItemThrowUp_fn_800D036C();
+    
+    // From EnJewel -> EnFiniteItem 
+    virtual bool EnFiniteItem_fn_800D1318();
 };
 
 class EnNegativeItem : public EnFiniteItem {
 public:
     EnNegativeItem() {};
-    virtual ~EnNegativeItem();
+    virtual ~EnNegativeItem() {};
 
-    // From -> EnFiniteItem -> EnItemThrowUp -> EnItem
+    // From EnFiniteItem -> EnItemThrowUp -> EnItem
     virtual void EnItem_fn_800CFFD8();
     virtual void EnItem_fn_800D00A8();
     virtual void EnItem_fn_800D00AC();
@@ -137,6 +164,45 @@ public:
 
     // From EnFiniteItem -> EnItemThrowUp
     virtual void EnItemThrowUp_fn_800D036C();
+};
+
+class EnMarioItem : public EnFiniteItem {
+public:
+    EnMarioItem() {};
+    virtual ~EnMarioItem() {};
+
+    // From EnFiniteItem -> EnItemThrowUp -> EnItem
+    virtual void EnItem_fn_800CFFD8();
+    virtual void EnItem_fn_800D00A8();
+    virtual void EnItem_fn_800D00AC();
+    virtual void EnItem_fn_800D00B0();
+
+    // From EnFiniteItem -> EnItemThrowUp
+    virtual void EnItemThrowUp_fn_800D036C();
+    
+    // From EnJewel -> EnFiniteItem 
+    virtual bool EnFiniteItem_fn_800D1318();
+};
+
+class EnKey : public EnFiniteItem {
+public:
+    EnKey();
+    virtual ~EnKey() {};
+
+    // From EnFiniteItem -> EnItemThrowUp -> EnItem -> Koga::CharacterEventObserver
+    virtual bool onCaptureEnd(Koga::CharacterEvent* msg);
+
+    // From EnFiniteItem -> EnItemThrowUp -> EnItem
+    virtual void EnItem_fn_800CFFD8();
+    virtual void EnItem_fn_800D00A8();
+    virtual void EnItem_fn_800D00AC();
+    virtual void EnItem_fn_800D00B0();
+
+    // From EnFiniteItem -> EnItemThrowUp
+    virtual void EnItemThrowUp_fn_800D036C();
+    
+    // From EnJewel -> EnFiniteItem 
+    virtual bool EnFiniteItem_fn_800D1318();
 };
 
 #endif
