@@ -749,6 +749,7 @@ config.libs = [
         Object(NonMatching, "Sato/EnReplace.cpp"),
         Object(NonMatching, "Sato/EnZako.cpp"),
         Object(NonMatching, "Sato/SaEnTelesaBase.cpp"),
+        Object(NonMatching, "Sato/SaEnDust.cpp"),
         Object(NonMatching, "Sato/SaEnGenUtility.cpp"),
 
         # Ajioka
